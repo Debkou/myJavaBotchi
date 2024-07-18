@@ -48,7 +48,10 @@ WA.onInit().then(() => {
        });
 
     WA.room.onLeaveLayer("visibleNote").subscribe(() => {
+        if (noteWebsite) {
         noteWebsite.close();
+        noteWebsite = undefined;
+    }
     });
  
 }).catch(e => console.error(e));
