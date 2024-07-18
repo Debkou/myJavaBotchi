@@ -45,7 +45,7 @@ WA.onInit().then(() => {
             allowApi: true,
         });
 
-    });
+
 
     WA.room.onLeaveLayer("visibleNote").subscribe(() => {
         noteWebsite.close();
