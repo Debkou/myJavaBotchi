@@ -50,7 +50,7 @@ WA.onInit().then(() => {
     WA.room.onLeaveLayer("visibleNote").subscribe(() => {
         noteWebsite.close();
     });
-
+    });
 }).catch(e => console.error(e));
 
 function closePopup(){
