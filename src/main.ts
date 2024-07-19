@@ -1,12 +1,12 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
 console.log('Script started successfully');
-
+ let noteWebsite: any;
 // Waiting for the API to be ready
 WA.onInit().then(() => {
     console.log('Scripting API ready');
 
-    let noteWebsite: any;
+
 
     WA.room.onEnterLayer("visibleNote").subscribe(async () => {
         console.log("Entering visibleNote layer");
