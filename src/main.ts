@@ -8,8 +8,8 @@ let noteWebsite: any;
 const websiteConfig = {
     url: "src/note.html",
     position: {
-        vertical: "top",
-        horizontal: "middle",
+        vertical: "top" as "top" | "middle" | "bottom",
+        horizontal: "middle" as "left" | "middle" | "right",
     },
     size: {
         height: "30vh",
