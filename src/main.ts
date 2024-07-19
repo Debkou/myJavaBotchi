@@ -32,7 +32,7 @@ WA.onInit().then(() => {
         console.log("Entering visibleNote layer");
 
         noteWebsite = await WA.ui.website.open({
-            url: "https://www.google.de/",
+            url: "./note.html",
             position: {
                 vertical: "top",
                 horizontal: "middle",
