@@ -1,2 +1,0 @@
-console.log("Script started successfully");WA.onInit().then(()=>{console.log("Scripting API ready");let e;WA.room.onEnterLayer("visibleNote").subscribe(async()=>{console.log("Entering visibleNote layer"),e=await WA.ui.website.open({url:"https://github.com/Debkou/myJavaBotchi/blob/master/src/note.html",position:{vertical:"top",horizontal:"middle"},size:{height:"30vh",width:"50vw"},margin:{top:"10vh"},allowApi:!0})}),WA.room.onLeaveLayer("visibleNote").subscribe(()=>{e.close()})}).catch(e=>console.error(e));
-//# sourceMappingURL=main-b4229138.js.map
