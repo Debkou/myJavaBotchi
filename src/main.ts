@@ -12,7 +12,7 @@ WA.onInit().then(() => {
         console.log("Entering visibleNote layer");
 
         noteWebsite = await WA.ui.website.open({
-            url: "src/note.html",
+            url: "https://github.com/Debkou/myJavaBotchi/blob/master/src/note.html",
             position: {
                 vertical: "top",
                 horizontal: "middle",
