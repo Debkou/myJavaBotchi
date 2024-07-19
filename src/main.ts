@@ -1,5 +1,4 @@
 /// <reference types="@workadventure/iframe-api-typings" />
- let noteWebsite: any;
 
 const myWebsite = await WA.ui.website.open({
     url: "https://wikipedia.org",
@@ -26,7 +25,7 @@ const myWebsite = await WA.ui.website.open({
     });
 
     WA.room.onLeaveLayer("visibleNote").subscribe(() => {
-        mywebsite.close();
+        myWebsite.close();
     });
 
 
