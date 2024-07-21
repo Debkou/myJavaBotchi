@@ -38,8 +38,8 @@ WA.onInit().then(() => {
                 horizontal: "middle",
             },
             size: {
-                height: "30vh",
-                width: "50vw",
+                height: "20vh",
+                width: "80vw",
             },
             margin: {
                 top: "10vh",
