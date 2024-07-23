@@ -32,7 +32,7 @@ WA.onInit().then(() => {
         console.log("Entering visibleNote layer");
 
         noteWebsite = await WA.ui.website.open({
-            url: "https://javabotchi.kunst-werk-hagen.de/menue.html",
+            url: "myJavaBotchi/menue.html",
             position: {
                 vertical: "top",
                 horizontal: "middle",
