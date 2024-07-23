@@ -29,7 +29,7 @@ export default defineConfig({
             input: {
                 index: "./index.html",
                 note: "src/note.html",
-                menue: "./menue.html",
+              
                 ...getMapsScripts(maps),
             },
         },
