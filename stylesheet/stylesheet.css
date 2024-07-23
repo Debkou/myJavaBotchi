@@ -1,0 +1,141 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Schriftarten einbinden */
+@font-face {
+    font-family: 'Pokemon';
+    src: url('../schriften/PokemonClassic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Museo';
+    src: url('../schriften/museosanscyrl-300.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Museo';
+    src: url('../schriften/museosanscyrl-500.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Museo';
+    src: url('../schriften/museosanscyrl-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Allgemeine Einstellungen */
+body {
+    margin: 0;
+}
+img{
+max-width: 100%;	
+}
+/* Farben */
+.dBlau {
+    background-color: #39659F;
+}
+.hBlau {
+    background-color: #88a3c5;
+}
+.grau {
+    background-color: #6F7072;
+}
+.dGrau {
+    background-color: #161616;
+}
+.gelb {
+    background-color: #f1d992;
+}
+.weiss {
+    background-color: #FFFFFF;
+}
+
+.dBlau-font {
+    color: #39659F;
+}
+.hBlau-font {
+    color: #88a3c5;
+}
+.grau-font {
+    color: #6F7072;
+}
+.dGrau-font {
+    color: #161616;
+}
+.gelb-font {
+    color: #f1d992;
+}
+.weiss-font {
+    color: #FFFFFF;
+}
+
+/* Schriften */
+h1, h2, h3 {
+    font-family: 'Pokemon', serif;
+}
+
+p {
+    font-family: 'Museo', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+/*Buttons*/
+
+.buttonMenue{
+	font-family: 'Pokemon', serif;
+	background-color: #39659F;
+	font-size:1em;
+    margin-right: 0.75em;
+    margin-left: 0.75em;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+	padding:0.4em;
+	padding-top: 0.5em;
+    padding-bottom: 0.5em;
+	text-align: center;
+}
+
+/* Hover-Effekt */
+.buttonMenue:hover {
+   border: 4px solid #000; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    background-color: #4a76a8; 
+}
+/*Links*/
+a{
+	text-decoration: none;
+}
+/*Display Ausrichtung*/
+.flex{
+display: flex;
+}
+.flex-center{
+	align-items: center;
+}
+.flex-row{
+	flex-direction: row;
+}
+.flex-column{
+	flex-direction: column;
+}
+.justifiy-end{
+	justify-content: flex-end;
+}
