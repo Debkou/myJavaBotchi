@@ -55,11 +55,7 @@ WA.onInit().then(() => {
             noteWebsite = null; // Setzen Sie die Variable auf null, um anzuzeigen, dass sie geschlossen wurde
         }
     });
-        const closeButton = document.getElementById("closeButton") as HTMLButtonElement;
-
-      closeButton.addEventListener("click", () => {
-        noteWebsite.close();
-    });
+ 
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra().then(() => {
