@@ -50,8 +50,9 @@ WA.onInit().then(() => {
     });
 
     WA.room.onLeaveLayer("visibleNote").subscribe(() => {
-            noteWebsite.close();
-
+               console.log("leave visibleNote layer");
+                noteWebsite.close();
+       
     });
  
 
