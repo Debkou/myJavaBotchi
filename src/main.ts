@@ -6,7 +6,8 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 let currentPopup: any = undefined;
 let noteWebsite: any = undefined;
-const closeButton = document.getElementById("closeButton") as HTMLButtonElement;
+const closeButton = document.getElementById("closeButton") as HTMLButtonElement | null;
+
 // Funktion zum Schließen des Popups
 function closePopup(){
     if (currentPopup !== undefined) {
@@ -56,9 +57,16 @@ WA.onInit().then(() => {
         }
     });
 
-      closeButton.addEventListener("click", () => {
-        noteWebsite.close();
-    });
+    if (closeButton) {
+        closeButton.addEventListener("click", () => {
+            if (noteWebsite && typeof noteWebsite.close === 'function') {
+                noteWebsite.close();
+                noteWebsite = null; // Setzen Sie die Variable auf null, um anzuzeigen, dass sie geschlossen wurde
+            }
+        });
+    } else {
+        console.warn("Close button not found");
+    }
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra().then(() => {
