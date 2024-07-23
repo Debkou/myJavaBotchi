@@ -50,10 +50,8 @@ WA.onInit().then(() => {
     });
 
     WA.room.onLeaveLayer("visibleNote").subscribe(() => {
-        if (noteWebsite && typeof noteWebsite.close === 'function') {
             noteWebsite.close();
-            noteWebsite = null; // Setzen Sie die Variable auf null, um anzuzeigen, dass sie geschlossen wurde
-        }
+
     });
  
 
