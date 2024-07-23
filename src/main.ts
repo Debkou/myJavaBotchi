@@ -32,7 +32,7 @@ WA.onInit().then(() => {
         console.log("Entering visibleNote layer");
 
         noteWebsite = await WA.ui.website.open({
-            url: "./menue.html",
+            url: "https://github.com/Debkou/myJavaBotchi/blob/master/menue.html",
             position: {
                 vertical: "top",
                 horizontal: "middle",
