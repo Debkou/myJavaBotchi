@@ -1972,7 +1972,7 @@
         {
          "columns":6,
          "firstgid":1,
-         "image":"..\/JavaBotChi\/tilesets\/standard\/WA_Special_Zones.png",
+         "image":"tilesets\/standard\/WA_Special_Zones.png",
          "imageheight":64,
          "imagewidth":192,
          "margin":0,
@@ -1995,7 +1995,7 @@
         {
          "columns":16,
          "firstgid":13,
-         "image":"..\/JavaBotChi\/tilesets\/waende_boeden\/walls_floors_self.png",
+         "image":"tilesets\/waende_boeden\/walls_floors_self.png",
          "imageheight":204,
          "imagewidth":517,
          "margin":0,
@@ -2008,7 +2008,7 @@
         {
          "columns":16,
          "firstgid":109,
-         "image":"..\/JavaBotChi\/tilesets\/waende_boeden\/walls_floors_self_neu.png",
+         "image":"tilesets\/waende_boeden\/walls_floors_self_neu.png",
          "imageheight":204,
          "imagewidth":517,
          "margin":0,
@@ -2021,7 +2021,7 @@
         {
          "columns":25,
          "firstgid":205,
-         "image":"..\/JavaBotChi\/tilesets\/standard\/WA_Room_Builder.png",
+         "image":"tilesets\/standard\/WA_Room_Builder.png",
          "imageheight":1280,
          "imagewidth":800,
          "margin":0,
@@ -2034,7 +2034,7 @@
         {
          "columns":16,
          "firstgid":1205,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/tilesets_modern___mack_by_milkian_dbz1aoz.png",
+         "image":"tilesets\/moebel\/tilesets_modern___mack_by_milkian_dbz1aoz.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2047,7 +2047,7 @@
         {
          "columns":16,
          "firstgid":1461,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/rpg_maker_tile___furniture_ii_by_ayene_chan_d6srfba (1).png",
+         "image":"tilesets\/moebel\/rpg_maker_tile___furniture_ii_by_ayene_chan_d6srfba (1).png",
          "imageheight":192,
          "imagewidth":512,
          "margin":0,
@@ -2060,7 +2060,7 @@
         {
          "columns":16,
          "firstgid":1557,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/tilesets_fsm_rm2k3_para_vx_ace__set_hospital_by_milkian_darwnhe.png",
+         "image":"tilesets\/moebel\/tilesets_fsm_rm2k3_para_vx_ace__set_hospital_by_milkian_darwnhe.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2073,7 +2073,7 @@
         {
          "columns":16,
          "firstgid":1813,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/rpg_maker_vx__modernrtp_tilec_by_painhurt_d3f7sm6.png",
+         "image":"tilesets\/moebel\/rpg_maker_vx__modernrtp_tilec_by_painhurt_d3f7sm6.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2086,7 +2086,7 @@
         {
          "columns":16,
          "firstgid":2069,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/rpg_maker_vx__modernrtp_tiled_by_painhurt_d3f7snp.png",
+         "image":"tilesets\/moebel\/rpg_maker_vx__modernrtp_tiled_by_painhurt_d3f7snp.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2099,7 +2099,7 @@
         {
          "columns":16,
          "firstgid":2325,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/request_april_by_nicnubill_d7dvydh.png",
+         "image":"tilesets\/moebel\/request_april_by_nicnubill_d7dvydh.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2112,7 +2112,7 @@
         {
          "columns":10,
          "firstgid":2581,
-         "image":"..\/JavaBotChi\/tilesets\/deko\/tiles_laboratorio_pokemon_berilo_by_pablus94_de1nwoc.png",
+         "image":"tilesets\/deko\/tiles_laboratorio_pokemon_berilo_by_pablus94_de1nwoc.png",
          "imageheight":256,
          "imagewidth":320,
          "margin":0,
@@ -2125,7 +2125,7 @@
         {
          "columns":16,
          "firstgid":2661,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/police_station_by_nicnubill_d9892fb.png",
+         "image":"tilesets\/moebel\/police_station_by_nicnubill_d9892fb.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2138,7 +2138,7 @@
         {
          "columns":8,
          "firstgid":2917,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/my_interior_by_djbmaster_dbepnay.png",
+         "image":"tilesets\/moebel\/my_interior_by_djbmaster_dbepnay.png",
          "imageheight":3264,
          "imagewidth":256,
          "margin":0,
@@ -2151,7 +2151,7 @@
         {
          "columns":16,
          "firstgid":3733,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/tilesets_fsm_rm2k3_para_vx_ace__set_escritorio_by_milkian_darwtlj.png",
+         "image":"tilesets\/moebel\/tilesets_fsm_rm2k3_para_vx_ace__set_escritorio_by_milkian_darwtlj.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2164,7 +2164,7 @@
         {
          "columns":8,
          "firstgid":3989,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/school_tileset_by_aveontrainer_ddpy71z.png",
+         "image":"tilesets\/moebel\/school_tileset_by_aveontrainer_ddpy71z.png",
          "imageheight":1408,
          "imagewidth":256,
          "margin":0,
@@ -2177,7 +2177,7 @@
         {
          "columns":16,
          "firstgid":4341,
-         "image":"..\/JavaBotChi\/tilesets\/moebel\/poor_by_nicnubill_d6pl1qb.png",
+         "image":"tilesets\/moebel\/poor_by_nicnubill_d6pl1qb.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2190,7 +2190,7 @@
         {
          "columns":12,
          "firstgid":4597,
-         "image":"..\/JavaBotChi\/tilesets\/aktionsfelder_self.png",
+         "image":"tilesets\/aktionsfelder_self.png",
          "imageheight":178,
          "imagewidth":400,
          "margin":0,
@@ -2203,7 +2203,7 @@
         {
          "columns":6,
          "firstgid":4657,
-         "image":"..\/JavaBotChi\/tilesets\/tueren\/tueren_self.png",
+         "image":"tilesets\/tueren\/tueren_self.png",
          "imageheight":140,
          "imagewidth":205,
          "margin":0,
@@ -2216,7 +2216,7 @@
         {
          "columns":4,
          "firstgid":4681,
-         "image":"..\/JavaBotChi\/tilesets\/schriftzug.png",
+         "image":"tilesets\/schriftzug.png",
          "imageheight":73,
          "imagewidth":142,
          "margin":0,
@@ -2229,7 +2229,7 @@
         {
          "columns":13,
          "firstgid":4689,
-         "image":"..\/JavaBotChi\/tilesets\/standard\/WA_User_Interface.png",
+         "image":"tilesets\/standard\/WA_User_Interface.png",
          "imageheight":672,
          "imagewidth":416,
          "margin":0,
