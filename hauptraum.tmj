@@ -1863,6 +1863,39 @@
          "y":0
         }, 
         {
+         "draworder":"topdown",
+         "id":34,
+         "name":"webiste",
+         "objects":[
+                {
+                 "height":234,
+                 "id":2,
+                 "name":"testWebsite",
+                 "properties":[
+                        {
+                         "name":"allowApi",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"url",
+                         "type":"string",
+                         "value":"src\/menue.html"
+                        }],
+                 "rotation":0,
+                 "type":"website",
+                 "visible":true,
+                 "width":176.666666666667,
+                 "x":494.666666666667,
+                 "y":569.333333333333
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -1923,8 +1956,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":34,
- "nextobjectid":2,
+ "nextlayerid":35,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -1939,7 +1972,7 @@
         {
          "columns":6,
          "firstgid":1,
-         "image":"tilesets\/standard\/WA_Special_Zones.png",
+         "image":"..\/JavaBotChi\/tilesets\/standard\/WA_Special_Zones.png",
          "imageheight":64,
          "imagewidth":192,
          "margin":0,
@@ -1962,7 +1995,7 @@
         {
          "columns":16,
          "firstgid":13,
-         "image":"tilesets\/waende_boeden\/walls_floors_self.png",
+         "image":"..\/JavaBotChi\/tilesets\/waende_boeden\/walls_floors_self.png",
          "imageheight":204,
          "imagewidth":517,
          "margin":0,
@@ -1975,7 +2008,7 @@
         {
          "columns":16,
          "firstgid":109,
-         "image":"tilesets\/waende_boeden\/walls_floors_self_neu.png",
+         "image":"..\/JavaBotChi\/tilesets\/waende_boeden\/walls_floors_self_neu.png",
          "imageheight":204,
          "imagewidth":517,
          "margin":0,
@@ -1988,7 +2021,7 @@
         {
          "columns":25,
          "firstgid":205,
-         "image":"tilesets\/standard\/WA_Room_Builder.png",
+         "image":"..\/JavaBotChi\/tilesets\/standard\/WA_Room_Builder.png",
          "imageheight":1280,
          "imagewidth":800,
          "margin":0,
@@ -2001,7 +2034,7 @@
         {
          "columns":16,
          "firstgid":1205,
-         "image":"tilesets\/moebel\/tilesets_modern___mack_by_milkian_dbz1aoz.png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/tilesets_modern___mack_by_milkian_dbz1aoz.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2014,7 +2047,7 @@
         {
          "columns":16,
          "firstgid":1461,
-         "image":"tilesets\/moebel\/rpg_maker_tile___furniture_ii_by_ayene_chan_d6srfba (1).png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/rpg_maker_tile___furniture_ii_by_ayene_chan_d6srfba (1).png",
          "imageheight":192,
          "imagewidth":512,
          "margin":0,
@@ -2027,7 +2060,7 @@
         {
          "columns":16,
          "firstgid":1557,
-         "image":"tilesets\/moebel\/tilesets_fsm_rm2k3_para_vx_ace__set_hospital_by_milkian_darwnhe.png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/tilesets_fsm_rm2k3_para_vx_ace__set_hospital_by_milkian_darwnhe.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2040,7 +2073,7 @@
         {
          "columns":16,
          "firstgid":1813,
-         "image":"tilesets\/moebel\/rpg_maker_vx__modernrtp_tilec_by_painhurt_d3f7sm6.png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/rpg_maker_vx__modernrtp_tilec_by_painhurt_d3f7sm6.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2053,7 +2086,7 @@
         {
          "columns":16,
          "firstgid":2069,
-         "image":"tilesets\/moebel\/rpg_maker_vx__modernrtp_tiled_by_painhurt_d3f7snp.png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/rpg_maker_vx__modernrtp_tiled_by_painhurt_d3f7snp.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2066,7 +2099,7 @@
         {
          "columns":16,
          "firstgid":2325,
-         "image":"tilesets\/moebel\/request_april_by_nicnubill_d7dvydh.png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/request_april_by_nicnubill_d7dvydh.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2079,7 +2112,7 @@
         {
          "columns":10,
          "firstgid":2581,
-         "image":"tilesets\/deko\/tiles_laboratorio_pokemon_berilo_by_pablus94_de1nwoc.png",
+         "image":"..\/JavaBotChi\/tilesets\/deko\/tiles_laboratorio_pokemon_berilo_by_pablus94_de1nwoc.png",
          "imageheight":256,
          "imagewidth":320,
          "margin":0,
@@ -2092,7 +2125,7 @@
         {
          "columns":16,
          "firstgid":2661,
-         "image":"tilesets\/moebel\/police_station_by_nicnubill_d9892fb.png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/police_station_by_nicnubill_d9892fb.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2105,7 +2138,7 @@
         {
          "columns":8,
          "firstgid":2917,
-         "image":"tilesets\/moebel\/my_interior_by_djbmaster_dbepnay.png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/my_interior_by_djbmaster_dbepnay.png",
          "imageheight":3264,
          "imagewidth":256,
          "margin":0,
@@ -2118,7 +2151,7 @@
         {
          "columns":16,
          "firstgid":3733,
-         "image":"tilesets\/moebel\/tilesets_fsm_rm2k3_para_vx_ace__set_escritorio_by_milkian_darwtlj.png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/tilesets_fsm_rm2k3_para_vx_ace__set_escritorio_by_milkian_darwtlj.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2131,7 +2164,7 @@
         {
          "columns":8,
          "firstgid":3989,
-         "image":"tilesets\/moebel\/school_tileset_by_aveontrainer_ddpy71z.png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/school_tileset_by_aveontrainer_ddpy71z.png",
          "imageheight":1408,
          "imagewidth":256,
          "margin":0,
@@ -2144,7 +2177,7 @@
         {
          "columns":16,
          "firstgid":4341,
-         "image":"tilesets\/moebel\/poor_by_nicnubill_d6pl1qb.png",
+         "image":"..\/JavaBotChi\/tilesets\/moebel\/poor_by_nicnubill_d6pl1qb.png",
          "imageheight":512,
          "imagewidth":512,
          "margin":0,
@@ -2157,7 +2190,7 @@
         {
          "columns":12,
          "firstgid":4597,
-         "image":"tilesets\/aktionsfelder_self.png",
+         "image":"..\/JavaBotChi\/tilesets\/aktionsfelder_self.png",
          "imageheight":178,
          "imagewidth":400,
          "margin":0,
@@ -2170,7 +2203,7 @@
         {
          "columns":6,
          "firstgid":4657,
-         "image":"tilesets\/tueren\/tueren_self.png",
+         "image":"..\/JavaBotChi\/tilesets\/tueren\/tueren_self.png",
          "imageheight":140,
          "imagewidth":205,
          "margin":0,
@@ -2183,7 +2216,7 @@
         {
          "columns":4,
          "firstgid":4681,
-         "image":"tilesets\/schriftzug.png",
+         "image":"..\/JavaBotChi\/tilesets\/schriftzug.png",
          "imageheight":73,
          "imagewidth":142,
          "margin":0,
@@ -2196,7 +2229,7 @@
         {
          "columns":13,
          "firstgid":4689,
-         "image":"tilesets\/standard\/WA_User_Interface.png",
+         "image":"..\/JavaBotChi\/tilesets\/standard\/WA_User_Interface.png",
          "imageheight":672,
          "imagewidth":416,
          "margin":0,
