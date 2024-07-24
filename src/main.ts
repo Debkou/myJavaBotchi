@@ -6,7 +6,21 @@ console.log('Script started successfully');
 WA.onInit().then(() => {
     console.log('Scripting API ready');
 
-    let noteWebsite: any;
+    let noteWebsite = await WA.ui.website.open({
+            url: "./note.html",
+            position: {
+                vertical: "top",
+                horizontal: "middle",
+            },
+            size: {
+                height: "30vh",
+                width: "50vw",
+            },
+            margin: {
+                top: "10vh",
+            },
+            allowApi: true,
+        });
 
     WA.room.onEnterLayer("visibleNote").subscribe(async () => {
         console.log("Entering visibleNote layer");
