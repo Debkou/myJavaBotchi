@@ -1880,7 +1880,7 @@
                         {
                          "name":"url",
                          "type":"string",
-                         "value":"src\/menue.html"
+                         "value":"menue.html"
                         }],
                  "rotation":0,
                  "type":"website",
