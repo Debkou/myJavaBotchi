@@ -5,7 +5,6 @@ console.log('Script started successfully');
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 let currentPopup: any = undefined;
-let noteWebsite: any;
 
 // Funktion zum Schließen des Popups
 function closePopup(){
