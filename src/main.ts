@@ -28,31 +28,9 @@ WA.onInit().then(() => {
 
     WA.room.area.onLeave('clock').subscribe(closePopup);
 
-    WA.room.onEnterLayer("visibleNote").subscribe(async () => {
-        console.log("Entering visibleNote layer");
-
-        noteWebsite = await WA.ui.website.open({
-            url: "https://javabotchi.kunst-werk-hagen.de/menue.html",
-            position: {
-                vertical: "top",
-                horizontal: "middle",
-            },
-            size: {
-                height: "60vh",
-                width: "20vw",
-            },
-            margin: {
-                top: "10vh",
-            },
-            allowApi: true,
-        });
-
-    });
-
-    WA.room.onLeaveLayer("visibleNote").subscribe(() => {
-               console.log("leave visibleNote layer");
-                noteWebsite.close();
-       
+    WA.room.onEnterLayer("websiteTest").subscribe(async () => {
+        console.log("Entering websiteTest layer");
+         WA.room.showLayer('website');
     });
  
 
