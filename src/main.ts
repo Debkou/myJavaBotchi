@@ -2,24 +2,44 @@
 
 console.log('Script started successfully');
 
+import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+
+let currentPopup: any = undefined;
+let noteWebsite: any;
+
+// Funktion zum Schließen des Popups
+function closePopup(){
+    if (currentPopup !== undefined) {
+        currentPopup.close();
+        currentPopup = undefined;
+    }
+}
+
 // Waiting for the API to be ready
 WA.onInit().then(() => {
     console.log('Scripting API ready');
+    console.log('Player tags: ', WA.player.tags);
 
-    let noteWebsite = any;
+    WA.room.area.onEnter('clock').subscribe(() => {
+        const today = new Date();
+        const time = today.getHours() + ":" + today.getMinutes();
+        currentPopup = WA.ui.openPopup("clockPopup", "It's " + time, []);
+    });
+
+    WA.room.area.onLeave('clock').subscribe(closePopup);
 
     WA.room.onEnterLayer("visibleNote").subscribe(async () => {
         console.log("Entering visibleNote layer");
 
         noteWebsite = await WA.ui.website.open({
-            url: "./note.html",
+            url: "https://javabotchi.kunst-werk-hagen.de/menue.html",
             position: {
                 vertical: "top",
                 horizontal: "middle",
             },
             size: {
-                height: "30vh",
-                width: "50vw",
+                height: "60vh",
+                width: "20vw",
             },
             margin: {
                 top: "10vh",
@@ -30,8 +50,16 @@ WA.onInit().then(() => {
     });
 
     WA.room.onLeaveLayer("visibleNote").subscribe(() => {
-        noteWebsite.close();
+               console.log("leave visibleNote layer");
+                noteWebsite.close();
+       
     });
+ 
+
+    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
+    bootstrapExtra().then(() => {
+        console.log('Scripting API Extra ready');
+    }).catch(e => console.error(e));
 
 }).catch(e => console.error(e));
 
