@@ -5,7 +5,7 @@ console.log('Script started successfully');
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 let currentPopup: any = undefined;
- let noteWebsite: any = undefined;
+
 // Funktion zum Schließen des Popups
 function closePopup(){
     if (currentPopup !== undefined) {
@@ -26,7 +26,8 @@ WA.onInit().then(() => {
     });
 
     WA.room.area.onLeave('clock').subscribe(closePopup);
-
+ 
+ let noteWebsite: any = undefined;
     WA.room.onEnterLayer("terminalAktion").subscribe(async () => {
         console.log("Entering visibleNote layer");
 
