@@ -31,7 +31,7 @@ let helloWorldPopup: any = undefined;
 
 // Open the popup when we enter a given zone
 WA.room.onEnterLayer("websiteTest").subscribe(() => {
-    helloWorldPopup = WA.ui.openPopup("website", '', [{
+    helloWorldPopup = WA.ui.openPopup("testWebsite", '', [{
         label: "Close",
         className: "primary",
         callback: (popup) => {
