@@ -27,25 +27,29 @@ WA.onInit().then(() => {
 
     WA.room.area.onLeave('clock').subscribe(closePopup);
 
-let helloWorldPopup: any = undefined;
+ let noteWebsite: any;
 
-// Open the popup when we enter a given zone
-WA.room.onEnterLayer("websiteTest").subscribe(() => {
-    helloWorldPopup = WA.ui.openPopup("testWebsite", '', [{
-        label: "Close",
-        className: "primary",
-        callback: (popup) => {
-            // Close the popup when the "Close" button is pressed.
-            popup.close();
-        }
-    }]);
-});
+    WA.room.onEnterLayer("terminalAktion").subscribe(async () => {
+        console.log("Entering visibleNote layer");
 
-// Close the popup when we leave the zone.
-WA.room.onLeaveLayer("websiteTest").subscribe(() => {
-    helloWorldPopup.close();
-})
- 
+        noteWebsite = await WA.ui.website.open({
+            url: "./menue.html",
+            visible: true,
+            position: {
+                vertical: "top",
+                horizontal: "middle",
+            },
+            size: {
+                height: "30vh",
+                width: "50vw",
+            },
+            margin: {
+                top: "10vh",
+            },
+            allowApi: true,
+        });
+
+    });
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra().then(() => {
