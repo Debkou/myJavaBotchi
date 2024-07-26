@@ -1945,7 +1945,7 @@
                         }],
                  "rotation":0,
                  "type":"website",
-                 "visible":false,
+                 "visible":true,
                  "width":176.666666666667,
                  "x":494.666666666667,
                  "y":569.333333333333
