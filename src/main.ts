@@ -29,7 +29,7 @@ WA.onInit().then(() => {
 
     WA.room.onEnterLayer("websiteTest").subscribe(async () => {
         console.log("Entering websiteTest layer");
-         WA.room.showObject('website');
+         WA.room.showLayer('testWebsite');
     });
  
 
