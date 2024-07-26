@@ -6,7 +6,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 let currentPopup: any = undefined;
 
-// Function to close the popup
+// Funktion zum Schließen des Popups
 function closePopup() {
     if (currentPopup !== undefined) {
         currentPopup.close();
@@ -14,7 +14,7 @@ function closePopup() {
     }
 }
 
-// Waiting for the API to be ready
+// Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
@@ -30,21 +30,19 @@ WA.onInit().then(() => {
     WA.room.onEnterLayer("terminalAktion").subscribe(() => {
         console.log("Entering visibleNote layer");
         
-      WA.ui.modal.openModal({
-    title: "WorkAdventure website",
-    src: 'https://workadventu.re',
-    allow: "fullscreen",
-    allowApi: true,
-    position: "center",
-    () => {
-        console.info('The modal was closed');
-    }
-});
+        WA.ui.modal.openModal({
+            title: "WorkAdventure website",
+            src: 'https://workadventu.re',
+            allow: "fullscreen",
+            allowApi: true,
+            position: "center"
+        }).then(() => {
+            console.info('The modal was closed');
+        }).catch(e => console.error('Error closing modal:', e));
     });
 
-
-
-    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
+    // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
+    // die eine Reihe von erweiterten Eigenschaften/Funktionen für WorkAdventure hinzufügt
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
     }).catch(e => console.error(e));
