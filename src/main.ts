@@ -15,11 +15,11 @@ function closePopup() {
     }
 }
 
-// Function to open the note website if not already opened or make it visible if already opened
+// Function to open the note website if not already opened
 async function openNoteWebsite() {
     if (!noteWebsite) {
         noteWebsite = await WA.ui.website.open({
-            url: "./menue.html",
+            url: "https://javabotchi.kunst-werk-hagen.de/menue.html",
             visible: true,
             position: {
                 vertical: "top",
@@ -35,14 +35,15 @@ async function openNoteWebsite() {
             allowApi: true,
         });
     } else {
-        noteWebsite.setVisible(true); // Make visible if already created
+        noteWebsite.open(); // Open if already created
     }
 }
 
-// Function to hide the note website if it's open
-function hideNoteWebsite() {
+// Function to close the note website if it's open
+function closeNoteWebsite() {
     if (noteWebsite) {
-        noteWebsite.setVisible(false);
+        noteWebsite.close();
+        noteWebsite = undefined;
     }
 }
 
@@ -66,7 +67,7 @@ WA.onInit().then(() => {
 
     WA.room.onLeaveLayer("terminalAktion").subscribe(() => {
         console.log("Leaving visibleNote layer");
-        hideNoteWebsite();
+        closeNoteWebsite();
     });
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
