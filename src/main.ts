@@ -57,6 +57,11 @@ WA.onInit().then(() => {
         openNoteWebsite();
     });
 
+     WA.room.onLeaveLayer("terminalAktion").subscribe(() => {
+        console.log("Entering visibleNote layer");
+        openNoteWebsite().close();
+    });
+    
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
