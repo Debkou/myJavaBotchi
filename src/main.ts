@@ -36,13 +36,7 @@ WA.onInit().then(() => {
             allow: "fullscreen",
             allowApi: true,
             position: "center",
-            () => {
-                console.info('The modal was closed');
-            }
         });
-
-       
-
     });
 
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
