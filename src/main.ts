@@ -32,7 +32,7 @@ WA.onInit().then(() => {
 
         WA.ui.modal.openModal({
             title: "WorkAdventure website",
-            src: 'https://workadventu.re',
+            src: './menue.html',
             allow: "fullscreen",
             allowApi: true,
             position: "center",
