@@ -27,20 +27,6 @@ WA.onInit().then(() => {
 
     WA.room.area.onLeave('clock').subscribe(closePopup);
 
-    WA.room.onEnterLayer("terminalAktion").subscribe(() => {
-        console.log("Entering visibleNote layer");
-        
-        WA.ui.modal.openModal({
-            title: "WorkAdventure website",
-            src: 'https://workadventu.re',
-            allow: "fullscreen",
-            allowApi: true,
-            position: "center"
-        }).then(() => {
-            console.info('The modal was closed');
-        }).catch(e => console.error('Error closing modal:', e));
-    });
-
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
     // die eine Reihe von erweiterten Eigenschaften/Funktionen für WorkAdventure hinzufügt
     bootstrapExtra().then(() => {
