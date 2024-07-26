@@ -15,7 +15,7 @@ function closePopup() {
     }
 }
 
-// Function to open the note website if not already opened
+// Function to open the note website if not already opened or make it visible if already opened
 async function openNoteWebsite() {
     if (!noteWebsite) {
         noteWebsite = await WA.ui.website.open({
@@ -35,15 +35,14 @@ async function openNoteWebsite() {
             allowApi: true,
         });
     } else {
-        noteWebsite.open(); // Open if already created
+        noteWebsite.setVisible(true); // Make visible if already created
     }
 }
 
-// Function to close the note website if it's open
-function closeNoteWebsite() {
+// Function to hide the note website if it's open
+function hideNoteWebsite() {
     if (noteWebsite) {
-        noteWebsite.close();
-        noteWebsite = undefined;
+        noteWebsite.setVisible(false);
     }
 }
 
@@ -67,7 +66,7 @@ WA.onInit().then(() => {
 
     WA.room.onLeaveLayer("terminalAktion").subscribe(() => {
         console.log("Leaving visibleNote layer");
-        closeNoteWebsite();
+        hideNoteWebsite();
     });
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
