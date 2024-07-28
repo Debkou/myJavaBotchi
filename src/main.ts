@@ -28,11 +28,22 @@ WA.onInit().then(() => {
     WA.room.area.onLeave('clock').subscribe(closePopup);
 
         WA.room.onEnterLayer("terminalAktion").subscribe(async () => {
-        console.log("Entering visibleNote layer");
+        console.log("Entering terminalAktion layer");
 
         WA.ui.modal.openModal({
-            title: "WorkAdventure website",
+            title: "Hauptmenue",
             src: './menue.html',
+            allow: "fullscreen",
+            allowApi: true,
+            position: "center",
+        });
+    });
+        WA.room.onEnterLayer("buecherAktion").subscribe(async () => {
+        console.log("Entering buecherAktion layer");
+
+        WA.ui.modal.openModal({
+            title: "Bibliothek",
+            src: './bibliothek.html',
             allow: "fullscreen",
             allowApi: true,
             position: "center",
