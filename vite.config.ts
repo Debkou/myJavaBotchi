@@ -27,10 +27,10 @@ export default defineConfig({
         sourcemap: true,
         rollupOptions: {
             input: {
-                index: "src/index.html",
-                menue: "src/menue.html",
-                bib: "src/bibliothek.html",
-                pageOne: "src/page1.html",
+                index: "./index.html",
+                menue: "./menue.html",
+                bib: "./bibliothek.html",
+                pageOne: "./page1.html",
               
                 ...getMapsScripts(maps),
             },
