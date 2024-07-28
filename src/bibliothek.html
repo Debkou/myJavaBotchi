@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="stylesheet/stylesheet.css">
+    <title>Interaktive Webseite</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+        }
+
+    </style>
+</head>
+<body class="gelb">
+    <div id="sidebar" class="flex flex-column" >
+        <button onclick="loadPage('home')" class="buttonMenue weiss-font">Home</button>
+        <button onclick="loadPage('page1')" class="buttonMenue weiss-font">Seite 1</button>
+        <button onclick="loadPage('page2')" class="buttonMenue weiss-font">Seite 2</button>
+        <button onclick="loadPage('page3')" class="buttonMenue weiss-font">Seite 3</button>
+        <button onclick="loadPage('page4')" class="buttonMenue weiss-font">Seite 4</button>
+        <button onclick="loadPage('page5')" class="buttonMenue weiss-font">Seite 5</button>
+        <button onclick="loadPage('page6')" class="buttonMenue weiss-font">Seite 6</button>
+        <button onclick="loadPage('page7')" class="buttonMenue weiss-font">Seite 7</button>
+    </div>
+    <div id="content">
+        <p>TEST HOME</p>
+    </div>
+    <script>
+        function loadPage(page) {
+            fetch(page + '.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById('content').innerHTML = '<h1>Fehler</h1><p>Die Seite konnte nicht geladen werden.</p>';
+                    console.error('Fehler beim Laden der Seite:', error);
+                });
+        }
+
+        // Standardinhalt beim Laden der Seite
+        window.onload = () => loadPage('home');
+    </script>
+</body>
+</html>
