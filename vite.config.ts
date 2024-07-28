@@ -29,6 +29,8 @@ export default defineConfig({
             input: {
                 index: "./index.html",
                 note: "./menue.html",
+                bib: "./bibliothek.html",
+                pageOne: "./page1.html",
               
                 ...getMapsScripts(maps),
             },
