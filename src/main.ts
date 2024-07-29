@@ -78,7 +78,7 @@ WA.onInit().then(() => {
             }
         });
 
-        WA.room.onLeave("feldTasteFlyer").subscribe(() => {
+        WA.room.area.onLeave("feldTasteFlyer").subscribe(() => {
             triggerMessage.remove();
         });
     });
