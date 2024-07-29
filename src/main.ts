@@ -68,7 +68,13 @@ WA.onInit().then(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Press 'SPACE' to confirm",
             callback: () => {
-                WA.chat.sendChatMessage("confirmed", "trigger message logic");
+                 WA.ui.modal.openModal({
+                 title: "Bibliothek",
+                  src: './bibliothek.html',
+                  allow: "fullscreen",
+                  allowApi: true,
+                   position: "center",
+                   });
             }
         });
 
