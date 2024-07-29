@@ -82,6 +82,10 @@ WA.onInit().then(() => {
             // Entferne die Nachricht nach einer bestimmten Zeit
             triggerMessage.remove();
         }, 1000);
+
+        WA.room.onLeave("feldTasteFlyer").subscribe(() => {
+            triggerMessage.remove();
+        }
     });
 
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
