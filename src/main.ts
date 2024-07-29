@@ -71,7 +71,10 @@ WA.onInit().then(() => {
 
 
     });
-
+   setTimeout(() => {
+    // later
+    triggerMessage.remove();
+}, 1000)
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
     // die eine Reihe von erweiterten Eigenschaften/Funktionen für WorkAdventure hinzufügt
     bootstrapExtra().then(() => {
