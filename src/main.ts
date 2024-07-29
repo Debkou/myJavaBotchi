@@ -66,7 +66,7 @@ WA.onInit().then(() => {
 
     WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
-            message: "Press 'SPACE' to confirm",
+            message: "Drücke 'SPACE' um den Flyer zu sehen",
             callback: () => {
                  WA.ui.modal.openModal({
                  title: "Bibliothek",
