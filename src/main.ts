@@ -3,7 +3,7 @@
 console.log('Script started successfully');
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
-import {ActionMessage} from "@workadventure/iframe-api-typings";
+// Import von ActionMessage entfernt, da es nicht verwendet wird
 
 let currentPopup: any = undefined;
 
@@ -28,7 +28,7 @@ WA.onInit().then(() => {
 
     WA.room.area.onLeave('clock').subscribe(closePopup);
 
-        WA.room.onEnterLayer("terminalAktion").subscribe(async () => {
+    WA.room.onEnterLayer("terminalAktion").subscribe(async () => {
         console.log("Entering terminalAktion layer");
 
         WA.ui.modal.openModal({
@@ -39,7 +39,8 @@ WA.onInit().then(() => {
             position: "center",
         });
     });
-        WA.room.onEnterLayer("buecherAktion").subscribe(async () => {
+
+    WA.room.onEnterLayer("buecherAktion").subscribe(async () => {
         console.log("Entering buecherAktion layer");
 
         WA.ui.modal.openModal({
@@ -50,31 +51,33 @@ WA.onInit().then(() => {
             position: "center",
         });
     });
-        WA.room.onEnterLayer("aktionFlyer").subscribe(async () => {
+
+    WA.room.onEnterLayer("aktionFlyer").subscribe(async () => {
         console.log("Entering aktionFlyer layer");
 
-         WA.room.showLayer('magentaFlyer');
-    });
-        WA.room.onLeaveLayer("aktionFlyer").subscribe(async () => {
-        console.log("Entering aktionFlyer layer");
-
-         WA.room.hideLayer('magentaFlyer');
-    });
-     
-      WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
-          const triggerMessage = WA.ui.displayActionMessage({
-                                 message: "press 'space' to confirm",
-                                 callback: () => {
-                              WA.chat.sendChatMessage("confirmed", "trigger message logic")
-                                   }
+        WA.room.showLayer('magentaFlyer');
     });
 
+    WA.room.onLeaveLayer("aktionFlyer").subscribe(async () => {
+        console.log("Leaving aktionFlyer layer");
 
+        WA.room.hideLayer('magentaFlyer');
     });
-   setTimeout(() => {
-    // later
-    triggerMessage.remove();
-}, 1000)
+
+    WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Press 'SPACE' to confirm",
+            callback: () => {
+                WA.chat.sendChatMessage("confirmed", "trigger message logic");
+            }
+        });
+
+        setTimeout(() => {
+            // Entferne die Nachricht nach einer bestimmten Zeit
+            triggerMessage.remove();
+        }, 1000);
+    });
+
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
     // die eine Reihe von erweiterten Eigenschaften/Funktionen für WorkAdventure hinzufügt
     bootstrapExtra().then(() => {
