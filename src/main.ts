@@ -49,6 +49,16 @@ WA.onInit().then(() => {
             position: "center",
         });
     });
+        WA.room.onEnterLayer("aktionFlyer").subscribe(async () => {
+        console.log("Entering aktionFlyer layer");
+
+         WA.room.showLayer('magentaFlyer');
+    });
+        WA.room.onLeaveLayer("aktionFlyer").subscribe(async () => {
+        console.log("Entering aktionFlyer layer");
+
+         WA.room.hideLayer('magentaFlyer');
+    });
 
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
     // die eine Reihe von erweiterten Eigenschaften/Funktionen für WorkAdventure hinzufügt
