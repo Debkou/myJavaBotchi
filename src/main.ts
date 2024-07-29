@@ -63,7 +63,7 @@ WA.onInit().then(() => {
      
       WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
 
-      let actionMessage = WA.ui.displayActionMessage({
+      WA.ui.displayActionMessage({
       type: "message",
       message: "Press SPACE to ring the bell",
       callback: () => {
