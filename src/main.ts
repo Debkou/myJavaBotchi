@@ -68,21 +68,19 @@ WA.onInit().then(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um den Flyer zu sehen",
             callback: () => {
-                 WA.ui.modal.openModal({
-                 title: "Bibliothek",
-                  src: './bibliothek.html',
-                  allow: "fullscreen",
-                  allowApi: true,
-                   position: "center",
-                   });
+                WA.ui.modal.openModal({
+                    title: "Bibliothek",
+                    src: './bibliothek.html',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
             }
         });
 
-        
-
         WA.room.onLeave("feldTasteFlyer").subscribe(() => {
             triggerMessage.remove();
-        }
+        });
     });
 
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
