@@ -62,21 +62,14 @@ WA.onInit().then(() => {
     });
      
       WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
+          const triggerMessage = WA.ui.displayActionMessage({
+                                 message: "press 'space' to confirm",
+                                 callback: () => {
+                              WA.chat.sendChatMessage("confirmed", "trigger message logic")
+                                   }
+    });
 
-      WA.ui.displayActionMessage({
-      type: "message",
-      message: "Press SPACE to ring the bell",
-      callback: () => {
-        // Wenn Taste gedrückt wird dann:
-        WA.ui.modal.openModal({
-            title: "Bibliothek",
-            src: './bibliothek.html',
-            allow: "fullscreen",
-            allowApi: true,
-            position: "center",
-        });
-      }
-     });
+
     });
 
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
