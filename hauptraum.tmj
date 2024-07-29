@@ -2081,7 +2081,18 @@
          "draworder":"topdown",
          "id":2,
          "name":"floorLayer",
-         "objects":[],
+         "objects":[
+                {
+                 "height":32,
+                 "id":3,
+                 "name":"feldTasteFlyer",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":63.3333333333333,
+                 "x":192.666666666667,
+                 "y":95.3333333333333
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -2150,7 +2161,7 @@
          "y":0
         }],
  "nextlayerid":41,
- "nextobjectid":3,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "properties":[
         {
