@@ -59,7 +59,7 @@ WA.onInit().then(() => {
 
          WA.room.hideLayer('magentaFlyer');
     });
-
+      let actionMessage: ActionMessage | undefined;
       WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
 
       actionMessage = WA.ui.displayActionMessage({
