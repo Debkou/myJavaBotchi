@@ -60,6 +60,24 @@ WA.onInit().then(() => {
          WA.room.hideLayer('magentaFlyer');
     });
 
+      WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
+
+      actionMessage = WA.ui.displayActionMessage({
+      type: "message",
+      message: "Press SPACE to ring the bell",
+      callback: () => {
+        // Wenn Taste gedrückt wird dann:
+        WA.ui.modal.openModal({
+            title: "Bibliothek",
+            src: './bibliothek.html',
+            allow: "fullscreen",
+            allowApi: true,
+            position: "center",
+        });
+      }
+     });
+    });
+
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
     // die eine Reihe von erweiterten Eigenschaften/Funktionen für WorkAdventure hinzufügt
     bootstrapExtra().then(() => {
