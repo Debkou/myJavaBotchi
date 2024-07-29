@@ -3,6 +3,7 @@
 console.log('Script started successfully');
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+import {ActionMessage} from "@workadventure/iframe-api-typings";
 
 let currentPopup: any = undefined;
 
