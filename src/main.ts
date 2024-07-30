@@ -15,7 +15,7 @@ function closePopup() {
     }
 }
 
-function openWinModal(title: string, src: string, allow: string, allowApi:boolean, position: string){
+function openWinModal(title: string, src: string, allow: string, allowApi:boolean){
 
     let modalTitle = title;
     let modalSrc = src;
@@ -27,7 +27,7 @@ function openWinModal(title: string, src: string, allow: string, allowApi:boolea
             src: modalSrc,
             allow: modalAllow,
             allowApi: modalAllowApi,
-            position: modalPositon,
+            position: "center",
         });
 }
 
@@ -90,7 +90,7 @@ WA.onInit().then(() => {
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
-                    closeCallback: openWinModal("test",'./bibliothek.html',"fullscreen",true,"center")
+                    closeCallback: openWinModal("test",'./bibliothek.html',"fullscreen",true)
                 });
             }
         });
