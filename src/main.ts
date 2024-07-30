@@ -74,7 +74,7 @@ WA.onInit().then(() => {
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
-                     () => {
+                    closeCallback: () => {
                         console.info('The modal was closed');
                      }
                 });
