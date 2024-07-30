@@ -74,9 +74,6 @@ WA.onInit().then(() => {
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
-                    Callback: () => {
-                        console.log("Flyer modal closed");
-                    }
                 });
             }
         });
