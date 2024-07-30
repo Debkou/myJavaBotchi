@@ -77,7 +77,7 @@ WA.onInit().then(() => {
                      () => {
         console.info('The modal was closed');
     }
-                });
+                }): void
             }
         });
 
