@@ -74,15 +74,6 @@ WA.onInit().then(() => {
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
-                    closeCallback: () => {
-                        WA.ui.modal.openModal({
-                            title: "Neues Modal",
-                            src: './bibliothek.html',
-                            allow: "fullscreen",
-                            allowApi: true,
-                            position: "center",
-                        });
-                    }
                 });
             }
         });
