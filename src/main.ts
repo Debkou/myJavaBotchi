@@ -15,7 +15,7 @@ function closePopup() {
     }
 }
 
-function openWinModal(title: string, src: string, allow: string, allowApi:boolean, positon: string){
+function openWinModal(title: string, src: string, allow: string, allowApi:boolean, position: string){
 
     let modalTitle = title;
     let modalSrc = src;
