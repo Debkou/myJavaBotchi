@@ -75,7 +75,7 @@ WA.onInit().then(() => {
                     allowApi: true,
                     position: "center",
                     closeCallback: () => {
-                        console.info('The modal was closed');
+                        console.log("Entering aktionFlyer layer");
                      }
                 });
             }
