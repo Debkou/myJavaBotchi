@@ -15,6 +15,22 @@ function closePopup() {
     }
 }
 
+function openWinModal(title: string, src: string, allow: string, allowApi:boolean, positon: string){
+
+    let modalTitle = title;
+    let modalSrc = src;
+    let modalAllow = allow;
+    let modalAllowApi = allowApi;
+    let modalPositon = position;
+      WA.ui.modal.openModal({
+            title: modalTitle,
+            src: modalSrc,
+            allow: modalAllow,
+            allowApi: modalAllowApi,
+            position: modalPositon,
+        });
+}
+
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
@@ -74,6 +90,7 @@ WA.onInit().then(() => {
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
+                    closeCallback: openWinModal("test",'./bibliothek.html',"fullscreen",true,"center")
                 });
             }
         });
