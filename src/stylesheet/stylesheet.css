@@ -31,6 +31,7 @@ body {
 }
 img {
   max-width: 100%;
+	height: auto;
 }
 /* Farben */
 .dBlau {
@@ -127,6 +128,12 @@ a {
 }
 .justifiy-end {
   justify-content: flex-end;
+}
+.justify-center{
+	justify-content: center;
+}
+.align-center{
+	align-items: center;
 }
 /*Bibliothek style*/
 #sidebar {
