@@ -64,7 +64,7 @@ WA.onInit().then(() => {
         WA.room.hideLayer('magentaFlyer');
     });
     
-  WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
+    WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um den Flyer zu sehen",
             callback: () => {
@@ -74,10 +74,10 @@ WA.onInit().then(() => {
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
-                    closeCallback: () => {
-                        console.info('The modal was closed');
+                    Callback: () => {
+                        console.log("Flyer modal closed");
                     }
-                } as any); // Typumwandlung, um den Typenkonflikt zu umgehen
+                });
             }
         });
 
