@@ -21,7 +21,6 @@ function openWinModal(title: string, src: string, allow: string, allowApi:boolea
     let modalSrc = src;
     let modalAllow = allow;
     let modalAllowApi = allowApi;
-    let modalPositon = position;
       WA.ui.modal.openModal({
             title: modalTitle,
             src: modalSrc,
@@ -90,7 +89,7 @@ WA.onInit().then(() => {
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
-                    closeCallback: openWinModal("test",'./bibliothek.html',"fullscreen",true)
+                    closeCallback: openWinModal("test",'./bibliothek.html',"fullscreen",true):void
                 });
             }
         });
