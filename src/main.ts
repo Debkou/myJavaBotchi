@@ -70,7 +70,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.openModal({
                     title: "Bibliothek",
-                    src: './bibliothek.html',
+                    src: './flyer_party.html',
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
