@@ -89,7 +89,6 @@ WA.onInit().then(() => {
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
-                    closeCallback: openWinModal("test",'./bibliothek.html',"fullscreen",true),
                 });
             }
         });
