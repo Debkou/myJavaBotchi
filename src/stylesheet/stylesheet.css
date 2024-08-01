@@ -70,6 +70,9 @@ img {
 .weiss-font {
   color: #FFFFFF;
 }
+.magenta-font{
+	color:#BE006E;
+}
 /* Schriften */
 h1, h2, h3 {
   font-family: 'Pokemon', serif;
@@ -137,6 +140,7 @@ a {
 }
 /*Bibliothek style*/
 #sidebar {
+  width: 200px;
   padding: 10px;
   border-right: 1px solid #ddd;
 }
@@ -146,4 +150,11 @@ a {
   padding: 20px;
   height: 500px; 
   overflow-y: auto;
+}
+
+.homeContent{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-left: 100px;
+	padding-right: 100px;
 }
