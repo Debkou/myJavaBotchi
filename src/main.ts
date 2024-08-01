@@ -15,20 +15,6 @@ function closePopup() {
     }
 }
 
-function openWinModal(title: string, src: string, allow: string, allowApi:boolean){
-
-    let modalTitle = title;
-    let modalSrc = src;
-    let modalAllow = allow;
-    let modalAllowApi = allowApi;
-      WA.ui.modal.openModal({
-            title: modalTitle,
-            src: modalSrc,
-            allow: modalAllow,
-            allowApi: modalAllowApi,
-            position: "center",
-        });
-}
 
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
