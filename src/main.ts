@@ -82,19 +82,22 @@ WA.onInit().then(() => {
         WA.room.area.onLeave("feldTasteFlyer").subscribe(() => {
             triggerMessage.remove();
         });
-
-          WA.room.area.onEnter("APIAktion").subscribe(() => {
+ WA.room.area.onEnter("feldTasteApi").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Oracle Java API zu öffnen",
             callback: () => {
                 WA.ui.modal.openModal({
-                    title: "Java API",
+                    title: "Bibliothek",
                     src: 'https://docs.oracle.com/en/java/javase/11/docs/api/',
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
                 });
             }
+        });
+
+        WA.room.area.onLeave("feldTasteApi").subscribe(() => {
+            triggerMessage.remove();
         });
     });
 
