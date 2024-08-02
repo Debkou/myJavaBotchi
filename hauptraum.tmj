@@ -2092,6 +2092,17 @@
                  "width":63.3333333333333,
                  "x":192.666666666667,
                  "y":95.3333333333333
+                }, 
+                {
+                 "height":30,
+                 "id":5,
+                 "name":"feldTasteApi",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":29.3333333333333,
+                 "x":289.333333333333,
+                 "y":737.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2161,7 +2172,7 @@
          "y":0
         }],
  "nextlayerid":41,
- "nextobjectid":4,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "properties":[
         {
