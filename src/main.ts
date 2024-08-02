@@ -82,6 +82,20 @@ WA.onInit().then(() => {
         WA.room.area.onLeave("feldTasteFlyer").subscribe(() => {
             triggerMessage.remove();
         });
+
+          WA.room.area.onEnter("APIAktion").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um die Oracle Java API zu öffnen",
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "Java API",
+                    src: 'https://docs.oracle.com/en/java/javase/11/docs/api/',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
     });
 
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
