@@ -102,6 +102,44 @@ WA.onInit().then(() => {
         });
     });
 
+       WA.room.area.onEnter("feldTasteHin").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um die Hinweise zu öffnen",
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "Hinweis",
+                    src: 'https://docs.oracle.com/en/java/javase/11/docs/api/',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.area.onLeave("feldTasteHin").subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+
+        WA.room.area.onEnter("feldTastePong").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um PingPong zu spielen",
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "PingPong",
+                    src: 'http://de.pong-2.com/',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.area.onLeave("feldTastePong").subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
     // die eine Reihe von erweiterten Eigenschaften/Funktionen für WorkAdventure hinzufügt
     bootstrapExtra().then(() => {
