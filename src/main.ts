@@ -82,7 +82,8 @@ WA.onInit().then(() => {
         WA.room.area.onLeave("feldTasteFlyer").subscribe(() => {
             triggerMessage.remove();
         });
- WA.room.area.onEnter("feldTasteApi").subscribe(() => {
+    }); 
+     WA.room.area.onEnter("feldTasteApi").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Oracle Java API zu öffnen",
             callback: () => {
