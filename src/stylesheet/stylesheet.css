@@ -243,7 +243,7 @@ a:hover{
             transform: translate(-50%, -50%);
             width: 500px;
             padding: 20px;
-            background-color: #f1d992;
+            background-color: #FFFFFF;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
