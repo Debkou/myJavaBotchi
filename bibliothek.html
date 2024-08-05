@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
-    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
+    <link rel="stylesheet" href="stylesheet/stylesheet.css">
     <title>JavaBotchi - Bibliothek</title>
     <style>
         body {
@@ -18,23 +18,35 @@
 </head>
 <body class="gelb">
     <div id="sidebar" class="flex flex-column">
-        <button onclick="loadPage('bib_home')" class="buttonMenue weiss-font">Home</button>
-        <button onclick="loadPage('page1')" class="buttonMenue weiss-font">Einstieg</button>
-        <button onclick="loadPage('page2')" class="buttonMenue weiss-font">Einheit 1: Grundkenntnisse</button>
-        <button onclick="loadPage('page3')" class="buttonMenue weiss-font">Einheit 2: Mathematisch <br> logische Programme</button>
-        <button onclick="loadPage('page4')" class="buttonMenue weiss-font">Einheit 3: Eingabemöglichkeiten</button>
-        <button onclick="loadPage('page5')" class="buttonMenue weiss-font">Einheit 4: Algorithmen</button>
-        <button onclick="loadPage('page6')" class="buttonMenue weiss-font">Einheit 5</button>
+        <button onclick="loadPage('bib_home', this)" class="buttonMenue weiss-font">Home</button>
+        <button onclick="loadPage('bib_einleitung', this)" class="buttonMenue weiss-font">Einstieg</button>
+        <button onclick="loadPage('bib_einheit1', this)" class="buttonMenue weiss-font">Einheit 1: Grundkenntnisse</button>
+        <button onclick="loadPage('bib_einheit2', this)" class="buttonMenue weiss-font">Einheit 2: Mathematisch <br> logische Programme</button>
+        <button onclick="loadPage('bib_einheit3', this)" class="buttonMenue weiss-font">Einheit 3: Eingabemöglichkeiten</button>
+        <button onclick="loadPage('bib_einheit4', this)" class="buttonMenue weiss-font">Einheit 4: Algorithmen</button>
     </div>
     <div id="content">
         <!-- Der Standardinhalt wird hier eingefügt -->
     </div>
     <script>
-        function loadPage(page) {
+        // Funktion zum Laden der Seite und Hervorheben des ausgewählten Buttons
+        function loadPage(page, button) {
             fetch(page + '.html')
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Netzwerkantwort war nicht ok.');
+                    }
+                    return response.text();
+                })
                 .then(data => {
                     document.getElementById('content').innerHTML = data;
+
+                    // Entfernt die 'selected'-Klasse von allen Buttons
+                    let buttons = document.querySelectorAll('.buttonMenue');
+                    buttons.forEach(btn => btn.classList.remove('selected'));
+
+                    // Fügt die 'selected'-Klasse zum angeklickten Button hinzu
+                    button.classList.add('selected');
                 })
                 .catch(error => {
                     document.getElementById('content').innerHTML = '<h1>Fehler</h1><p>Die Seite konnte nicht geladen werden.</p>';
@@ -43,7 +55,60 @@
         }
 
         // Standardinhalt beim Laden der Seite
-        window.onload = () => loadPage('bib_home');
+        window.onload = () => loadPage('bib_home', document.querySelector('.buttonMenue'));
+
+        function toggleDropdown(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+		
+	  function checkAnswers() {
+            const form = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+            let score = 0;
+            let incorrectQuestions = [];
+
+            // Richtige Antworten
+            const answers = {
+                Frage1: '1',
+                Frage2: '2',
+                Frage3: '3',
+                Frage4: '4',
+                Frage5: '5',
+                Frage6: '6',
+                Frage7: '7',
+                Frage8: '8',
+                Frage9: '9',
+                Frage10: '10'
+            };
+
+            // Überprüfe jede Frage
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                const selectedOption = form.querySelector(`input[name="${question}"]:checked`);
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    score++;
+                } else {
+                    incorrectQuestions.push(question);
+                }
+            }
+
+            // Prüfe, ob alle Fragen richtig beantwortet wurden
+            if (score === Object.keys(answers).length) {
+                // Seite "loesung.html" in den Inhaltbereich laden
+                loadPage('bib_einheit1', null);
+            } else {
+                // Zeige Ergebnisse und falsche Fragen
+                let resultText = `Du hast ${score} von ${Object.keys(answers).length} Frage(n) richtig beantwortet.`;
+                if (incorrectQuestions.length > 0) {
+                    resultText += `\nFalsch beantwortete Fragen: ${incorrectQuestions.join(', ')}`;
+                }
+                resultDiv.textContent = resultText;
+            }
+        }
     </script>
 </body>
 </html>

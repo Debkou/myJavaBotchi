@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+	<link rel="stylesheet" href="stylesheet/stylesheet.css">
+    <title>JavaBotchi - Bibliothek - Einleitung</title>
+    <style>
+      
+  
+    </style>
+</head>
+<body class="gelb">
+
+<h1>Java Entwicklungsumgebung</h1>
+<p>Um die Rätsel gemeinsam mit Botchi lösen zu können, benötigst du im Laufe der Zeit eine Java-Entwicklungsumgebung.<br>
+Eine Entwicklungsumgebung ist eine Software-Anwendung, die Entwicklern hilft, Java-Programme effizient zu schreiben, zu testen und zu debuggen.<br>
+<br>
+
+Für dieses Spiel wird die Entwicklungsumgebung IntelliJ IDEA von JetBrains empfohlen, Du kannst aber auch eine Entwicklungsumgebung Deiner Wahl nutzen.</p>
+
+<div class="dropdown">
+    <button class="dropdown-btn dBlau weiss-font" onclick="toggleDropdown('infoDropdown')">Informationen über Entwicklungsumgebungen</button>
+    <div id="infoDropdown" class="dropdown-content">
+        <p>Eine Java Entwicklungsumgebung – Integrated Development Environment, IDE besteht aus folgenden Hauptkomponenten und Funktionen:</p>
+        <ul>
+            <li><strong>Quellcode-Editor</strong>
+                <ul>
+                    <li>Ein Texteditor für das Schreiben von Code</li>
+                    <li>Bietet Funktionen wie Syntaxhervorhebung, automatische Vervollständigung und Fehlererkennung</li>
+                </ul>
+            </li>
+            <li><strong>Compiler</strong>
+                <ul>
+                    <li>Übersetzt den Quellcode (Java-Dateien) in Bytecode (class-Dateien), den die Java Virtual Machine (JVM) ausführen kann</li>
+                </ul>
+            </li>
+            <li><strong>Debugger</strong>
+                <ul>
+                    <li>Hilft Entwicklern, den Fehler im Code zu finden und zu beheben</li>
+                </ul>
+            </li>
+            <li><strong>Versionskontrolle</strong>
+                <ul>
+                    <li>Integration von Versionskontrollsystemen wie Git</li>
+                    <li>Erlaubt das Verfolgen von Änderungen im Code und das Zusammenarbeiten mit anderen Entwicklern</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="dropdown">
+    <button class="dropdown-btn dBlau weiss-font" onclick="toggleDropdown('intelliJDropdown')">Installationsanleitung IntelliJ IDEA</button>
+    <div id="intelliJDropdown" class="dropdown-content">
+        <p>Um IntelliJ IDEA vollständig nutzen zu können muss zunächst das OpenJDK (Open Java Development Kit) auf Deinem Rechner installiert werden.</p>
+        <p><strong>Installationsanleitung OpenJDK:</strong></p>
+        <ol>
+            <li>Verzeichnis Java unter C:\Programme erstellen</li>
+            <li>Neueste Version von: <a href="https://jdk.java.net" target="_blank">https://jdk.java.net</a> herunterladen und ZIP-Datei in das zuvor Erstellte Verzeichnis entpacken</li>
+            <li>Umgebungsvariable Path hinzufügen
+                <ul>
+                    <li>In das Erstellte Verzeichnis wechseln</li>
+                    <li>Verzeichnis bin öffnen</li>
+                    <li>Pfad des Verzeichnisses in der Kopfzeile kopieren</li>
+                </ul>
+            </li>
+            <li>Den Begriff „Umgebungsvariable“ im Suchfeld der Taskleiste eingeben
+                <ul>
+                    <li>„Umgebungsvariable Für dieses Konto“ auswählen</li>
+                    <li>Path auswählen und bearbeiten</li>
+                    <li>Neu – Zuvor kopierten Pfad einfügen</li>
+                    <li>Ok – Speichern</li>
+                </ul>
+            </li>
+            <li>Terminal öffnen und Java Version abfragen
+                <ul>
+                    <li>Eingabe: javac -version</li>
+                </ul>
+            </li>
+        </ol>
+      
+    </div>
+</div>
+
+<script>
+    function toggleDropdown(id) {
+        var element = document.getElementById(id);
+        if (element.style.display === "none" || element.style.display === "") {
+            element.style.display = "block";
+        } else {
+            element.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
