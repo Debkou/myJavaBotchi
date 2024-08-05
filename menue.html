@@ -20,5 +20,88 @@
         <div id="editSection">
     
         </div>
+
+  <script>
+        // Funktion zum Laden der Seite und Hervorheben des ausgewählten Buttons
+        function loadPage(page, button) {
+            fetch(page + '.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Netzwerkantwort war nicht ok.');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;
+
+                    // Entfernt die 'selected'-Klasse von allen Buttons
+                    let buttons = document.querySelectorAll('.buttonMenue');
+                    buttons.forEach(btn => btn.classList.remove('selected'));
+
+                    // Fügt die 'selected'-Klasse zum angeklickten Button hinzu
+                    button.classList.add('selected');
+                })
+                .catch(error => {
+                    document.getElementById('content').innerHTML = '<h1>Fehler</h1><p>Die Seite konnte nicht geladen werden.</p>';
+                    console.error('Fehler beim Laden der Seite:', error);
+                });
+        }
+
+        // Standardinhalt beim Laden der Seite
+        window.onload = () => loadPage('bib_home', document.querySelector('.buttonMenue'));
+
+        function toggleDropdown(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+		
+	  function checkAnswers() {
+            const form = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+            let score = 0;
+            let incorrectQuestions = [];
+
+            // Richtige Antworten
+            const answers = {
+                Frage1: '1',
+                Frage2: '2',
+                Frage3: '3',
+                Frage4: '4',
+                Frage5: '5',
+                Frage6: '6',
+                Frage7: '7',
+                Frage8: '8',
+                Frage9: '9',
+                Frage10: '10'
+            };
+
+            // Überprüfe jede Frage
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                const selectedOption = form.querySelector(`input[name="${question}"]:checked`);
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    score++;
+                } else {
+                    incorrectQuestions.push(question);
+                }
+            }
+
+            // Prüfe, ob alle Fragen richtig beantwortet wurden
+            if (score === Object.keys(answers).length) {
+                // Seite "loesung.html" in den Inhaltbereich laden
+                loadPage('bib_einheit1', null);
+            } else {
+                // Zeige Ergebnisse und falsche Fragen
+                let resultText = `Du hast ${score} von ${Object.keys(answers).length} Frage(n) richtig beantwortet.`;
+                if (incorrectQuestions.length > 0) {
+                    resultText += `\nFalsch beantwortete Fragen: ${incorrectQuestions.join(', ')}`;
+                }
+                resultDiv.textContent = resultText;
+            }
+        }
+    </script>
     </body>
 </html>
