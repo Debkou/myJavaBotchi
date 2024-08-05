@@ -34,6 +34,12 @@ export default defineConfig({
                 flyer: "./flyer_party.html",
                 bibHome: "./bib_home.html",
                 bibTer: "./bib_terminal.html",
+                bibEins: "./bib_einheit1.html",
+                bibZwei: "./bib_einheit2.html",
+                bibDrei: "./bib_einheit3.html",
+                bibVier: "./bib_einheit4.html",
+                bibEinleitung: "./bib_einleitung.html",
+                bibTest1: "./einheit1_test.html",
               
                 ...getMapsScripts(maps),
             },
