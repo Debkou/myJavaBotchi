@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="bilder/favicon_javabotchi.png">
+    <script src="https://play.workadventu.re/iframe_api.js"></script>
+    <script type="module" src="https://github.com/Debkou/myJavaBotchi/blob/master/src/main.ts"></script>
+    <title>JavaBotchi - Flyer Informatiker-Party</title>
    
-	<link rel="icon" type="image/png" sizes="16x16" href="bilder/favicon_javabotchi.png">
-	<script src="https://play.workadventu.re/iframe_api.js"></script>
-     <script type="module" src="https://github.com/Debkou/myJavaBotchi/blob/master/src/main.ts"></script>
-	<title>JavaBotchi - Flyer Informatiker-Party</title>
-      <script type="module" crossorigin src="./assets/modulepreload-polyfill-3cfb730f.js"></script>
-      <link rel="stylesheet" href="./assets/stylesheet-3670f2e8.css">
-    </head>
+  <script type="module" crossorigin src="./assets/modulepreload-polyfill-3cfb730f.js"></script>
+  <link rel="stylesheet" href="./assets/stylesheet-3670f2e8.css">
+</head>
+<body class="gelb flex justify-center align-center">
+    <div class="content-center flex flex-column align-center">
+        <img alt="Flyer für die Informatiker-Party" src="./assets/flyer_party-32c66dcb.png" style="width: 30%; margin-top: 3em;">
+        <button class="buttonMenue" onclick="openPopup()">Mehr Erfahren</button>
+    </div>
 
-    <body class="gelb flex justify-center align-center">
-		
-		<img alt="Flyer für die Informatiker-Party" src="./assets/flyer_party-32c66dcb.png" style=" width: 30%; margin-top: 3em; margin-bottom: 3em;">
-    
-    
-    </body>
+    <div id="popup" class="popup">
+        <span class="close-btn" onclick="closePopup()">X</span>
+        <div class="content">
+            <p>Hier steht der Text mit mehr Informationen über die Informatiker-Party.</p>
+        </div>
+    </div>
+    <div id="popupOverlay" class="popup-overlay" onclick="closePopup()"></div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+    </script>
+</body>
 </html>
