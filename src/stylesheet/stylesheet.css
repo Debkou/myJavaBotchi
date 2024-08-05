@@ -92,6 +92,41 @@ h2 {
 h3 {
   font-size: 1.75em;
 }
+
+ul li{
+  font-family: 'Museo', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+ol{
+  font-family: 'Museo', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+label{
+	font-family: 'Museo', sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/*Links*/
+a {
+  text-decoration: none;
+  font-family: 'Museo', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color:#000000;
+}
+
+a:hover{
+	color:#BE006E;
+}
+
 /*Buttons*/
 .buttonMenue {
   font-family: 'Pokemon', serif;
@@ -101,7 +136,7 @@ h3 {
   margin-left: 0.75em;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
-  padding: 0.4em;
+  padding: 1.4em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   text-align: center;
@@ -111,11 +146,22 @@ h3 {
   border: 4px solid #000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   background-color: #4a76a8;
+  border-color:#BE006E;
+  cursor: pointer;
 }
-/*Links*/
-a {
-  text-decoration: none;
+
+.buttonMenue:active{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  background-color: #4a76a8;
+  border-color:#BE006E;
 }
+
+.buttonMenue.selected {
+  border: 4px solid #BE006E;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  background-color: #4a76a8;
+}
+
 /*Display Ausrichtung*/
 .flex {
   display: flex;
@@ -157,3 +203,34 @@ a {
 	padding-left: 100px;
 	padding-right: 100px;
 }
+/*Bib Einleitung*/
+      .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown-content {
+            display: none;
+            margin-top: 10px;
+            padding: 50px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .dropdown-btn {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+			font-family: 'Pokemon', serif;
+			
+        }
+        .dropdown-btn:focus {
+            outline: none;
+        }
+/*Bib Test*/
+    .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
