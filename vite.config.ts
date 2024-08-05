@@ -33,6 +33,7 @@ export default defineConfig({
                 pageOne: "./page1.html",
                 flyer: "./flyer_party.html",
                 bibHome: "./bib_home.html",
+                bibTer: "./bib_terminal.html",
               
                 ...getMapsScripts(maps),
             },
