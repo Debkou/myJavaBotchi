@@ -13,6 +13,11 @@
         }
         #content {
             padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        .buttonMenue.selected {
+            background-color: #d3d3d3;
         }
     </style>
 </head>
@@ -46,7 +51,9 @@
                     buttons.forEach(btn => btn.classList.remove('selected'));
 
                     // Fügt die 'selected'-Klasse zum angeklickten Button hinzu
-                    button.classList.add('selected');
+                    if (button) {
+                        button.classList.add('selected');
+                    }
                 })
                 .catch(error => {
                     document.getElementById('content').innerHTML = '<h1>Fehler</h1><p>Die Seite konnte nicht geladen werden.</p>';
@@ -65,8 +72,8 @@
                 element.style.display = "none";
             }
         }
-		
-	  function checkAnswers() {
+
+        function checkAnswers() {
             const form = document.getElementById('quizForm');
             const resultDiv = document.getElementById('result');
             let score = 0;
@@ -98,8 +105,8 @@
 
             // Prüfe, ob alle Fragen richtig beantwortet wurden
             if (score === Object.keys(answers).length) {
-                // Seite "loesung.html" in den Inhaltbereich laden
-                loadPage('test1_loesung', null);
+                // Seite "bib_einheit1.html" in den Inhaltbereich laden
+                loadPage('test1_loesung', document.querySelector(`button[onclick*="bib_einheit1"]`));
             } else {
                 // Zeige Ergebnisse und falsche Fragen
                 let resultText = `Du hast ${score} von ${Object.keys(answers).length} Frage(n) richtig beantwortet.`;
