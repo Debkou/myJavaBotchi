@@ -1,9 +1,8 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
-console.log('Script started successfully');
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
-// Import von ActionMessage entfernt, da es nicht verwendet wird
+
+console.log('Script started successfully');
 
 let currentPopup: any = undefined;
 
@@ -14,7 +13,6 @@ function closePopup() {
         currentPopup = undefined;
     }
 }
-
 
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
@@ -31,7 +29,6 @@ WA.onInit().then(() => {
 
     WA.room.onEnterLayer("terminalAktion").subscribe(async () => {
         console.log("Entering terminalAktion layer");
-
         WA.ui.modal.openModal({
             title: "Hauptmenue",
             src: './menue.html',
@@ -43,7 +40,6 @@ WA.onInit().then(() => {
 
     WA.room.onEnterLayer("buecherAktion").subscribe(async () => {
         console.log("Entering buecherAktion layer");
-
         WA.ui.modal.openModal({
             title: "Bibliothek",
             src: './bibliothek.html',
@@ -55,17 +51,15 @@ WA.onInit().then(() => {
 
     WA.room.onEnterLayer("aktionFlyer").subscribe(async () => {
         console.log("Entering aktionFlyer layer");
-
         WA.room.showLayer('magentaFlyer');
     });
 
     WA.room.onLeaveLayer("aktionFlyer").subscribe(async () => {
         console.log("Leaving aktionFlyer layer");
-
         WA.room.hideLayer('magentaFlyer');
     });
-    
-   WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
+
+    WA.room.area.onEnter("feldTasteFlyer").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um den Flyer zu sehen",
             callback: () => {
@@ -82,8 +76,9 @@ WA.onInit().then(() => {
         WA.room.area.onLeave("feldTasteFlyer").subscribe(() => {
             triggerMessage.remove();
         });
-    }); 
-     WA.room.area.onEnter("feldTasteApi").subscribe(() => {
+    });
+
+    WA.room.area.onEnter("feldTasteApi").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Oracle Java API zu öffnen",
             callback: () => {
@@ -102,7 +97,7 @@ WA.onInit().then(() => {
         });
     });
 
-       WA.room.area.onEnter("feldTasteHin").subscribe(() => {
+    WA.room.area.onEnter("feldTasteHin").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Hinweise zu öffnen",
             callback: () => {
@@ -121,7 +116,7 @@ WA.onInit().then(() => {
         });
     });
 
-        WA.room.area.onEnter("feldTastePong").subscribe(() => {
+    WA.room.area.onEnter("feldTastePong").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um PingPong zu spielen",
             callback: () => {
@@ -140,13 +135,13 @@ WA.onInit().then(() => {
         });
     });
 
-     WA.room.area.onEnter("feldAktionEingabe").subscribe(() => {
+    WA.room.area.onEnter("feldAktionEingabe").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Tür zu öffnen",
             callback: () => {
                 WA.ui.modal.openModal({
-                    title: "PingPong",
-                    src: 'eingabeTest',
+                    title: "Passwort Eingabe",
+                    src: './eingabeTest.html', // Dein HTML-Dokument
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
@@ -159,8 +154,17 @@ WA.onInit().then(() => {
         });
     });
 
-    // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
-    // die eine Reihe von erweiterten Eigenschaften/Funktionen für WorkAdventure hinzufügt
+    // Empfange Nachrichten von der HTML-Seite
+    window.addEventListener('message', (event) => {
+        if (event.data.type === 'SHOW_LAYER') {
+            const layer = event.data.layer;
+            if (layer) {
+                WA.room.showLayer(layer);
+            }
+        }
+    });
+
+    // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
     }).catch(e => console.error(e));
