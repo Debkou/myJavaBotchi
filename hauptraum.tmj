@@ -607,7 +607,7 @@
          "name":"magentaFlyer",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":30,
          "x":0,
          "y":0
@@ -2125,6 +2125,17 @@
                  "width":170.666666666667,
                  "x":268,
                  "y":490.666666666667
+                }, 
+                {
+                 "height":34,
+                 "id":9,
+                 "name":"feldAktionEingabe",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":32,
+                 "x":768.666666666667,
+                 "y":93.3333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2255,7 +2266,7 @@
          "y":0
         }],
  "nextlayerid":43,
- "nextobjectid":9,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "properties":[
         {
