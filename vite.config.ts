@@ -41,6 +41,7 @@ export default defineConfig({
                 bibEinleitung: "./bib_einleitung.html",
                 bibTest1: "./einheit1_test.html",
                 test1Loesung: "./test1_loesung.html",
+                eingabeTest1: "./eingabeTest.html",
               
                 ...getMapsScripts(maps),
             },
