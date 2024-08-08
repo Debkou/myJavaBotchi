@@ -156,10 +156,11 @@ WA.onInit().then(() => {
 
     // Empfange Nachrichten von der HTML-Seite
     window.addEventListener('message', (event) => {
-        if (event.data.type === 'SHOW_LAYER') {
-            const layer = event.data.layer;
-            if (layer) {
-                WA.room.showLayer(layer);
+        if (event.data.type === 'SET_PROPERTY') {
+            const { property, value } = event.data;
+            if (property && value) {
+                WA.room.setProperty(property, 'exitSceneUrl', value);
+                console.log(`Property ${property} set to ${value}`);
             }
         }
     });
