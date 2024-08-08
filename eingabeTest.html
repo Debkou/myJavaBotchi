@@ -3,13 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
-    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
     <title>JavaBotchi - Eingabe - Party</title>
-  
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
 </head>
-<body class="gelb flex align-center justify-center">
-    <div style="text-align: center">
+<body>
+    <div class="container">
         <h1>Passwort für die Informatiker-Party</h1>
         <p>Bitte gib das Passwort für die Informatiker-Party ein, um an der Veranstaltung teilzunehmen!</p>
         <input type="text" id="eingabe" placeholder="Passwort">
@@ -18,27 +36,34 @@
     </div>
 
     <script>
-        // Definiere den Namen hier
-        const name = 'einstieg'; // Dieser Wert kann direkt in der HTML-Datei geändert werden
-
         async function checkInput() {
             const eingabe = document.getElementById('eingabe').value.trim();
             const ergebnis = document.getElementById('ergebnis');
+            const name = 'einstieg'; // Der Name, der in der API verwendet wird
 
-            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=${encodeURIComponent(name)}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ eingabe })
-            });
+            try {
+                const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=${encodeURIComponent(name)}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ eingabe })
+                });
 
-            const data = await response.json();
-            if (data.result === 'Korrekt!') {
-                ergebnis.textContent = data.result;
-                ergebnis.className = 'correct';
-            } else {
-                ergebnis.textContent = data.result;
+                const data = await response.json();
+                if (data.result === 'Korrekt!') {
+                    ergebnis.textContent = data.result;
+                    ergebnis.className = 'correct';
+                    
+                    // Sende Nachricht an das WorkAdventure-Skript, um die Ebene zu zeigen
+                    window.parent.postMessage({ type: 'SHOW_LAYER', layer: 'exitLevel1' }, '*');
+                } else {
+                    ergebnis.textContent = data.result;
+                    ergebnis.className = 'incorrect';
+                }
+            } catch (error) {
+                console.error('Fehler bei der API-Anfrage:', error);
+                ergebnis.textContent = 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.';
                 ergebnis.className = 'incorrect';
             }
         }
