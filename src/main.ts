@@ -140,6 +140,25 @@ WA.onInit().then(() => {
         });
     });
 
+     WA.room.area.onEnter("feldAktionEingabe").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um die Tür zu öffnen",
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "PingPong",
+                    src: 'eingabeTest',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.area.onLeave("feldAktionEingabe").subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+
     // Die folgende Zeile initialisiert die Scripting API Extra-Bibliothek, 
     // die eine Reihe von erweiterten Eigenschaften/Funktionen für WorkAdventure hinzufügt
     bootstrapExtra().then(() => {
