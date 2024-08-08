@@ -31,7 +31,7 @@ body {
 }
 img {
   max-width: 100%;
-	height: auto;
+  height: auto;
 }
 /* Farben */
 .dBlau {
@@ -70,8 +70,8 @@ img {
 .weiss-font {
   color: #FFFFFF;
 }
-.magenta-font{
-	color:#BE006E;
+.magenta-font {
+  color: #BE006E;
 }
 /* Schriften */
 h1, h2, h3 {
@@ -92,27 +92,24 @@ h2 {
 h3 {
   font-size: 1.75em;
 }
-
-ul li{
+ul li {
   font-family: 'Museo', sans-serif;
   font-weight: 300;
   font-size: 1.5rem;
   line-height: 1.5;
 }
-ol{
+ol {
   font-family: 'Museo', sans-serif;
   font-weight: 300;
   font-size: 1.5rem;
   line-height: 1.5;
 }
-
-label{
-	font-family: 'Museo', sans-serif;
+label {
+  font-family: 'Museo', sans-serif;
   font-weight: 300;
   font-size: 1.1rem;
   line-height: 1.5;
 }
-
 /*Links*/
 a {
   text-decoration: none;
@@ -120,13 +117,11 @@ a {
   font-weight: 300;
   font-size: 1.5rem;
   line-height: 1.5;
-  color:#000000;
+  color: #000000;
 }
-
-a:hover{
-	color:#BE006E;
+a:hover {
+  color: #BE006E;
 }
-
 /*Buttons*/
 .buttonMenue {
   font-family: 'Pokemon', serif;
@@ -146,22 +141,19 @@ a:hover{
   border: 4px solid #000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   background-color: #4a76a8;
-  border-color:#BE006E;
+  border-color: #BE006E;
   cursor: pointer;
 }
-
-.buttonMenue:active{
+.buttonMenue:active {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   background-color: #4a76a8;
-  border-color:#BE006E;
+  border-color: #BE006E;
 }
-
 .buttonMenue.selected {
   border: 4px solid #BE006E;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   background-color: #4a76a8;
 }
-
 /*Display Ausrichtung*/
 .flex {
   display: flex;
@@ -178,93 +170,102 @@ a:hover{
 .justifiy-end {
   justify-content: flex-end;
 }
-.justify-center{
-	justify-content: center;
+.justify-center {
+  justify-content: center;
 }
-.align-center{
-	align-items: center;
+.align-center {
+  align-items: center;
 }
 /*Bibliothek style*/
 #sidebar {
   padding: 10px;
   border-right: 1px solid #ddd;
 }
-
 #content {
   flex-grow: 1;
   padding: 20px;
-  height: 500px; 
+  height: 500px;
   overflow-y: auto;
 }
-
-.homeContent{
-	margin-top: 50px;
-	margin-bottom: 50px;
-	padding-left: 100px;
-	padding-right: 100px;
+.homeContent {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 /*Bib Einleitung*/
-      .dropdown {
-            margin-bottom: 20px;
-        }
-        .dropdown-content {
-            display: none;
-            margin-top: 10px;
-            padding: 50px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-        }
-        .dropdown-btn {
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            text-align: center;
-			font-family: 'Pokemon', serif;
-			
-        }
-        .dropdown-btn:focus {
-            outline: none;
-        }
+.dropdown {
+  margin-bottom: 20px;
+}
+.dropdown-content {
+  display: none;
+  margin-top: 10px;
+  padding: 50px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+.dropdown-btn {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  font-family: 'Pokemon', serif;
+}
+.dropdown-btn:focus {
+  outline: none;
+}
 /*Bib Test*/
-    .question {
-            margin-bottom: 20px;
-        }
-        .result {
-            margin-top: 20px;
-            font-weight: bold;
-        }
+.question {
+  margin-bottom: 20px;
+}
+.result {
+  margin-top: 20px;
+  font-weight: bold;
+}
 /*Flyer Popup*/
-    .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            padding: 20px;
-            background-color: #FFFFFF;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-        .popup .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 1.5em;
-            color: #333;
-        }
-        .popup .content {
-            margin-top: 20px;
-        }
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 20px;
+  background-color: #f1d992;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+.popup .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #333;
+}
+.popup .content {
+  margin-top: 20px;
+}
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+/*Eingabe Hauptraum*/
+#result {
+  margin-top: 20px;
+}
+.correct {
+  color: green;
+  font-weight: bold;
+}
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
