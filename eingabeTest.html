@@ -55,8 +55,12 @@
                     ergebnis.textContent = data.result;
                     ergebnis.className = 'correct';
                     
-                    // Sende Nachricht an das WorkAdventure-Skript, um die Ebene zu zeigen
-                    window.parent.postMessage({ type: 'SHOW_LAYER', layer: 'exitLevel1' }, '*');
+                    // Sende Nachricht an das WorkAdventure-Skript, um die Eigenschaft zu setzen
+                    window.parent.postMessage({
+                        type: 'SET_PROPERTY',
+                        property: 'exitLevel1',
+                        value: 'office.tmj'
+                    }, '*');
                 } else {
                     ergebnis.textContent = data.result;
                     ergebnis.className = 'incorrect';
