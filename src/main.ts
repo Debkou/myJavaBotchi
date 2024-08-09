@@ -154,22 +154,7 @@ WA.onInit().then(() => {
         });
     });
 
-    // Empfange Nachrichten von der HTML-Seite
-    window.addEventListener('message', (event) => {
-        if (event.data.type === 'CORRECT_PASSWORD') {
-            // Setze die URL für das nächste Level, wenn die Nachricht empfangen wird
-            WA.room.setProperty("exitLevel1", "exitSceneUrl", "office.tmj");
-            console.log('Password correct. Setting exitLevel1 to office.tmj');
-        }
 
-        if (event.data.type === 'SET_PROPERTY') {
-            const { property, value } = event.data;
-            if (property && value) {
-                WA.room.setProperty(property, 'exitSceneUrl', value);
-                console.log(`Property ${property} set to ${value}`);
-            }
-        }
-    });
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
