@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
     <link rel="stylesheet" href="stylesheet/stylesheet.css">
-     <script type="module" src="src/main.ts"></script>
     <title>JavaBotchi - Eingabe - Party</title>
 </head>
 <body class="gelb flex align-center justify-center">
@@ -13,38 +12,52 @@
         <h1>Passwort für die Informatiker-Party</h1>
         <p>Bitte gib das Passwort für die Informatiker-Party ein, um an der Veranstaltung teilzunehmen!</p>
         <input type="text" id="eingabe" placeholder="Passwort">
-        <button onclick="checkInput()">Überprüfen</button>
+        <button id="checkButton">Überprüfen</button>
         <div id="ergebnis"></div>
     </div>
 
-    <script>
-        // Definiere den Namen hier
-        const name = 'einstieg'; // Dieser Wert kann direkt in der HTML-Datei geändert werden
+    <!-- Importiere WorkAdventure API Typen -->
+    <script type="module">
+        import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
-        async function checkInput() {
-            const eingabe = document.getElementById('eingabe').value.trim();
-            const ergebnis = document.getElementById('ergebnis');
+        // Initialisiere die WorkAdventure API
+        WA.onInit().then(() => {
+            console.log('Scripting API ready');
 
-            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=${encodeURIComponent(name)}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ eingabe })
-            });
+            // Bootstrap die zusätzliche API-Funktionalität
+            bootstrapExtra().then(() => {
+                console.log('Scripting API Extra ready');
 
-            const data = await response.json();
-            if (data.result === 'Korrekt!') {
-                ergebnis.textContent = data.result;
-                ergebnis.className = 'correct';
+                // Füge Event-Listener zum Button hinzu
+                const checkButton = document.getElementById("checkButton");
+                checkButton.addEventListener("click", async () => {
+                    const eingabe = document.getElementById('eingabe').value.trim();
+                    const ergebnis = document.getElementById('ergebnis');
 
-                // Sende eine Nachricht an das übergeordnete Skript
-                window.parent.postMessage({ type: 'CORRECT_PASSWORD' }, '*');
-            } else {
-                ergebnis.textContent = data.result;
-                ergebnis.className = 'incorrect';
-            }
-        }
+                    // Sende das Passwort zur Überprüfung an den Server
+                    const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=einstieg`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ eingabe })
+                    });
+
+                    const data = await response.json();
+                    if (data.result === 'Korrekt!') {
+                        ergebnis.textContent = data.result;
+                        ergebnis.className = 'correct';
+
+                        // Setze die URL für das nächste Level
+                        WA.room.setProperty("exitLevel1", "exitSceneUrl", "office.tmj");
+                        console.log('Password correct. Setting exitLevel1 to office.tmj');
+                    } else {
+                        ergebnis.textContent = data.result;
+                        ergebnis.className = 'incorrect';
+                    }
+                });
+            }).catch(e => console.error('Error bootstrapping extra:', e));
+        }).catch(e => console.error('Error initializing WorkAdventure API:', e));
     </script>
 </body>
 </html>
