@@ -64,7 +64,7 @@ WA.onInit().then(() => {
             message: "Drücke 'SPACE' um den Flyer zu sehen",
             callback: () => {
                 WA.ui.modal.openModal({
-                    title: "Bibliothek",
+                    title: "Flyer",
                     src: './flyer_party.html',
                     allow: "fullscreen",
                     allowApi: true,
@@ -83,7 +83,7 @@ WA.onInit().then(() => {
             message: "Drücke 'SPACE' um die Oracle Java API zu öffnen",
             callback: () => {
                 WA.ui.modal.openModal({
-                    title: "Bibliothek",
+                    title: "Oracle Java API",
                     src: 'https://docs.oracle.com/en/java/javase/11/docs/api/',
                     allow: "fullscreen",
                     allowApi: true,
@@ -103,7 +103,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.openModal({
                     title: "Hinweis",
-                    src: 'https://docs.oracle.com/en/java/javase/11/docs/api/',
+                    src: './hinweise.html',
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
@@ -156,6 +156,12 @@ WA.onInit().then(() => {
 
     // Empfange Nachrichten von der HTML-Seite
     window.addEventListener('message', (event) => {
+        if (event.data.type === 'CORRECT_PASSWORD') {
+            // Setze die URL für das nächste Level, wenn die Nachricht empfangen wird
+            WA.room.setProperty("exitLevel1", "exitSceneUrl", "office.tmj");
+            console.log('Password correct. Setting exitLevel1 to office.tmj');
+        }
+
         if (event.data.type === 'SET_PROPERTY') {
             const { property, value } = event.data;
             if (property && value) {
