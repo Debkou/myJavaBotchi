@@ -213,7 +213,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.openModal({
                     title: "Hinweis anzeigen",
-                    src: './hinweisHR.html', // Dein HTML-Dokument
+                    src: './hinweis1.html', // Dein HTML-Dokument
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
