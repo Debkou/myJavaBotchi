@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
-    <link rel="stylesheet" href="stylesheet/stylesheet.css">
+    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
     <title>JavaBotchi - Eingabe - Party</title>
-  
 </head>
 <body class="gelb flex align-center justify-center">
     <div style="text-align: center">
         <h1>Passwort für die Informatiker-Party</h1>
         <p>Bitte gib das Passwort für die Informatiker-Party ein, um an der Veranstaltung teilzunehmen!</p>
-        <input type="text" id="eingabe" placeholder="Passwort">
+        <input type="password" id="eingabe" placeholder="Passwort">
         <button onclick="checkInput()">Überprüfen</button>
         <div id="ergebnis"></div>
     </div>
@@ -25,21 +24,32 @@
             const eingabe = document.getElementById('eingabe').value.trim();
             const ergebnis = document.getElementById('ergebnis');
 
-            const response = await fetch(https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=${encodeURIComponent(name)}, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ eingabe })
-            });
+            try {
+                const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=${encodeURIComponent(name)}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ eingabe })
+                });
 
-            const data = await response.json();
-            if (data.result === 'Korrekt!') {
-                ergebnis.textContent = data.result;
-                ergebnis.className = 'correct';
-            } else {
-                ergebnis.textContent = data.result;
-                ergebnis.className = 'incorrect';
+                if (!response.ok) {
+                    throw new Error('Netzwerkantwort war nicht ok.');
+                }
+
+                const data = await response.json();
+
+                if (data.result === 'Korrekt!') {
+                    ergebnis.textContent = data.result;
+                    ergebnis.className = 'correct';
+                } else {
+                    ergebnis.textContent = data.result;
+                    ergebnis.className = 'incorrect';
+                }
+            } catch (error) {
+                ergebnis.textContent = 'Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.';
+                ergebnis.className = 'error';
+                console.error('Es gab ein Problem mit der Anfrage:', error);
             }
         }
     </script>
