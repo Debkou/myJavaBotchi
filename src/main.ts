@@ -97,13 +97,13 @@ WA.onInit().then(() => {
         });
     });
 
-    WA.room.area.onEnter("feldTasteHin").subscribe(() => {
+      WA.room.area.onEnter("feldTasteHin").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Hinweise zu öffnen",
             callback: () => {
                 WA.ui.modal.openModal({
-                    title: "Hinweis",
-                    src: './hinweise.html',
+                    title: "Hinweis anzeigen",
+                    src: './hinweis1.html', // Dein HTML-Dokument
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
@@ -115,7 +115,7 @@ WA.onInit().then(() => {
             triggerMessage.remove();
         });
     });
-
+    
     WA.room.area.onEnter("feldTastePong").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um PingPong zu spielen",
@@ -207,24 +207,7 @@ WA.onInit().then(() => {
         }
     });
 
-        WA.room.area.onEnter("feldTasteHin").subscribe(() => {
-        const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um die Hinweise zu öffnen",
-            callback: () => {
-                WA.ui.modal.openModal({
-                    title: "Hinweis anzeigen",
-                    src: './hinweis1.html', // Dein HTML-Dokument
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
-            }
-        });
-
-        WA.room.area.onLeave("feldTasteHin").subscribe(() => {
-            triggerMessage.remove();
-        });
-    });
+   
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
