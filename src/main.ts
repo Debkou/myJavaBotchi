@@ -154,7 +154,45 @@ WA.onInit().then(() => {
         });
     });
 
+    // Hier kommt die Logik für die Passwortüberprüfung und das Einblenden der Ebene
+    const eingabeElement = document.getElementById("eingabe") as HTMLInputElement;
+    const submitButton = document.getElementById("submitButton") as HTMLButtonElement;
+    const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
+    submitButton.addEventListener("click", async () => {
+        const eingabe = eingabeElement.value.trim();
+
+        try {
+            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=einstieg`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ eingabe })
+            });
+
+            if (!response.ok) {
+                throw new Error('Netzwerkantwort war nicht ok.');
+            }
+
+            const data = await response.json();
+
+            if (data.result === 'Korrekt!') {
+                ergebnisElement.textContent = data.result;
+                ergebnisElement.className = 'correct';
+
+                // Ebene aktionLevel1 einblenden
+                WA.room.showLayer('aktionLevel1');
+            } else {
+                ergebnisElement.textContent = data.result;
+                ergebnisElement.className = 'incorrect';
+            }
+        } catch (error) {
+            ergebnisElement.textContent = 'Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.';
+            ergebnisElement.className = 'error';
+            console.error('Es gab ein Problem mit der Anfrage:', error);
+        }
+    });
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
