@@ -122,7 +122,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.openModal({
                     title: "PingPong",
-                    src: 'http://de.pong-2.com/',
+                    src: 'https://www.1001spiele.de/arcade/atari-pong',
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
