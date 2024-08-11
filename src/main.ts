@@ -207,6 +207,25 @@ WA.onInit().then(() => {
         }
     });
 
+        WA.room.area.onEnter("feldTasteHin").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um die Tür zu öffnen",
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "Hinweis anzeigen",
+                    src: './hinweisHR.html', // Dein HTML-Dokument
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.area.onLeave("feldTasteHin").subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
