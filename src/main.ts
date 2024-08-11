@@ -159,7 +159,8 @@ WA.onInit().then(() => {
     const submitButton = document.getElementById("submitButton") as HTMLButtonElement;
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
-    submitButton.addEventListener("click", async () => {
+    // Funktion zur Überprüfung des Passworts
+    async function ueberpruefePasswort() {
         const eingabe = eingabeElement.value.trim();
 
         try {
@@ -193,6 +194,16 @@ WA.onInit().then(() => {
             ergebnisElement.textContent = 'Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.';
             ergebnisElement.className = 'error';
             console.error('Es gab ein Problem mit der Anfrage:', error);
+        }
+    }
+
+    // Event-Listener für den Button
+    submitButton.addEventListener("click", ueberpruefePasswort);
+
+    // Event-Listener für die Enter-Taste
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            ueberpruefePasswort();
         }
     });
 
