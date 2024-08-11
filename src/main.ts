@@ -183,7 +183,7 @@ WA.onInit().then(() => {
 
                 // Ebene aktionLevel1 einblenden
                 WA.room.setProperty("exitLevel1", "exitSceneUrl", "office.tmj");
-                WA.ui.closeModal();
+            
             } else {
                 ergebnisElement.textContent = data.result;
                 ergebnisElement.className = 'incorrect';
