@@ -4,7 +4,12 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-function aktionsFeld(areaName, messageText, menuTitle, menuSrc) {
+function aktionsFeld(
+    areaName: string,
+    messageText: string,
+    menuTitle: string,
+    menuSrc: string
+): void {
     WA.room.area.onEnter(areaName).subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: messageText,
