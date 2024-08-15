@@ -176,6 +176,9 @@ a:hover {
 .align-center {
   align-items: center;
 }
+.text-align{
+  text-align: center;
+}
 /*Bibliothek style*/
 #sidebar {
   padding: 10px;
@@ -268,4 +271,37 @@ a:hover {
 .incorrect {
   color: red;
   font-weight: bold;
+}
+/*Level Eins*/
+     #textContainer {
+            width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+			background-color: white;
+        }
+
+        .arrow {
+            cursor: pointer;
+            margin: 0 10px;
+			color: #FFFFFF;
+			background-color: #39659F;
+			padding: 10px;
+        }
+
+        #noteTextArea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+#arrowContainer{
+	    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#eingabefenster{
+	width: 400px;
+    height: 100px;
 }
