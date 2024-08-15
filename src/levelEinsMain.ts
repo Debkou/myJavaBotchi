@@ -10,6 +10,14 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
+   WA.ui.modal.openModal({
+                    title: "Licht Eingabe",
+                    src: './levelEinsLicht.html',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+    });
+
    WA.room.area.onEnter("areaAktionTerminal").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um das Hauptmenü zu öffnen",
@@ -29,24 +37,6 @@ WA.onInit().then(() => {
         });
     });
 
-       WA.room.area.onEnter("areaAktionLicht").subscribe(() => {
-        const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um das Fenster zu öffnen",
-            callback: () => {
-                WA.ui.modal.openModal({
-                    title: "Licht Eingabe",
-                    src: './levelEinsLicht.html',
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
-            }
-        });
-
-        WA.room.area.onLeave("areaAktionLicht").subscribe(() => {
-            triggerMessage.remove();
-        });
-    });
 
 
     // Funktion zur Überprüfung des Passworts
