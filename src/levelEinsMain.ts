@@ -46,7 +46,7 @@ WA.onInit().then(() => {
         const ergebnisElement = document.getElementById("textContainer") as HTMLElement;
 
         try {
-            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LichtAn`, {
+            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LichttAn`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
