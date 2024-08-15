@@ -36,10 +36,12 @@ WA.onInit().then(() => {
 
     // Funktion zur Überprüfung des Passworts
     async function ueberpruefePasswort() {
+        const eingabeElement = document.getElementById("eingabefenster") as HTMLTextAreaElement;
         const eingabe = eingabeElement.value.trim();
+        const ergebnisElement = document.getElementById("textContainer") as HTMLElement;
 
         try {
-            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=einstieg`, {
+            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LichtAn`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -54,34 +56,23 @@ WA.onInit().then(() => {
             const data = await response.json();
 
             if (data.result === 'Korrekt!') {
-                ergebnisElement.textContent = data.result;
-                ergebnisElement.className = 'correct';
+                ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
+                ergebnisElement.innerHTML += `<p>Das Licht geht an!</p>`;
 
-                // Ebene aktionLevel1 einblenden
-                WA.room.setProperty("exitLevel1", "exitSceneUrl", "office.tmj");
-                WA.ui.modal.closeModal();
-            
+                // Du kannst hier zusätzliche Aktionen ausführen, z. B. die API aufrufen, um die Szene zu ändern
+                // WA.room.setProperty("exitLevel1", "exitSceneUrl", "next_scene_url.tmj");
             } else {
-                ergebnisElement.textContent = data.result;
-                ergebnisElement.className = 'incorrect';
+                ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
             }
         } catch (error) {
-            ergebnisElement.textContent = 'Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.';
-            ergebnisElement.className = 'error';
+            ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.</p>`;
             console.error('Es gab ein Problem mit der Anfrage:', error);
         }
     }
 
-    // Event-Listener für den Button
-    submitButton.addEventListener("click", ueberpruefePasswort);
-
-    // Event-Listener für die Enter-Taste
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            ueberpruefePasswort();
-        }
-    });
-
+    // Event-Listener für den "Licht an" Button
+    const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
+    lichtButton.addEventListener("click", ueberpruefePasswort);
    
 
     // Initialisierung der Scripting API Extra-Bibliothek
