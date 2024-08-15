@@ -44,6 +44,7 @@ export default defineConfig({
                 eingabeTest1: "./eingabeTest.html",
                 hinweisHR: "./hinweis1.html",
                 licht: "./levelEinsLicht.html",
+                gitterTuer: "./levelEinsGitter.html",
               
                 ...getMapsScripts(maps),
             },
