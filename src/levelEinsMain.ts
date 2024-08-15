@@ -4,6 +4,26 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
+function aktionsFeld(areaName, messageText, menuTitle, menuSrc) {
+    WA.room.area.onEnter(areaName).subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: messageText,
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: menuTitle,
+                    src: menuSrc,
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.area.onLeave(areaName).subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+}
 
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
@@ -18,24 +38,7 @@ WA.onInit().then(() => {
                     position: "center",
     });
 
-   WA.room.area.onEnter("areaAktionTerminal").subscribe(() => {
-        const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um das Hauptmenü zu öffnen",
-            callback: () => {
-                WA.ui.modal.openModal({
-                    title: "Terminal",
-                    src: './menue.html',
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
-            }
-        });
-
-        WA.room.area.onLeave("areaAktionTerminal").subscribe(() => {
-            triggerMessage.remove();
-        });
-    });
+aktionsFeld("areaAktionTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html');
 
        WA.room.area.onEnter("areaAktionGitter").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
