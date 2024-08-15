@@ -43,6 +43,7 @@ export default defineConfig({
                 test1Loesung: "./test1_loesung.html",
                 eingabeTest1: "./eingabeTest.html",
                 hinweisHR: "./hinweis1.html",
+                licht: "./levelEinsLicht.html",
               
                 ...getMapsScripts(maps),
             },
