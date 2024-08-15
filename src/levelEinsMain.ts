@@ -37,6 +37,24 @@ WA.onInit().then(() => {
         });
     });
 
+       WA.room.area.onEnter("areaAktionGitter").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um die Tür zu öffnen",
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "Gittertür",
+                    src: './levelEinsGitter.html',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.area.onLeave("areaAktionGitter").subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
 
 
     // Funktion zur Überprüfung des Passworts
