@@ -1320,6 +1320,94 @@
                  "width":31.6666666666667,
                  "x":1472.33333333333,
                  "y":800.666666666667
+                }, 
+                {
+                 "height":32,
+                 "id":5,
+                 "name":"p1a",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":30.5,
+                 "x":1504.5,
+                 "y":895.5
+                }, 
+                {
+                 "height":32,
+                 "id":6,
+                 "name":"p1b",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":31.5,
+                 "x":1184.5,
+                 "y":832.5
+                }, 
+                {
+                 "height":31.5,
+                 "id":7,
+                 "name":"p2a",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":32,
+                 "x":1025,
+                 "y":960
+                }, 
+                {
+                 "height":31.5,
+                 "id":8,
+                 "name":"p2b",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":32,
+                 "x":1087.5,
+                 "y":832
+                }, 
+                {
+                 "height":31,
+                 "id":9,
+                 "name":"p3a",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":32,
+                 "x":1344.5,
+                 "y":831.5
+                }, 
+                {
+                 "height":31,
+                 "id":10,
+                 "name":"p3b",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":32.5,
+                 "x":1504,
+                 "y":960.5
+                }, 
+                {
+                 "height":29.5,
+                 "id":11,
+                 "name":"p4a",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":32,
+                 "x":1248,
+                 "y":962
+                }, 
+                {
+                 "height":32,
+                 "id":12,
+                 "name":"p4b",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":31,
+                 "x":1537,
+                 "y":832
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1816,7 +1904,7 @@
          "y":0
         }],
  "nextlayerid":31,
- "nextobjectid":5,
+ "nextobjectid":13,
  "orientation":"orthogonal",
  "properties":[
         {
