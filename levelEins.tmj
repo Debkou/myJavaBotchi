@@ -1248,6 +1248,17 @@
                  "width":29,
                  "x":129.5,
                  "y":608
+                }, 
+                {
+                 "height":31,
+                 "id":3,
+                 "name":"areaAktionLicht",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":30,
+                 "x":1441,
+                 "y":896
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1738,13 +1749,13 @@
          "name":"dunkel",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":50,
          "x":0,
          "y":0
         }],
  "nextlayerid":30,
- "nextobjectid":3,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "properties":[
         {
