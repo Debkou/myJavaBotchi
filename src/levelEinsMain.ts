@@ -65,6 +65,10 @@ WA.onInit().then(() => {
                 ergebnisElement.innerHTML += `<p>Das Licht geht an!</p>`;
 
                  WA.room.hideLayer('dunkel');
+                   // Nach einer kurzen Wartezeit das Modal schließen
+                setTimeout(() => {
+                    WA.ui.modal.closeModal();
+                }, 3000); // 2000 Millisekunden = 2 Sekunden
             } else {
                 ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
             }
