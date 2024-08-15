@@ -44,25 +44,15 @@ WA.onInit().then(() => {
     });
 
 aktionsFeld("areaAktionTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html');
-
-       WA.room.area.onEnter("areaAktionGitter").subscribe(() => {
-        const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um die Tür zu öffnen",
-            callback: () => {
-                WA.ui.modal.openModal({
-                    title: "Gittertür",
-                    src: './levelEinsGitter.html',
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
-            }
-        });
-
-        WA.room.area.onLeave("areaAktionGitter").subscribe(() => {
-            triggerMessage.remove();
-        });
-    });
+aktionsFeld("p1a", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt1a.html');
+aktionsFeld("p1b", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt1b.html');
+aktionsFeld("p2a", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt2a.html');
+aktionsFeld("p2b", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt2b.html');
+aktionsFeld("p3a", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt3a.html');
+aktionsFeld("p3b", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt3b.html');
+aktionsFeld("p4a", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt4a.html');
+aktionsFeld("p4b", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt4b.html');
+aktionsFeld("areaAktionGitter", "Drücke 'SPACE' um die Tür zu öffnen", "Gittertür", './levelEinsGitter.html');
 
 
     // Funktion zur Überprüfung des Passworts
