@@ -29,10 +29,6 @@ WA.onInit().then(() => {
         });
     });
 
-    // Hier kommt die Logik für die Passwortüberprüfung und das Einblenden der Ebene
-    const eingabeElement = document.getElementById("eingabe") as HTMLInputElement;
-    const submitButton = document.getElementById("submitButton") as HTMLButtonElement;
-    const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     // Funktion zur Überprüfung des Passworts
     async function ueberpruefePasswort() {
@@ -59,8 +55,7 @@ WA.onInit().then(() => {
                 ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
                 ergebnisElement.innerHTML += `<p>Das Licht geht an!</p>`;
 
-                // Du kannst hier zusätzliche Aktionen ausführen, z. B. die API aufrufen, um die Szene zu ändern
-                // WA.room.setProperty("exitLevel1", "exitSceneUrl", "next_scene_url.tmj");
+                 WA.room.hideLayer('dunkel');
             } else {
                 ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
             }
