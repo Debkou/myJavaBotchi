@@ -4,6 +4,9 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
+const gitterTuer = document.getElementById("gitterTuer") as HTMLButtonElement;
+const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
+
 function aktionsFeld(
     areaName: string,
     messageText: string,
@@ -61,7 +64,7 @@ async function ueberpruefeZahlenschloss() {
         ergebnisElement.innerHTML = `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Zahlenschlosses. Bitte versuche es später erneut.</p>`;
         console.error('Es gab ein Problem mit der Anfrage:', error);
     }
-}
+}    
 
 // Funktion zur Überprüfung des Passworts
 async function ueberpruefePasswort() {
@@ -104,10 +107,19 @@ async function ueberpruefePasswort() {
 
 
 
+
+
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
+
+     // Event-Listener für den "Gitter Tür" Button
+
+    gitterTuer.addEventListener("click", ueberpruefeZahlenschloss);
+  // Event-Listener für den "Licht an" Button
+
+    lichtButton.addEventListener("click", ueberpruefePasswort);
 
     WA.ui.modal.openModal({
         title: "Licht Eingabe",
@@ -128,13 +140,7 @@ WA.onInit().then(() => {
     aktionsFeld("p4b", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt4b.html');
     aktionsFeld("areaAktionGitter", "Drücke 'SPACE' um die Tür zu öffnen", "Gittertür", './levelEinsGitter.html');
 
-    // Event-Listener für den "Licht an" Button
-    const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
-    lichtButton.addEventListener("click", ueberpruefePasswort);
-
-    // Event-Listener für den "Gitter Tür" Button
-    const gitterTuer = document.getElementById("gitterTuer") as HTMLButtonElement;
-    gitterTuer.addEventListener("click", ueberpruefeZahlenschloss);
+  
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
