@@ -4,9 +4,6 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-const gitterTuer = document.getElementById("gitterTuer") as HTMLButtonElement;
-const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
-
 function aktionsFeld(
     areaName: string,
     messageText: string,
@@ -33,39 +30,6 @@ function aktionsFeld(
     });
 }
 
-// Funktion zur Überprüfung des Zahlenschlosses
-async function ueberpruefeZahlenschloss() {
-    const eingabeElement = document.getElementById("eingabeGitter") as HTMLInputElement;
-    const eingabe = eingabeElement.value.trim();
-    const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
-
-    try {
-        const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=zahlenschloss`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ eingabe })
-        });
-
-        if (!response.ok) {
-            throw new Error('Netzwerkantwort war nicht ok.');
-        }
-
-        const data = await response.json();
-
-        if (data.result === 'Korrekt!') {
-            ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-            // Weitere Logik, z.B. das Öffnen der Tür, könnte hier hinzugefügt werden
-        } else {
-            ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
-        }
-    } catch (error) {
-        ergebnisElement.innerHTML = `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Zahlenschlosses. Bitte versuche es später erneut.</p>`;
-        console.error('Es gab ein Problem mit der Anfrage:', error);
-    }
-}    
-
 // Funktion zur Überprüfung des Passworts
 async function ueberpruefePasswort() {
     const eingabeElement = document.getElementById("eingabefenster") as HTMLTextAreaElement;
@@ -73,7 +37,7 @@ async function ueberpruefePasswort() {
     const ergebnisElement = document.getElementById("textContainer") as HTMLElement;
 
     try {
-        const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LichttAn`, {
+        const response = await fetch(https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LichttAn, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -88,8 +52,8 @@ async function ueberpruefePasswort() {
         const data = await response.json();
 
         if (data.result === 'Korrekt!') {
-            ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
-            ergebnisElement.innerHTML += `<p>Das Licht geht an!</p>`;
+            ergebnisElement.innerHTML += <p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>;
+            ergebnisElement.innerHTML += <p>Das Licht geht an!</p>;
 
             WA.room.hideLayer('dunkel');
             // Nach einer kurzen Wartezeit das Modal schließen
@@ -97,29 +61,51 @@ async function ueberpruefePasswort() {
                 WA.ui.modal.closeModal();
             }, 3000); // 3000 Millisekunden = 3 Sekunden
         } else {
-            ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
+            ergebnisElement.innerHTML += <p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>;
         }
     } catch (error) {
-        ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.</p>`;
+        ergebnisElement.innerHTML += <p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.</p>;
         console.error('Es gab ein Problem mit der Anfrage:', error);
     }
 }
 
+// Funktion zur Überprüfung des Zahlenschlosses
+async function ueberpruefeZahlenschloss() {
+    const eingabeElement = document.getElementById("eingabeGitter") as HTMLInputElement;
+    const eingabe = eingabeElement.value.trim();
+    const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
+    try {
+        const response = await fetch(https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=zahlenschloss, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ eingabe })
+        });
 
+        if (!response.ok) {
+            throw new Error('Netzwerkantwort war nicht ok.');
+        }
 
+        const data = await response.json();
+
+        if (data.result === 'Korrekt!') {
+            ergebnisElement.innerHTML = <p style="color: green;">${data.result}</p>;
+            // Weitere Logik, z.B. das Öffnen der Tür, könnte hier hinzugefügt werden
+        } else {
+            ergebnisElement.innerHTML = <p style="color: red;">${data.result}</p>;
+        }
+    } catch (error) {
+        ergebnisElement.innerHTML = <p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Zahlenschlosses. Bitte versuche es später erneut.</p>;
+        console.error('Es gab ein Problem mit der Anfrage:', error);
+    }
+}
 
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
-
-     // Event-Listener für den "Gitter Tür" Button
-
-    gitterTuer.addEventListener("click", ueberpruefeZahlenschloss);
-  // Event-Listener für den "Licht an" Button
-
-    lichtButton.addEventListener("click", ueberpruefePasswort);
 
     WA.ui.modal.openModal({
         title: "Licht Eingabe",
@@ -140,7 +126,13 @@ WA.onInit().then(() => {
     aktionsFeld("p4b", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt4b.html');
     aktionsFeld("areaAktionGitter", "Drücke 'SPACE' um die Tür zu öffnen", "Gittertür", './levelEinsGitter.html');
 
-  
+    // Event-Listener für den "Licht an" Button
+    const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
+    lichtButton.addEventListener("click", ueberpruefePasswort);
+
+    // Event-Listener für den "Gitter Tür" Button
+    const gitterButton = document.getElementById("gitterTuer") as HTMLButtonElement;
+    gitterButton.addEventListener("click", ueberpruefeZahlenschloss);
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
