@@ -38,7 +38,8 @@ async function ueberpruefeZahlenschloss() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-            WA.state.statusGitterTuer = !WA.state.statusGitterTuer;
+            // Setze den Status der Gittertür auf false
+            WA.state.statusGitterTuer = false;
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
@@ -54,7 +55,7 @@ WA.onInit().then(() => {
 
     displayDoor(WA.state.statusGitterTuer);
 
-    // After load, we listen to variable change to display the correct door image.
+    // Überwache Änderungen des Türstatus
     WA.state.onVariableChange('statusGitterTuer').subscribe((statusGitterTuer) => {
         // Type assertion to ensure the value is a boolean
         displayDoor(statusGitterTuer as boolean);
