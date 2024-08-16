@@ -37,7 +37,7 @@ async function ueberpruefePasswort() {
     const ergebnisElement = document.getElementById("textContainer") as HTMLElement;
 
     try {
-        const response = await fetch(https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LichttAn, {
+        const response = await fetch('https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LichttAn', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,8 +52,8 @@ async function ueberpruefePasswort() {
         const data = await response.json();
 
         if (data.result === 'Korrekt!') {
-            ergebnisElement.innerHTML += <p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>;
-            ergebnisElement.innerHTML += <p>Das Licht geht an!</p>;
+            ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
+            ergebnisElement.innerHTML += `<p>Das Licht geht an!</p>`;
 
             WA.room.hideLayer('dunkel');
             // Nach einer kurzen Wartezeit das Modal schließen
@@ -61,10 +61,10 @@ async function ueberpruefePasswort() {
                 WA.ui.modal.closeModal();
             }, 3000); // 3000 Millisekunden = 3 Sekunden
         } else {
-            ergebnisElement.innerHTML += <p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>;
+            ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
         }
     } catch (error) {
-        ergebnisElement.innerHTML += <p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.</p>;
+        ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.</p>`;
         console.error('Es gab ein Problem mit der Anfrage:', error);
     }
 }
@@ -76,7 +76,7 @@ async function ueberpruefeZahlenschloss() {
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     try {
-        const response = await fetch(https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=zahlenschloss, {
+        const response = await fetch('https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=zahlenschloss', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -91,13 +91,13 @@ async function ueberpruefeZahlenschloss() {
         const data = await response.json();
 
         if (data.result === 'Korrekt!') {
-            ergebnisElement.innerHTML = <p style="color: green;">${data.result}</p>;
+            ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Weitere Logik, z.B. das Öffnen der Tür, könnte hier hinzugefügt werden
         } else {
-            ergebnisElement.innerHTML = <p style="color: red;">${data.result}</p>;
+            ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
     } catch (error) {
-        ergebnisElement.innerHTML = <p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Zahlenschlosses. Bitte versuche es später erneut.</p>;
+        ergebnisElement.innerHTML = `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Zahlenschlosses. Bitte versuche es später erneut.</p>`;
         console.error('Es gab ein Problem mit der Anfrage:', error);
     }
 }
