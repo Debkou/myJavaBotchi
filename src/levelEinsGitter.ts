@@ -4,17 +4,6 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-// Funktion zum Überprüfen des Gittertür-Status
-function displayDoor(state: boolean) { 
-    if (state === true) {
-        WA.room.showLayer('gitterTuerZu');
-        WA.room.hideLayer('gitterTuerAuf');
-    } else {
-        WA.room.hideLayer('gitterTuerZu');
-        WA.room.showLayer('gitterTuerAuf');
-    }
-}
-
 // Funktion zur Überprüfung des Zahlenschlosses
 async function ueberpruefeZahlenschloss() {
     const eingabeElement = document.getElementById("eingabeGitter") as HTMLInputElement;
@@ -49,6 +38,17 @@ async function ueberpruefeZahlenschloss() {
     }
 }
 
+// Funktion zum Überprüfen des Gittertür-Status
+function displayDoor(state: boolean) { 
+    if (state === true) {
+        WA.room.showLayer('gitterTuerZu');
+        WA.room.hideLayer('gitterTuerAuf');
+    } else {
+        WA.room.hideLayer('gitterTuerZu');
+        WA.room.showLayer('gitterTuerAuf');
+    }
+}
+
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
@@ -57,7 +57,7 @@ WA.onInit().then(() => {
 
     // Überwache Änderungen des Türstatus
     WA.state.onVariableChange('statusGitterTuer').subscribe((statusGitterTuer) => {
-        // Type assertion to ensure the value is a boolean
+        // Typ-Assertion um den Wert explizit in einen boolean zu konvertieren
         displayDoor(statusGitterTuer as boolean);
     });
     
