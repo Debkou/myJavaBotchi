@@ -44,6 +44,10 @@ async function ueberpruefeZahlenschloss() {
             // Ändere den Status der Gittertür
             gitterTuerStatus = false; // Die Tür ist nun geöffnet
             displayDoor(gitterTuerStatus); // Aktualisiere die Anzeige
+             WA.room.hideLayer('gitterSperre');
+                  setTimeout(() => {
+                WA.ui.modal.closeModal();
+            }, 3000); // 3000 Millisekunden = 3 Sekunden
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
