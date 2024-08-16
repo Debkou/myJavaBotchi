@@ -28,7 +28,7 @@ async function ueberpruefeZahlenschloss() {
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Weitere Logik, z.B. das Öffnen der Tür, könnte hier hinzugefügt werden
-            WA.room.hideLayer('oil');
+        
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
