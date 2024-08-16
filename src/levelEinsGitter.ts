@@ -4,6 +4,18 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
+//Funktion zum überprüfen des Gittertür-Status
+
+function displayDoor(state: boolean) { 
+    if (state === true) {
+        WA.room.showLayer('gitterTuerZu');
+        WA.room.hideLayer('gitterTuerAuf');
+    } else {
+        WA.room.hideLayer('gitterTuerZu');
+        WA.room.showLayer('gitterTuerAuf');
+    }
+}
+
 // Funktion zur Überprüfung des Zahlenschlosses
 async function ueberpruefeZahlenschloss() {
     const eingabeElement = document.getElementById("eingabeGitter") as HTMLInputElement;
@@ -28,7 +40,7 @@ async function ueberpruefeZahlenschloss() {
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Weitere Logik, z.B. das Öffnen der Tür, könnte hier hinzugefügt werden
-        
+        WA.state.statusGitterTuer = !WA.state.statusGitterTuer;
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
@@ -41,6 +53,14 @@ async function ueberpruefeZahlenschloss() {
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
+
+     displayDoor(WA.state.statusGitterTuer);
+
+    // After load, we listen to variable change to display the correct door image.
+    WA.state.onVariableChange('statusGitterTuer').subscribe((statusGitterTuer) => {
+        // Each time the "doorState" variable changes, we call the "displayDoor" function to update the door image visually.
+        displayDoor(statusGitterTuer as boolean);
+    });
     
     // Event-Listener für den "Gitter Tür" Button
     const gitterButton = document.getElementById("gitterTuer") as HTMLButtonElement;
