@@ -305,3 +305,46 @@ a:hover {
 	width: 400px;
     height: 100px;
 }
+/*Level Eins code*/
+      .code-body{
+		  	flex-direction: column;
+            background-color: #2e3440;
+            color: #d8dee9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .code-container {
+            background-color: #3b4252;
+            border-radius: 8px;
+            padding: 20px;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow-x: auto;
+        }
+
+        pre {
+            margin: 0;
+            font-size: 16px;
+            overflow-x: auto;
+            background-color: #2e3440;
+            padding: 10px;
+            border-radius: 5px;
+            color: #d8dee9;
+        }
+
+        code {
+            font-family: "Fira Code", monospace;
+        }
+
+        /* Syntax Highlighting */
+        .keyword { color: #81a1c1; }
+        .datatype { color: #8fbcbb; }
+        .string { color: #a3be8c; }
+        .comment { color: #616e88; font-style: italic; }
+        .function { color: #88c0d0; }
+        .variable { color: #d08770; }
+        .number { color: #b48ead; }
