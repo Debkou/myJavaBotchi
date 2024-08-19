@@ -42,7 +42,7 @@ async function ueberpruefe() {
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Ändere den Status der Gittertür
-            gitterTuerStatus = false; // Die Tür ist nun geöffnet
+            Tuer1Status = false; // Die Tür ist nun geöffnet
             displayDoor(Tuer1Status); // Aktualisiere die Anzeige
              WA.room.hideLayer('tuerSperre');
                   setTimeout(() => {
