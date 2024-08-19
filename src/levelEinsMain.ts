@@ -107,11 +107,11 @@ WA.onInit().then(() => {
     const vorhangButton = document.getElementById("btVorhang") as HTMLButtonElement;
     vorhangButton.addEventListener("click", vorhang);
 
-     WA.room.area.onEnter(aktionHaken).subscribe(() => {
+     WA.room.area.onEnter('aktionHaken').subscribe(() => {
           WA.room.showLayer('hakenMagenta');
      });
 
-      WA.room.area.onLeave(aktionHaken).subscribe(() => {
+      WA.room.area.onLeave('aktionHaken').subscribe(() => {
             WA.room.hideLayer('hakenMagenta');
         });
 
