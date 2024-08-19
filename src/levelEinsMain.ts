@@ -98,9 +98,6 @@ WA.onInit().then(() => {
     const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
     lichtButton.addEventListener("click", ueberpruefePasswort);
 
-    // Event-Listener für den "Gitter Tür" Button
-    const gitterButton = document.getElementById("gitterTuer") as HTMLButtonElement;
-    gitterButton.addEventListener("click", ueberpruefeZahlenschloss);
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
