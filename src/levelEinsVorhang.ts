@@ -7,6 +7,7 @@ console.log('Script started successfully');
 async function vorhang(){
     WA.room.hideLayer('vorhangZu');
     WA.room.showLayer('vorhangAuf');
+    WA.room.hideLayer('vorhangWand');
 }
 
 // Warten, bis die API bereit ist
@@ -20,11 +21,11 @@ WA.onInit().then(() => {
 
      WA.room.area.onEnter('aktionHaken').subscribe(() => {
           WA.room.showLayer('hakenMagenta');
-     });
+     }
 
       WA.room.area.onLeave('aktionHaken').subscribe(() => {
             WA.room.hideLayer('hakenMagenta');
-        });
+        }
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
