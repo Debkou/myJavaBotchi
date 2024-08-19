@@ -19,13 +19,14 @@ WA.onInit().then(() => {
     const vorhangButton = document.getElementById("btVorhang") as HTMLButtonElement;
     vorhangButton.addEventListener("click", vorhang);
 
-   WA.room.area.onEnter("aktionHaken").subscribe(async () => {
-    WA.room.showLayer('hakenMagenta');
-    });
+ WA.room.onEnterLayer("hakenGeheim").subscribe(async () => {
+         WA.room.showLayer('hakenMagenta');
+});
 
-    WA.room.area.onLeave("aktionHaken").subscribe(async () => {
-     WA.room.hideLayer('hakenMagenta');
-    });
+WA.room.onLeaveLayer("hakenGeheim").subscribe(async () => {
+        WA.room.hideLayer('hakenMagenta');
+});
+
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
