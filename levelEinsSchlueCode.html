@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+    <link rel="stylesheet" href="stylesheet/stylesheet.css">
+    <title>JavaBotchi - Code Schlüsselschrank</title>
+ 
+</head>
+<body class="code-body">
+	<div>
+	<p>Der Code für den Schlüsselschrank ist durcheinander geraten. Kannst Du das Programm wieder zum laufen bringen?</p>
+	</div>
+    <div class="code-container">
+        <pre><code>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="datatype">SchluesselSchrank</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(<span class="datatype">String</span>[] <span class="variable">args</span>) {
+        <span class="comment">// Variablen deklarieren und initialisieren</span>
+        <span class="datatype">int</span> <span class="variable">x</span> = <span class="number">10</span>;
+        <span class="datatype">double</span> <span class="variable">y</span> = <span class="number">3.5</span>;
+        <span class="datatype">int</span> <span class="variable">z</span> = <span class="number">2</span>;
+        <span class="datatype">int</span> <span class="variable">sum</span> = <span class="variable">x</span> + <span class="variable">y</span>; 
+        <span class="datatype">double</span> <span class="variable">division</span> = <span class="variable">x</span> / <span class="variable">z</span>;  
+
+        <span class="datatype">int</span> <span class="variable">modulo</span> = <span class="variable">y</span> % <span class="variable">z</span>; 
+        <span class="datatype">int</span> <span class="variable">result</span> = <span class="variable">sum</span> * <span class="number">100</span> + (<span class="datatype">int</span>)<span class="variable">division</span> * <span class="number">10</span> + <span class="variable">modulo</span>;  
+        <span class="comment">// Ergebnis ausgeben</span>
+        <span class="function">System</span>.<span class="function">out</span>.<span class="function">println</span>(<span class="string">"Der Code für den Schlüsselschrank ist: "</span> + <span class="variable">result</span>);
+    }
+}
+        </code></pre>
+    </div>
+</body>
+</html>
