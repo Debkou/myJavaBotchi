@@ -25,7 +25,7 @@ async function ueberpruefe() {
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     try {
-        const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=zahlenschloss`, {
+        const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LevelEinsTresor`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
