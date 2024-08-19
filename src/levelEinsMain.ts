@@ -98,6 +98,7 @@ WA.onInit().then(() => {
     aktionsFeld("p4b", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt4b.html');
     aktionsFeld("areaAktionGitter", "Drücke 'SPACE' um die Tür zu öffnen", "Gittertür", './levelEinsGitter.html');
     aktionsFeld("aktionSchlueSchrank", "Drücke 'SPACE' um den Schlüsselschrank zu öffnen", "Tresor", './levelEinsTresor.html');
+    aktionsFeld("aktionHaken", "Drücke 'SPACE' um die Kiste anzuschauen", "Vorhang", './levelEinsVorhang.html');
 
     // Event-Listener für den "Licht an" Button
     const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
@@ -106,6 +107,13 @@ WA.onInit().then(() => {
     const vorhangButton = document.getElementById("btVorhang") as HTMLButtonElement;
     vorhangButton.addEventListener("click", vorhang);
 
+     WA.room.area.onEnter(aktionHaken).subscribe(() => {
+          WA.room.showLayer('hakenMagenta');
+     });
+
+      WA.room.area.onLeave(aktionHaken).subscribe(() => {
+            WA.room.hideLayer('hakenMagenta');
+        });
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
