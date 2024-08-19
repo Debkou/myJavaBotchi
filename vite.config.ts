@@ -53,6 +53,7 @@ export default defineConfig({
                 postIt3b: "./postIt3b.html",
                 postIt4a: "./postIt4a.html",
                 postIt4b: "./postIt4b.html",
+                levelEInsTresor: "./levelEinsTresor.html",
               
                 ...getMapsScripts(maps),
             },
