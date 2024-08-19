@@ -8,7 +8,7 @@ async function vorhang(){
     WA.room.hideLayer('vorhangZu');
     WA.room.showLayer('vorhangAuf');
     WA.room.hideLayer('vorhangWand');
-}
+} 
 
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
