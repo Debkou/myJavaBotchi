@@ -5,22 +5,22 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 console.log('Script started successfully');
 
 // Eigene Variable für den Status der Gittertür
-let gitterTuerStatus: boolean = true; // Anfangsstatus: geschlossen
+let Tuer1Status: boolean = true; // Anfangsstatus: geschlossen
 
 // Funktion zum Überprüfen des Gittertür-Status
 function displayDoor(state: boolean) { 
     if (state) {
-        WA.room.showLayer('gitterTuerZu');
-        WA.room.hideLayer('gitterTuerAuf');
+        WA.room.showLayer('tuer1Zu');
+        WA.room.hideLayer('tuer1Auf');
     } else {
-        WA.room.hideLayer('gitterTuerZu');
-        WA.room.showLayer('gitterTuerAuf');
+        WA.room.hideLayer('tuer1Zu');
+        WA.room.showLayer('tuer1Auf');
     }
 }
 
 // Funktion zur Überprüfung des Zahlenschlosses
-async function ueberpruefeZahlenschloss() {
-    const eingabeElement = document.getElementById("eingabeGitter") as HTMLInputElement;
+async function ueberpruefe() {
+    const eingabeElement = document.getElementById("eingabeTresor") as HTMLInputElement;
     const eingabe = eingabeElement.value.trim();
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
@@ -43,8 +43,8 @@ async function ueberpruefeZahlenschloss() {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Ändere den Status der Gittertür
             gitterTuerStatus = false; // Die Tür ist nun geöffnet
-            displayDoor(gitterTuerStatus); // Aktualisiere die Anzeige
-             WA.room.hideLayer('gitterSperre');
+            displayDoor(Tuer1Status); // Aktualisiere die Anzeige
+             WA.room.hideLayer('tuerSperre');
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
             }, 3000); // 3000 Millisekunden = 3 Sekunden
@@ -61,11 +61,11 @@ async function ueberpruefeZahlenschloss() {
 WA.onInit().then(() => {
     console.log('Scripting API ready');
 
-    displayDoor(gitterTuerStatus); // Zeige den anfänglichen Status der Tür an
+    displayDoor(Tuer1Status); // Zeige den anfänglichen Status der Tür an
     
     // Event-Listener für den "Gitter Tür" Button
-    const gitterButton = document.getElementById("gitterTuer") as HTMLButtonElement;
-    gitterButton.addEventListener("click", ueberpruefeZahlenschloss);
+    const tresorButton = document.getElementById("btnTresor") as HTMLButtonElement;
+    tresorButton.addEventListener("click", ueberpruefe);
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
