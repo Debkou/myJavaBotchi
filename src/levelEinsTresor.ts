@@ -64,7 +64,7 @@ WA.onInit().then(() => {
     displayDoor(Tuer1Status); // Zeige den anfänglichen Status der Tür an
     
     // Event-Listener für den "Gitter Tür" Button
-    const tresorButton = document.getElementById("btnTresor") as HTMLButtonElement;
+    const tresorButton = document.getElementById("btTresor") as HTMLButtonElement;
     tresorButton.addEventListener("click", ueberpruefe);
 
     // Initialisierung der Scripting API Extra-Bibliothek
