@@ -30,6 +30,11 @@ function aktionsFeld(
     });
 }
 
+async function vorhang(){
+    WA.room.hideLayer('vorhangZu');
+    WA.room.showLayer('vorhangAuf');
+}
+
 // Funktion zur Überprüfung des Passworts
 async function ueberpruefePasswort() {
     const eingabeElement = document.getElementById("eingabefenster") as HTMLTextAreaElement;
@@ -97,6 +102,9 @@ WA.onInit().then(() => {
     // Event-Listener für den "Licht an" Button
     const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
     lichtButton.addEventListener("click", ueberpruefePasswort);
+
+    const vorhangButton = document.getElementById("btVorhang") as HTMLButtonElement;
+    vorhangButton.addEventListener("click", vorhang);
 
 
     // Initialisierung der Scripting API Extra-Bibliothek
