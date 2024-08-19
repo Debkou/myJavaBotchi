@@ -93,21 +93,30 @@ WA.onInit().then(() => {
     aktionsFeld("p4b", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt4b.html');
     aktionsFeld("areaAktionGitter", "Drücke 'SPACE' um die Tür zu öffnen", "Gittertür", './levelEinsGitter.html');
     aktionsFeld("aktionSchlueSchrank", "Drücke 'SPACE' um den Schlüsselschrank zu öffnen", "Tresor", './levelEinsTresor.html');
-    aktionsFeld("aktionHaken", "Drücke 'SPACE' um die Kiste anzuschauen", "Vorhang", './levelEinsVorhang.html');
+
+     WA.room.area.onEnter("aktionHaken").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um die Kiste anzuschauen",
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "Vorhang",
+                    src: './levelEinsVorhang.html',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+        WA.room.showLayer('hakenMagenta');
+        WA.room.area.onLeave("aktionHaken").subscribe(() => {
+            triggerMessage.remove();
+             WA.room.hideLayer('hakenMagenta');
+        });
+    });
 
     // Event-Listener für den "Licht an" Button
     const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
     lichtButton.addEventListener("click", ueberpruefePasswort);
-
-    WA.room.onEnterLayer("hakenGeheim").subscribe(async () => {
-         WA.room.showLayer('hakenMagenta');
-    });
-
-    WA.room.onLeaveLayer("hakenGeheim").subscribe(async () => {
-        WA.room.hideLayer('hakenMagenta');
-    });
-
-
    
 
     // Initialisierung der Scripting API Extra-Bibliothek
