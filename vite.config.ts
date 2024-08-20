@@ -55,6 +55,7 @@ export default defineConfig({
                 postIt4b: "./postIt4b.html",
                 levelEInsTresor: "./levelEinsTresor.html",
                 levelEInsVorhang: "./levelEinsVorhang.html",
+                levelEInsCode: "./levelEinsSchlueCode.html",
               
                 ...getMapsScripts(maps),
             },
