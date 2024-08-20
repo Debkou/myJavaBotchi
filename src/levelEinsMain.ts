@@ -93,7 +93,8 @@ WA.onInit().then(() => {
     aktionsFeld("p4b", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt4b.html');
     aktionsFeld("areaAktionGitter", "Drücke 'SPACE' um die Tür zu öffnen", "Gittertür", './levelEinsGitter.html');
     aktionsFeld("aktionSchlueSchrank", "Drücke 'SPACE' um den Schlüsselschrank zu öffnen", "Tresor", './levelEinsTresor.html');
-
+    aktionsFeld("aktionMaschine", "Drücke 'SPACE' um das Programm zu starten", "Code Maschine", './levelEinsSchlueCode.html');
+    
      WA.room.area.onEnter("aktionHaken").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Kiste anzuschauen",
