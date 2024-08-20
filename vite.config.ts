@@ -56,6 +56,8 @@ export default defineConfig({
                 levelEInsTresor: "./levelEinsTresor.html",
                 levelEInsVorhang: "./levelEinsVorhang.html",
                 levelEInsCode: "./levelEinsSchlueCode.html",
+                levelEInsANleitung: "./levelEinsSchlueAnleitung.html",
+              
               
                 ...getMapsScripts(maps),
             },
