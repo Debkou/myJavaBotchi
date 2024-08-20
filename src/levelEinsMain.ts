@@ -115,6 +115,26 @@ WA.onInit().then(() => {
         });
     });
 
+        WA.room.area.onEnter("aktionInfoWall").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um die Tafel anzuschauen",
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "Anleitung",
+                    src: './levelEinsSchlueAnleitung.html',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+        WA.room.showLayer('magentaInfo');
+        WA.room.area.onLeave("aktionHaken").subscribe(() => {
+            triggerMessage.remove();
+             WA.room.hideLayer('magentaInfo');
+        });
+    });
+
     // Event-Listener für den "Licht an" Button
     const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
     lichtButton.addEventListener("click", ueberpruefePasswort);
