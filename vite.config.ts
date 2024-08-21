@@ -57,6 +57,7 @@ export default defineConfig({
                 levelEInsVorhang: "./levelEinsVorhang.html",
                 levelEInsCode: "./levelEinsSchlueCode.html",
                 levelEInsANleitung: "./levelEinsSchlueAnleitung.html",
+                dragDrop: "./levelEinsDrag.html",
               
               
                 ...getMapsScripts(maps),
