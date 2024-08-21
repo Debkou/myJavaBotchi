@@ -38,13 +38,6 @@ WA.onInit().then(() => {
     console.log('Player tags: ', WA.player.tags);
 
     aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiGUIFail.html');
-
-    
-
-
-    // Event-Listener für den "Licht an" Button
-    const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
-    lichtButton.addEventListener("click", ueberpruefePasswort);
    
 
     // Initialisierung der Scripting API Extra-Bibliothek
