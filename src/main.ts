@@ -154,25 +154,7 @@ WA.onInit().then(() => {
         });
     });
 
-    
-    WA.room.area.onEnter("aktionFinal").subscribe(() => {
-        const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um die Tür zu öffnen",
-            callback: () => {
-                WA.ui.modal.openModal({
-                    title: "Passwort Eingabe",
-                    src: './levelEinsFinalEingabe.html', // Dein HTML-Dokument
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
-            }
-        });
 
-        WA.room.area.onLeave("aktionFinal").subscribe(() => {
-            triggerMessage.remove();
-        });
-    });
 
     // Hier kommt die Logik für die Passwortüberprüfung und das Einblenden der Ebene
     const eingabeElement = document.getElementById("eingabe") as HTMLInputElement;
