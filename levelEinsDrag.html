@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDkuMS1jMDAxIDc5LmNhODJhZTQ3MSwgMjAyNC8wMi8yMi0yMzozMDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI0LjcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkVDRTQ4RDQ4NERGNTExRUY5MUExOTFBNTYzOEEyQkIzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkVDRTQ4RDQ5NERGNTExRUY5MUExOTFBNTYzOEEyQkIzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RUNFNDhENDY0REY1MTFFRjkxQTE5MUE1NjM4QTJCQjMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RUNFNDhENDc0REY1MTFFRjkxQTE5MUE1NjM4QTJCQjMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz58xmN2AAABvUlEQVR42mL8//8/Azbw/uAdVhFuHm1JNHEmrKq/P3z3fu9NLmURBgzjsGj4cOTenZINXDqS3+6//ff7LwENHw7fvVe9hd9KkYGBkZmTlYmNhYCGt9uvSyZb/Pv++8/zj5wKwpj2o2uQy3fg1pdi+Pf/xeIzWL2HauP/X6ziPEDEJ8AvpCkLFgL6gRlZCSNysF64cvvG3UemBgp//zGw8bKdPnlXR0P5LyM7CzOThrwIFictP/xyysZrz58+Onv55osH9xfsvLHl1GspEd71B25g98PdR68evv719iuDiabUv/9sT9/++f79OyMjg6qsEHY/CPFzSIuL3HzOtP/CXV4e7hcf/grzsf/588/PVh27DTHuWkpyYi++sN5/x/70E5unjYajkZyoIDcbKzN2G3h/PnhybstNDjkFSYFrl78qcb1k/gqMCjGcofT27ZtXj+/8/P3n47c/fJysjAz/5FS0hYSEsGj49u3btWvXBAQEpKSkXjx/9uH9O0UlJWDiePXq1fv375mYmIyMjFhYWBAafv/+/fXrVyCDmZn5x48fP3/+5Ofn5+DgAIbSr1+/GBkZBQUFgdqACgACDABl0bn5Zld4mQAAAABJRU5ErkJggg==">
+    <link rel="stylesheet" href="stylesheet/stylesheet.css">
+    <title>JavaBotchi - Drag and Drop</title>
+   
+</head>
+<body class="gelb">
+    <div class="container-drag-drop">
+        <!-- Bereich für Code-Schnipsel -->
+        <div class="box" id="code-schnipsel">
+            <h2>Code-Schnipsel</h2>
+            <div id="item1" class="draggable" draggable="true" data-original-position="1"><p>1. int a = 5 / 2;</p></div>
+            <div id="item2" class="draggable" draggable="true" data-original-position="2"><p>2. double b = 7.0 / 3;</p></div>
+            <div id="item3" class="draggable" draggable="true" data-original-position="3"><p>3. float c = (float) 8 / 3;</p></div>
+            <div id="item4" class="draggable" draggable="true" data-original-position="4"><p>4. int z = 10 / 2 * 3;</p></div>
+            <div id="item5" class="draggable" draggable="true" data-original-position="5"><p>5. String e = "Hallo " + "Welt";</p></div>
+            <div id="item6" class="draggable" draggable="true" data-original-position="6"><p>6. int f = (int) 4.7 + (int) 3.2;</p></div>
+            <div id="item7" class="draggable" draggable="true" data-original-position="7"><p>7. char g = (char) 65;</p></div>
+            <div id="item8" class="draggable" draggable="true" data-original-position="8"><p>8. double h = (1.0 / 3) + (1.0 / 3) + (1.0 / 3);</p></div>
+            <div id="item9" class="draggable" draggable="true" data-original-position="9"><p>9. int i = (1 / 3) + (1 / 3) + (1 / 3);</p></div>
+        </div>
+
+        <!-- Bereich für Ausgaben -->
+        <div class="box" id="ausgaben">
+            <h2>Ausgaben</h2>
+            <div class="droppable" data-matching-item="1"><p>1.  0 (Ergebnis von 1/3 + 1/3 + 1/3 als Ganzzahl)</p></div>
+            <div class="droppable" data-matching-item="2"><p>2. 'A' (Zeichen aus ASCII-Code)</p></div>
+            <div class="droppable" data-matching-item="3"><p>3. "Hallo Welt" (String-Verkettung)</p></div>
+            <div class="droppable" data-matching-item="4"><p>4. 2 (Ergebnis von Ganzzahldivision)</p></div>
+            <div class="droppable" data-matching-item="5"><p>5. 1.0 (Korrekte Summe der Gleitkommadivision)</p></div>
+            <div class="droppable" data-matching-item="6"><p>6. 7 (Summe der Ganzzahl-Divisionen)</p></div>
+            <div class="droppable" data-matching-item="7"><p>7. 2.3333333333333335 (Gleitkomma-Division)</p></div>
+            <div class="droppable" data-matching-item="8"><p>8. 2.6666667 (Float-Division)</p></div>
+            <div class="droppable" data-matching-item="9"><p>9. 15</p></div>
+        </div>
+
+        <!-- Überprüfe-Button -->
+        <button class="buttonMenue weiss-font" id="check-button">Überprüfe</button>
+        
+        <!-- Message Container -->
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+    const draggables = document.querySelectorAll('.draggable');
+    const dropzones = document.querySelectorAll('.droppable');
+    const correctMappings = {
+        1: 9,
+        2: 7,
+        3: 5,
+        4: 1,
+        5: 8,
+        6: 6,
+        7: 2,
+        8: 3,
+        9: 4
+    };
+
+    // Store original positions of draggables
+    const originalPositions = {};
+
+    draggables.forEach(draggable => {
+        originalPositions[draggable.id] = {
+            parent: draggable.parentElement,
+            index: Array.from(draggable.parentElement.children).indexOf(draggable)
+        };
+
+        draggable.addEventListener('dragstart', () => {
+            draggable.classList.add('dragging');
+        });
+
+        draggable.addEventListener('dragend', () => {
+            draggable.classList.remove('dragging');
+        });
+    });
+
+    dropzones.forEach(dropzone => {
+        dropzone.addEventListener('dragover', e => {
+            e.preventDefault();
+        });
+
+        dropzone.addEventListener('drop', e => {
+            e.preventDefault();
+            const draggable = document.querySelector('.dragging');
+
+            if (draggable) {
+                const previousDropzone = document.querySelector(`.droppable[data-matching-item="${draggable.dataset.originalPosition}"]`);
+
+                // Remove draggable from previous dropzone if it exists
+                if (previousDropzone && previousDropzone !== dropzone) {
+                    previousDropzone.appendChild(draggable);
+                }
+
+                // Append draggable to new dropzone
+                dropzone.appendChild(draggable);
+                draggable.style.position = 'relative';
+                draggable.style.top = '';
+                draggable.style.left = '';
+                draggable.style.transform = '';
+            }
+        });
+    });
+
+    // Add functionality to the "Überprüfe" button
+    document.getElementById('check-button').addEventListener('click', () => {
+        const isCorrect = Array.from(dropzones).every(dropzone => {
+            const draggable = dropzone.querySelector('.draggable');
+            const draggableId = draggable ? draggable.dataset.originalPosition : null;
+            const matchingItem = dropzone.dataset.matchingItem;
+            return correctMappings[draggableId] == matchingItem;
+        });
+
+        const messageElement = document.getElementById('message');
+        if (isCorrect) {
+            messageElement.textContent = 'Korrekt - PW: JavaBotchi';
+            messageElement.style.color = 'green';
+        } else {
+            messageElement.textContent = 'Falsch - Bitte die Zuordnung überprüfen!';
+            messageElement.style.color = 'red';
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
