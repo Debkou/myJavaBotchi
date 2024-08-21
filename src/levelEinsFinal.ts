@@ -40,7 +40,7 @@ WA.onInit().then(() => {
                 ergebnisElement.className = 'correct';
 
                 // Ebene aktionLevel1 einblenden
-                WA.room.setProperty("exitLevelEins", "exitSceneUrl", "Flur.tmj");
+                WA.room.setProperty("exitLevelEins", "exitSceneUrl", "flur.tmj");
                 WA.ui.modal.closeModal();
             
             } else {
