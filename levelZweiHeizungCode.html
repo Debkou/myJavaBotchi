@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+    <link rel="stylesheet" href="stylesheet/stylesheet.css">
+    <title>JavaBotchi - Temperatur Rechner</title>
+</head>
+<body class="code-body">
+	<div>
+		<p>Hier ist das kaputte Programm der Heizungs-GUI. Kannst du das Programm wieder ans Laufen bringen?</p>
+	</div>
+    <div class="code-container">
+        <pre><code>
+<span class="keyword">import</span> <span class="datatype">java.util.Scanner</span>;
+
+<span class="keyword">public class</span> <span class="datatype">TemperaturRechner</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(<span class="datatype">String</span>[] <span class="variable">args</span>) {
+        <span class="comment">// Scanner-Objekt erstellen</span>
+        <span class="datatype">Scanner</span> <span class="variable">scanner</span> = <span class="keyword">new</span> <span class="datatype">Scanner</span>(<span class="keyword">System.in</span>);
+
+        <span class="keyword">try</span> {
+            <span class="comment">// Eingabeaufforderung anzeigen</span>
+            <span class="function">System.out.print</span>(<span class="string">"Gib die Temperatur ein: "</span>);
+
+            <span class="comment">// Eingabe von der Konsole lesen</span>
+            <span class="datatype">String</span> <span class="variable">eingabeString</span> = <span class="variable">scanner</span>.<span class="function">nextLine</span>();
+
+            <span class="comment">// Eingabe in eine Zahl umwandeln</span>
+            <span class="datatype">int</span> <span class="variable">temperatur</span> = <span class="datatype">Integer</span>.<span class="function">parseInt</span>(<span class="variable">eingabeString</span>);
+
+            <span class="comment">// 5 zur Temperatur hinzufügen</span>
+            <span class="datatype">int</span> <span class="variable">ergebnis</span> = <span class="variable">temperatur</span> + <span class="number">5</span>;
+
+            <span class="comment">// Ergebnis anzeigen</span>
+            <span class="function">System.out.println</span>(<span class="string">"Die neue Temperatur nach Addition von 5 ist: "</span> + <span class="variable">ergebnis</span>);
+        } <span class="keyword">catch</span> (<span class="datatype">NumberFormatException</span> <span class="variable">e</span>) {
+            <span class="comment">// Fehlermeldung anzeigen, wenn die Eingabe keine gültige Zahl war</span>
+            <span class="function">System.out.println</span>(<span class="string">"Bitte gib eine gültige Zahl ein."</span>);
+        }
+
+        <span class="comment">// Scanner schließen</span>
+        <span class="variable">scanner</span>.<span class="function">close</span>();
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Multiple-Choice-Fragen -->
+    <div class="quiz">
+        <p>Zu 1. Welcher Code ist korrekt, um eine Eingabe von der Konsole zu lesen?</p>
+        <input type="radio" id="option1-1" name="question1" value="incorrect">
+        <label for="option1-1">String eingabeString = scanner.next();</label><br>
+        <input type="radio" id="option1-2" name="question1" value="correct">
+        <label for="option1-2">String eingabeString = scanner.nextLine();</label><br>
+        <input type="radio" id="option1-3" name="question1" value="incorrect">
+        <label for="option1-3">String eingabeString = scanner.nextLine();</label><br>
+
+        <p>Zu 2. Welcher Code ist korrekt, um eine Zeichenkette in eine Ganzzahl umzuwandeln?</p>
+        <input type="radio" id="option2-1" name="question2" value="incorrect">
+        <label for="option2-1">int temperatur = Integer.toInteger(eingabeString);</label><br>
+        <input type="radio" id="option2-2" name="question2" value="correct">
+        <label for="option2-2">int temperatur = Integer.parseInt(eingabeString);</label><br>
+        <input type="radio" id="option2-3" name="question2" value="incorrect">
+        <label for="option2-3">int temperatur = Integer.parse(eingabeString);</label><br>
+    </div>
+
+    <!-- Überprüfen Button -->
+    <button onclick="checkAnswers()">Überprüfen</button>
+
+    <script>
+        function checkAnswers() {
+            const question1 = document.querySelector('input[name="question1"]:checked');
+            const question2 = document.querySelector('input[name="question2"]:checked');
+            
+            if (question1 && question2) {
+                let score = 0;
+                
+                if (question1.value === "correct") {
+                    score++;
+                }
+                
+                if (question2.value === "correct") {
+                    score++;
+                }
+                
+                alert("Du hast " + score + " von 2 Fragen richtig beantwortet.");
+            } else {
+                alert("Bitte wähle eine Antwort für jede Frage aus.");
+            }
+        }
+    </script>
+</body>
+</html>
