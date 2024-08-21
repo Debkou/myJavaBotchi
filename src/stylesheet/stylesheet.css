@@ -176,7 +176,7 @@ a:hover {
 .align-center {
   align-items: center;
 }
-.text-align{
+.text-align {
   text-align: center;
 }
 /*Bibliothek style*/
@@ -273,77 +273,132 @@ a:hover {
   font-weight: bold;
 }
 /*Level Eins*/
-     #textContainer {
-            width: 600px;
-            margin: 50px auto;
-            text-align: center;
-            border: 1px solid #ccc;
-            padding: 20px;
-			background-color: white;
-        }
-
-        .arrow {
-            cursor: pointer;
-            margin: 0 10px;
-			color: #FFFFFF;
-			background-color: #39659F;
-			padding: 10px;
-        }
-
-        #noteTextArea {
-            width: 100%;
-            height: 100px;
-            margin-bottom: 10px;
-        }
-#arrowContainer{
-	    display: flex;
-    align-items: center;
-    justify-content: center;
+#textContainer {
+  width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: white;
 }
-
-#eingabefenster{
-	width: 400px;
-    height: 100px;
+.arrow {
+  cursor: pointer;
+  margin: 0 10px;
+  color: #FFFFFF;
+  background-color: #39659F;
+  padding: 10px;
+}
+#noteTextArea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+#arrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#eingabefenster {
+  width: 400px;
+  height: 100px;
 }
 /*Level Eins code*/
-      .code-body{
-		  	flex-direction: column;
-            background-color: #2e3440;
-            color: #d8dee9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+.code-body {
+  flex-direction: column;
+  background-color: #2e3440;
+  color: #d8dee9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.code-container {
+  background-color: #3b4252;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+pre {
+  margin: 0;
+  font-size: 16px;
+  overflow-x: auto;
+  background-color: #2e3440;
+  padding: 10px;
+  border-radius: 5px;
+  color: #d8dee9;
+}
+code {
+  font-family: "Fira Code", monospace;
+}
+/* Syntax Highlighting */
+.keyword {
+  color: #81a1c1;
+}
+.datatype {
+  color: #8fbcbb;
+}
+.string {
+  color: #a3be8c;
+}
+.comment {
+  color: #616e88;
+  font-style: italic;
+}
+.function {
+  color: #88c0d0;
+}
+.variable {
+  color: #d08770;
+}
+.number {
+  color: #b48ead;
+}
+/*Level-Eins Drag and Drop*/
+.container-drag-drop {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; /* Stellt sicher, dass die Bereiche übereinander gestapelt werden */
+  gap: 20px;
+}
+.box {
+  display: flex;
+  flex-wrap: wrap; /* Ermöglicht Umbruch der Kinder in mehrere Zeilen */
+  gap: 10px; /* Abstand zwischen den Elementen */
+}
+.draggable, .droppable {
+  border: 2px solid #39659F;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+}
 
-        .code-container {
-            background-color: #3b4252;
-            border-radius: 8px;
-            padding: 20px;
-            width: 90%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+.droppable {
+  border-style: dashed;
+  min-height: 100px;
+  flex-grow: 1;
+}
+.draggable, .droppable {
+  flex: 1 1 calc(33.333% - 20px); /* Drei Spalten mit 20px Abstand */
+}
+.dragging {
+  opacity: 0.5;
+}
+ .box h2 {
+            width: 100%;
+            text-align: center;
         }
-
-        pre {
-            margin: 0;
-            font-size: 16px;
-            overflow-x: auto;
-            background-color: #2e3440;
-            padding: 10px;
-            border-radius: 5px;
-            color: #d8dee9;
+.box p{
+	font-size: 1rem;
+}
+      .message {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
         }
-
-        code {
-            font-family: "Fira Code", monospace;
-        }
-
-        /* Syntax Highlighting */
-        .keyword { color: #81a1c1; }
-        .datatype { color: #8fbcbb; }
-        .string { color: #a3be8c; }
-        .comment { color: #616e88; font-style: italic; }
-        .function { color: #88c0d0; }
-        .variable { color: #d08770; }
-        .number { color: #b48ead; }
