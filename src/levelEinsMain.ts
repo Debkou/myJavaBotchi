@@ -135,6 +135,26 @@ WA.onInit().then(() => {
         });
     });
 
+    WA.room.area.onEnter("aktionSchliessAnlage").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um die Türschließanlage zu öffnen",
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "Türschließer",
+                    src: './levelEinsDrag.html',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+        WA.room.showLayer('magentaSchliessAnlage');
+        WA.room.area.onLeave("aktionSchliessAnlage").subscribe(() => {
+            triggerMessage.remove();
+             WA.room.hideLayer('magentaSchliessAnlage');
+        });
+    });
+
     // Event-Listener für den "Licht an" Button
     const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
     lichtButton.addEventListener("click", ueberpruefePasswort);
