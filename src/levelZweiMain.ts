@@ -58,6 +58,7 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
+                 isTestPassed = true; 
             } else {
                 ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
                 isTestPassed = false; // Setze die Variable auf false, wenn der Test nicht korrekt abgeschlossen ist
