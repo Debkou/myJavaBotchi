@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
-    <link rel="stylesheet" href="src/stylesheet/stylesheet.css"> 
+    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
     <title>JavaBotchi - Temperatur Rechner</title>
+
+    <script src="https://play.workadventu.re/iframe_api.js"></script>
+    <!-- Einbindung des TypeScript-Moduls -->
+    <script type="module" src="src/levelZweiHeizung.ts"></script>
+
 </head>
 <body class="code-body">
-	<div>
-		<p>Hier ist das kaputte Programm der Heizungs-GUI. Kannst du das Programm wieder ans Laufen bringen?</p>
-	</div>
+    <div>
+        <p>Hier ist das kaputte Programm der Heizungs-GUI. Kannst du das Programm wieder ans Laufen bringen?</p>
+    </div>
     <div class="code-container">
         <pre><code>
 <span class="keyword">import</span> <span class="datatype">java.util.Scanner</span>;
@@ -69,27 +74,6 @@
     <!-- Überprüfen Button -->
     <button onclick="checkAnswers()">Überprüfen</button>
 
-    <script>
-        function checkAnswers() {
-            const question1 = document.querySelector('input[name="question1"]:checked');
-            const question2 = document.querySelector('input[name="question2"]:checked');
-            
-            if (question1 && question2) {
-                let score = 0;
-                
-                if (question1.value === "correct") {
-                    score++;
-                }
-                
-                if (question2.value === "correct") {
-                    score++;
-                }
-                
-                alert("Du hast " + score + " von 2 Fragen richtig beantwortet.");
-            } else {
-                alert("Bitte wähle eine Antwort für jede Frage aus.");
-            }
-        }
-    </script>
+    <div id="ergebnis"></div>
 </body>
 </html>
