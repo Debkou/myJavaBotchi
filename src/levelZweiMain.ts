@@ -4,9 +4,6 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-// Variable zur Steuerung des Verhaltens beim Betreten des Layers
-let isTestPassed: boolean = true; // Standardwert: true
-
 function aktionArea(
     areaName: string,
     messageText: string,
@@ -59,13 +56,6 @@ function aktionsFeld(
 }
 
 // Funktion zur Abfrage der Variable und Ausführung der entsprechenden Funktion
-function handleAreaAktionUhr1(): void {
-    if (isTestPassed) {
-        aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiGUIFail.html');
-    } else {
-        aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelEinsTresor.html');
-    }
-}
 
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
@@ -91,9 +81,7 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-
-                // Setze die Variable auf false
-                isTestPassed = false;
+            WA.room.hideLayer('areaAktionUhr1');
 
             } else {
                 ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
@@ -108,11 +96,6 @@ WA.onInit().then(() => {
     if (button) {
         button.addEventListener('click', checkAnswers);
     }
-
-    // Registrierung des Event-Handlings für das Betreten des Layers `areaAktionUhr1`
-    WA.room.onEnterLayer('areaAktionUhr1').subscribe(() => {
-        handleAreaAktionUhr1(); // Variable abfragen und entsprechende Funktion ausführen
-    });
 
     aktionArea("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
     aktionArea("areaAnleitungCode", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiHeizungCode.html');
