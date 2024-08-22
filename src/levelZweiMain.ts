@@ -86,7 +86,7 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-                aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
+                WA.room.hideLayer('tomato');
                 
 
             } else {
