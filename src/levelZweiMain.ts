@@ -39,7 +39,7 @@ WA.onInit().then(() => {
 
     
     WA.room.onEnterLayer("areaAktionUhr1").subscribe(() => {
-        let noteWebsite: any;
+        let myWebsite: any;
        myWebsite = WA.ui.website.open({
         url: "./levelEinsTresor.html",
         position: {
