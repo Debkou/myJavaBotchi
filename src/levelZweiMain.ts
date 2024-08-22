@@ -3,13 +3,7 @@
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
-const area = WA.room.area.create({
-    name: 'MyNewArea',
-    x: 1439,
-    y: 257,
-    width: 33,
-    height: 33,
-});
+
 
 
 function aktionArea(
@@ -50,7 +44,7 @@ function aktionsFeld(
             callback: () => {
                 WA.ui.modal.openModal({
                     title: menuTitle,
-                    src: modalSettings[areaName].menuSrc,
+                    src: menuSrc,
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
@@ -71,6 +65,14 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
     
+    WA.room.area.create({
+    name: 'MyNewArea',
+    x: 1439,
+    y: 257,
+    width: 33,
+    height: 33,
+    });
+
     aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Anleitung", './levelZweiGUIFail.html');
     // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
