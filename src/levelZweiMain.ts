@@ -39,7 +39,7 @@ WA.onInit().then(() => {
 
     
     WA.room.onEnterLayer("areaAktionUhr1").subscribe(() => {
-      WA.ui.website.open({
+      const myWebsite = WA.ui.website.open({
         url: "./levelEinsTresor.html",
         position: {
             vertical: "middle",
@@ -50,7 +50,9 @@ WA.onInit().then(() => {
             width: "50vw",
         },
         });
-
+         WA.room.onLeaveLayer("areaAktionUhr1").subscribe(() => {
+            myWebsite.close();
+        });
     });
 
     // Funktion zur Überprüfung der Antworten
