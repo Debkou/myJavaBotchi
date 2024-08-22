@@ -33,15 +33,14 @@ WA.onInit().then(() => {
         });
     });
 }
-    
-function aktionArea(
-    areaName: string,
-    messageText: string,
-    menuTitle: string,
-    menuSrc: string
-): void {
-    WA.room.area.onEnter(areaName).subscribe(() => {
-        const triggerMessage = WA.ui.displayActionMessage({
+        function aktionArea(
+        areaName: string,
+        messageText: string,
+        menuTitle: string,
+        menuSrc: string
+        ): void {
+        WA.room.area.onEnter(areaName).subscribe(() => {
+            const triggerMessage = WA.ui.displayActionMessage({
             message: messageText,
             callback: () => {
                 WA.ui.modal.openModal({
@@ -59,6 +58,7 @@ function aktionArea(
         });
     });
 }
+
 
     // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
@@ -80,13 +80,8 @@ function aktionArea(
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
 
-                // Aktionen ausführen, wenn der Test korrekt ist
-                console.log('Attempting to hide areaAktionUhr1 and show areaAktionUhr2');
 
-                // Layer ausblenden und einblenden
-                WA.room.hideLayer('areaAktionUhr1');
-                
-                WA.room.showLayer('areaAktionUhr2');
+    
                 aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelEinsTresor.html');
                 
 
@@ -98,6 +93,8 @@ function aktionArea(
         }
     }
 
+    aktionArea("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
+    aktionArea("areaAnleitungCode", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiHeizungCode.html');
     // Event-Listener für den Button
     const button = document.getElementById('checkButton');
     if (button) {
