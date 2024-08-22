@@ -38,6 +38,7 @@ WA.onInit().then(() => {
 
     // Überprüfen, ob der Test bereits erfolgreich durchgeführt wurde
     let isTestPassed = localStorage.getItem('isTestPassed') === 'true';
+    console.log('Initial isTestPassed:', isTestPassed);
 
     // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
@@ -60,6 +61,7 @@ WA.onInit().then(() => {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
                 isTestPassed = true;
                 localStorage.setItem('isTestPassed', 'true'); // Speichere den Teststatus
+                console.log('Test passed, updating layer');
                 // Führt aktionArea nur aus, wenn isTestPassed true ist
                 aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
             } else {
@@ -76,10 +78,13 @@ WA.onInit().then(() => {
     const button = document.getElementById('checkButton');
     if (button) {
         button.addEventListener('click', checkAnswers);
+    } else {
+        console.error('Button with id "checkButton" not found');
     }
 
     // Führt aktionArea nur aus, wenn isTestPassed true ist
     if (isTestPassed) {
+        console.log('Executing aktionArea for areaZentraleTuer');
         aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
     }
 
