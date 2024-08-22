@@ -3,8 +3,13 @@
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
-
-const modalSettings: { [key: string]: { messageText: string, menuTitle: string, menuSrc: string } } = {};
+const area = WA.room.area.create({
+    name: 'MyNewArea',
+    x: 1439,
+    y: 257,
+    width: 33,
+    height: 33,
+});
 
 
 function aktionArea(
@@ -38,7 +43,6 @@ function aktionsFeld(
     menuTitle: string,
     menuSrc: string
 ): void {
-    modalSettings[areaName] = { messageText, menuTitle, menuSrc };
 
     WA.room.onEnterLayer(areaName).subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
@@ -58,15 +62,6 @@ function aktionsFeld(
             triggerMessage.remove();
         });
     });
-}
-// Funktion zur Änderung des src-Wertes
-function updateModalSrc(areaName: string, newSrc: string): void {
-    if (modalSettings[areaName]) {
-        modalSettings[areaName].menuSrc = newSrc;
-        console.log(`Updated src for ${areaName} to ${newSrc}`);
-    } else {
-        console.error(`Area ${areaName} not found`);
-    }
 }
 
 // Funktion zur Abfrage der Variable und Ausführung der entsprechenden Funktion
@@ -96,7 +91,7 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-                updateModalSrc("areaAktionUhr1", './levelEinsTresor.html');
+                aktionArea("area", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
                 
 
             } else {
