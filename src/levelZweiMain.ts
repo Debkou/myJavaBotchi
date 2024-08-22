@@ -4,6 +4,9 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
+// Variable zur Steuerung des Verhaltens beim Betreten des Layers
+let isTestPassed: boolean = true; // Standardwert: true
+
 function aktionsFeld(
     areaName: string,
     messageText: string,
@@ -56,15 +59,12 @@ function aktionArea(
     });
 }
 
-
-
-
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
-     // Funktion zur Überprüfung der Antworten
+    // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
         const question1 = document.querySelector('input[name="question1"]:checked') as HTMLInputElement;
         const question2 = document.querySelector('input[name="question2"]:checked') as HTMLInputElement;
@@ -87,12 +87,9 @@ WA.onInit().then(() => {
                 // Aktionen ausführen, wenn der Test korrekt ist
                 console.log('Attempting to hide areaAktionUhr1 and show areaAktionUhr2');
 
-                // Layer ausblenden und einblenden
-                WA.room.hideLayer('areaAktionUhr1');
-                
-                WA.room.showLayer('areaAktionUhr2');
-                
-                
+
+                // Setze die Variable auf false
+                isTestPassed = false;
 
             } else {
                 ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
@@ -108,10 +105,13 @@ WA.onInit().then(() => {
         button.addEventListener('click', checkAnswers);
     }
 
-    aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiGUIFail.html');
-    aktionArea("areaAnleitung", "Drücke 'SPACE' um die ANleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
-    aktionArea("areaAnleitungCode", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiHeizungCode.html');
-   
+    // Entscheidet, welches Aktionsfeld aktiviert wird basierend auf dem Wert von isTestPassed
+    if (isTestPassed) {
+        aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiGUIFail.html');
+    } else {
+        aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelEinsTresor.html');
+    }
+
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
