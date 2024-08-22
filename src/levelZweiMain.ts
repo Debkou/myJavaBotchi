@@ -4,9 +4,6 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-// Boolesche Variable
-let isTestPassed: boolean;
-
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
     areaName: string,
@@ -39,6 +36,9 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
+    // Überprüfen, ob der Test bereits erfolgreich durchgeführt wurde
+    let isTestPassed = localStorage.getItem('isTestPassed') === 'true';
+
     // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
         const question1 = document.querySelector('input[name="question1"]:checked') as HTMLInputElement;
@@ -58,10 +58,14 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-                 isTestPassed = true; 
+                isTestPassed = true;
+                localStorage.setItem('isTestPassed', 'true'); // Speichere den Teststatus
+                // Führt aktionArea nur aus, wenn isTestPassed true ist
+                aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
             } else {
                 ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
-                isTestPassed = false; // Setze die Variable auf false, wenn der Test nicht korrekt abgeschlossen ist
+                isTestPassed = false;
+                localStorage.setItem('isTestPassed', 'false'); // Speichere den Teststatus
             }
         } else {
             alert("Bitte wähle eine Antwort für jede Frage aus.");
@@ -74,8 +78,9 @@ WA.onInit().then(() => {
         button.addEventListener('click', checkAnswers);
     }
 
+    // Führt aktionArea nur aus, wenn isTestPassed true ist
     if (isTestPassed) {
-    aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
+        aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
     }
 
     aktionArea("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
