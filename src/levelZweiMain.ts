@@ -84,10 +84,6 @@ WA.onInit().then(() => {
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
 
-                // Aktionen ausführen, wenn der Test korrekt ist
-                console.log('Attempting to hide areaAktionUhr1 and show areaAktionUhr2');
-
-
                 // Setze die Variable auf false
                 isTestPassed = false;
 
