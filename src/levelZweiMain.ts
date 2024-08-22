@@ -82,7 +82,16 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-            WA.room.hideLayer('areaAktionUhr1');
+                WA.room.area.delete('areaAnleitung');
+                WA.room.area.create({
+                    name: 'MyNewArea',
+                    x: 1439,
+                    y: 257,
+                    width: 33,
+                    height: 33,
+                });
+                aktionArea("MyNewArea", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
+                
 
             } else {
                 ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
