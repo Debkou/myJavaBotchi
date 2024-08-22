@@ -4,6 +4,10 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
+// Boolesche Variable
+let isTestPassed: boolean = true;
+
+// Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
     areaName: string,
     messageText: string,
@@ -30,8 +34,6 @@ function aktionArea(
     });
 }
 
-// Funktion zur Abfrage der Variable und Ausführung der entsprechenden Funktion
-
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
@@ -56,9 +58,9 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-                aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
             } else {
                 ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
+                isTestPassed = false; // Setze die Variable auf false, wenn der Test nicht korrekt abgeschlossen ist
             }
         } else {
             alert("Bitte wähle eine Antwort für jede Frage aus.");
@@ -69,6 +71,10 @@ WA.onInit().then(() => {
     const button = document.getElementById('checkButton');
     if (button) {
         button.addEventListener('click', checkAnswers);
+    }
+
+    if (isTestPassed) {
+    aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
     }
 
     aktionArea("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
