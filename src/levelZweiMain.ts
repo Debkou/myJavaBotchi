@@ -5,7 +5,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 console.log('Script started successfully');
 
 // Boolesche Variable
-let isTestPassed: boolean = false;
+let isTestPassed: boolean;
 
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
