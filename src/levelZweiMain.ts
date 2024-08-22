@@ -64,14 +64,7 @@ function aktionsFeld(
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
-    
-    WA.room.area.create({
-    name: 'MyNewArea',
-    x: 1439,
-    y: 257,
-    width: 33,
-    height: 33,
-    });
+
 
     aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Anleitung", './levelZweiGUIFail.html');
     // Funktion zur Überprüfung der Antworten
@@ -93,7 +86,7 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-                aktionArea("area", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
+                aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
                 
 
             } else {
