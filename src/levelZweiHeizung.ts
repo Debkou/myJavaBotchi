@@ -33,6 +33,32 @@ WA.onInit().then(() => {
         });
     });
 }
+    
+function aktionArea(
+    areaName: string,
+    messageText: string,
+    menuTitle: string,
+    menuSrc: string
+): void {
+    WA.room.area.onEnter(areaName).subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: messageText,
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: menuTitle,
+                    src: menuSrc,
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.area.onLeave(areaName).subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+}
 
     // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
