@@ -62,7 +62,7 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
     
-    aktionaFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Anleitung", './levelZweiGUIFail.html');
+    aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Anleitung", './levelZweiGUIFail.html');
     // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
         const question1 = document.querySelector('input[name="question1"]:checked') as HTMLInputElement;
