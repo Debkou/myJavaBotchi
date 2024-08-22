@@ -40,7 +40,7 @@ WA.onInit().then(() => {
     }
 
     // Event-Listener für den Button
-    const button = document.getElementById('gitterTuer');
+    const button = document.getElementById('checkButton');
     if (button) {
         button.addEventListener('click', checkAnswers);
     }
