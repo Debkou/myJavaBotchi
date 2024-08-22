@@ -7,6 +7,31 @@ console.log('Script started successfully');
 // Variable zur Steuerung des Verhaltens beim Betreten des Layers
 let isTestPassed: boolean = true; // Standardwert: true
 
+function aktionArea(
+    areaName: string,
+    messageText: string,
+    menuTitle: string,
+    menuSrc: string
+): void {
+    WA.room.area.onEnter(areaName).subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: messageText,
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: menuTitle,
+                    src: menuSrc,
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.area.onLeave(areaName).subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+}
 function aktionsFeld(
     areaName: string,
     messageText: string,
