@@ -2337,8 +2337,14 @@
          "y":0
         }],
  "nextlayerid":39,
- "nextobjectid":8,
+ "nextobjectid":10,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"script",
+         "type":"string",
+         "value":"src\/levelZweiMain.ts"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.10.2",
  "tileheight":32,
