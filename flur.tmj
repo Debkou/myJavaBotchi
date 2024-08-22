@@ -2063,6 +2063,24 @@
                  "width":40,
                  "x":507.5,
                  "y":864
+                }, 
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"heizung",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"variable",
+                 "visible":true,
+                 "width":0,
+                 "x":1322.66666666667,
+                 "y":149.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2376,7 +2394,7 @@
          "y":0
         }],
  "nextlayerid":41,
- "nextobjectid":10,
+ "nextobjectid":11,
  "orientation":"orthogonal",
  "properties":[
         {
