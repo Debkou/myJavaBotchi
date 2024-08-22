@@ -29,32 +29,6 @@ function aktionArea(
         });
     });
 }
-function aktionsFeld(
-    areaName: string,
-    messageText: string,
-    menuTitle: string,
-    menuSrc: string
-): void {
-
-    WA.room.onEnterLayer(areaName).subscribe(() => {
-        const triggerMessage = WA.ui.displayActionMessage({
-            message: messageText,
-            callback: () => {
-                WA.ui.modal.openModal({
-                    title: menuTitle,
-                    src: menuSrc,
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
-            }
-        });
-
-        WA.room.onLeaveLayer(areaName).subscribe(() => {
-            triggerMessage.remove();
-        });
-    });
-}
 
 // Funktion zur Abfrage der Variable und Ausführung der entsprechenden Funktion
 
@@ -63,9 +37,22 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
+    
+    WA.room.onEnterLayer("areaAktionUhr1").subscribe(() => {
+      const myWebsite = await WA.ui.website.open({
+        url: "./levelEinsTresor.html",
+        position: {
+            vertical: "middle",
+            horizontal: "middle",
+        },
+        size: {
+            height: "50vh",
+            width: "50vw",
+        },
+        });
 
-   // aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Anleitung", './levelZweiGUIFail.html');
-    aktionsFeld("aktionUhr", "Drücke 'SPACE' um die Temperatur einzustellen", "Anleitung", './levelEinsTresor.html');
+    });
+
     // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
         const question1 = document.querySelector('input[name="question1"]:checked') as HTMLInputElement;
@@ -85,9 +72,6 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-
-            WA.room.showLayer('aktionUhr');
-                
 
             } else {
                 ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
