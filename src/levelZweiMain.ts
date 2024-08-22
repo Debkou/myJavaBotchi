@@ -64,7 +64,8 @@ WA.onInit().then(() => {
     console.log('Player tags: ', WA.player.tags);
 
 
-    aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Anleitung", './levelZweiGUIFail.html');
+   // aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Anleitung", './levelZweiGUIFail.html');
+    aktionsFeld("aktionUhr", "Drücke 'SPACE' um die Temperatur einzustellen", "Anleitung", './levelEinsTresor.html');
     // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
         const question1 = document.querySelector('input[name="question1"]:checked') as HTMLInputElement;
@@ -85,24 +86,7 @@ WA.onInit().then(() => {
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
 
-            WA.room.area.onEnter("areaZentraleTuer").subscribe(() => {
-                    const triggerMessage = WA.ui.displayActionMessage({
-                        message: "Drücke 'SPACE' um den Flyer zu sehen",
-                        callback: () => {
-                            WA.ui.modal.openModal({
-                                title: "Flyer",
-                                src: './flyer_party.html',
-                                allow: "fullscreen",
-                                allowApi: true,
-                                position: "center",
-                            });
-                        }
-                    });
-
-                    WA.room.area.onLeave("areaZentraleTuer").subscribe(() => {
-                        triggerMessage.remove();
-                    });
-            });
+            WA.room.showLayer('aktionUhr');
                 
 
             } else {
