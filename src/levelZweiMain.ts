@@ -37,25 +37,6 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
-    
-    WA.room.onEnterLayer("areaAktionUhr1").subscribe(() => {
-        let myWebsite: any;
-       myWebsite = WA.ui.website.open({
-        url: "./levelEinsTresor.html",
-        position: {
-            vertical: "middle",
-            horizontal: "middle",
-        },
-        size: {
-            height: "50vh",
-            width: "50vw",
-        },
-        });
-         WA.room.onLeaveLayer("areaAktionUhr1").subscribe(() => {
-            myWebsite.close();
-        });
-    });
-
     // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
         const question1 = document.querySelector('input[name="question1"]:checked') as HTMLInputElement;
@@ -75,7 +56,7 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-
+                aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
             } else {
                 ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
             }
