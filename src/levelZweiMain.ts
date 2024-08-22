@@ -64,6 +64,50 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
+     // Funktion zur Überprüfung der Antworten
+    function checkAnswers() {
+        const question1 = document.querySelector('input[name="question1"]:checked') as HTMLInputElement;
+        const question2 = document.querySelector('input[name="question2"]:checked') as HTMLInputElement;
+
+        if (question1 && question2) {
+            let score = 0;
+
+            if (question1.value === "correct") {
+                score++;
+            }
+
+            if (question2.value === "correct") {
+                score++;
+            }
+
+            const ergebnisDiv = document.getElementById('ergebnis');
+            if (score === 2) {
+                ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
+
+                // Aktionen ausführen, wenn der Test korrekt ist
+                console.log('Attempting to hide areaAktionUhr1 and show areaAktionUhr2');
+
+                // Layer ausblenden und einblenden
+                WA.room.hideLayer('areaAktionUhr1');
+                
+                WA.room.showLayer('areaAktionUhr2');
+                
+                
+
+            } else {
+                ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
+            }
+        } else {
+            alert("Bitte wähle eine Antwort für jede Frage aus.");
+        }
+    }
+
+    // Event-Listener für den Button
+    const button = document.getElementById('checkButton');
+    if (button) {
+        button.addEventListener('click', checkAnswers);
+    }
+
     aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiGUIFail.html');
     aktionArea("areaAnleitung", "Drücke 'SPACE' um die ANleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
     aktionArea("areaAnleitungCode", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiHeizungCode.html');
