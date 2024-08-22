@@ -33,10 +33,10 @@ WA.onInit().then(() => {
 
                 // Layer ausblenden und einblenden
                 WA.room.hideLayer('areaAktionUhr1');
-                console.log('areaAktionUhr1 hidden successfully');
                 
                 WA.room.showLayer('areaAktionUhr2');
-                console.log('areaAktionUhr2 shown successfully');
+                aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelEinsTresor.html');
+                
 
             } else {
                 ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
