@@ -4,8 +4,6 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-
-
 function aktionArea(
     areaName: string,
     messageText: string,
@@ -86,7 +84,25 @@ WA.onInit().then(() => {
             const ergebnisDiv = document.getElementById('ergebnis');
             if (score === 2) {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-                WA.room.hideLayer('tomato');
+
+            WA.room.area.onEnter("areaZentraleTuer").subscribe(() => {
+                    const triggerMessage = WA.ui.displayActionMessage({
+                        message: "Drücke 'SPACE' um den Flyer zu sehen",
+                        callback: () => {
+                            WA.ui.modal.openModal({
+                                title: "Flyer",
+                                src: './flyer_party.html',
+                                allow: "fullscreen",
+                                allowApi: true,
+                                position: "center",
+                            });
+                        }
+                    });
+
+                    WA.room.area.onLeave("areaZentraleTuer").subscribe(() => {
+                        triggerMessage.remove();
+                    });
+            });
                 
 
             } else {
