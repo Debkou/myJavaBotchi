@@ -38,6 +38,8 @@ WA.onInit().then(() => {
     console.log('Player tags: ', WA.player.tags);
 
     aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiGUIFail.html');
+    aktionsFeld("areaAnleitung", "Drücke 'SPACE' um die ANleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
+    aktionsFeld("areaAnleitungCode", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiHeizungCode.html');
    
 
     // Initialisierung der Scripting API Extra-Bibliothek
