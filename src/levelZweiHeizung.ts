@@ -29,8 +29,20 @@ WA.onInit().then(() => {
                 ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
 
                 // Aktionen ausführen, wenn der Test korrekt ist
-                WA.room.hideLayer('areaAktionUhr1');
-                WA.room.showLayer('areaAktionUhr2');
+                console.log('Attempting to hide areaAktionUhr1 and show areaAktionUhr2');
+                
+                WA.room.hideLayer('areaAktionUhr1').then(() => {
+                    console.log('areaAktionUhr1 hidden successfully');
+                }).catch((error) => {
+                    console.error('Failed to hide areaAktionUhr1:', error);
+                });
+
+                WA.room.showLayer('areaAktionUhr2').then(() => {
+                    console.log('areaAktionUhr2 shown successfully');
+                }).catch((error) => {
+                    console.error('Failed to show areaAktionUhr2:', error);
+                });
+
             } else {
                 ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
             }
