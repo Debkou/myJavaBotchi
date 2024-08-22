@@ -33,30 +33,13 @@ function aktionsFeld(
     });
 }
 
-function aktionArea(
-    areaName: string,
-    messageText: string,
-    menuTitle: string,
-    menuSrc: string
-): void {
-    WA.room.area.onEnter(areaName).subscribe(() => {
-        const triggerMessage = WA.ui.displayActionMessage({
-            message: messageText,
-            callback: () => {
-                WA.ui.modal.openModal({
-                    title: menuTitle,
-                    src: menuSrc,
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
-            }
-        });
-
-        WA.room.area.onLeave(areaName).subscribe(() => {
-            triggerMessage.remove();
-        });
-    });
+// Funktion zur Abfrage der Variable und Ausführung der entsprechenden Funktion
+function handleAreaAktionUhr1(): void {
+    if (isTestPassed) {
+        aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiGUIFail.html');
+    } else {
+        aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelEinsTresor.html');
+    }
 }
 
 // Warten, bis die API bereit ist
@@ -101,14 +84,12 @@ WA.onInit().then(() => {
         button.addEventListener('click', checkAnswers);
     }
 
-    // Entscheidet, welches Aktionsfeld aktiviert wird basierend auf dem Wert von isTestPassed
-    if (isTestPassed) {
-        aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiGUIFail.html');
-    } else {
-        aktionsFeld("areaAktionUhr1", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelEinsTresor.html');
-    }
+    // Registrierung des Event-Handlings für das Betreten des Layers `areaAktionUhr1`
+    WA.room.onEnterLayer('areaAktionUhr1').subscribe(() => {
+        handleAreaAktionUhr1(); // Variable abfragen und entsprechende Funktion ausführen
+    });
 
-     aktionArea("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
+    aktionArea("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
     aktionArea("areaAnleitungCode", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiHeizungCode.html');
 
     // Initialisierung der Scripting API Extra-Bibliothek
