@@ -8,6 +8,32 @@ console.log('Script started successfully');
 WA.onInit().then(() => {
     console.log('Scripting API ready');
 
+    function aktionsFeld(
+    areaName: string,
+    messageText: string,
+    menuTitle: string,
+    menuSrc: string
+): void {
+    WA.room.onEnterLayer(areaName).subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: messageText,
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: menuTitle,
+                    src: menuSrc,
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.onLeaveLayer(areaName).subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+}
+
     // Funktion zur Überprüfung der Antworten
     function checkAnswers() {
         const question1 = document.querySelector('input[name="question1"]:checked') as HTMLInputElement;
