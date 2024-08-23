@@ -1,2 +1,0 @@
-import"./modulepreload-polyfill-3cfb730f.js";/* empty css                   */import{b as o}from"./init-ad207eca.js";console.log("Script started successfully");WA.onInit().then(()=>{console.log("Scripting API ready"),document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("btRad");e==null||e.addEventListener("click",()=>{WA.room.hideLayer("wagenVor"),WA.room.showLayer("wagenWeg")})}),o().then(()=>{console.log("Scripting API Extra ready")}).catch(e=>console.error(e))}).catch(e=>console.error(e));
-//# sourceMappingURL=levelZweiRad-e19e1bc6.js.map
