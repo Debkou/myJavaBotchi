@@ -668,7 +668,7 @@
          "name":"aktionUhr",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":50,
          "x":0,
          "y":0
@@ -2065,33 +2065,15 @@
                  "y":864
                 }, 
                 {
-                 "height":0,
-                 "id":10,
-                 "name":"heizung",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"default",
-                         "type":"bool",
-                         "value":true
-                        }],
+                 "height":31,
+                 "id":13,
+                 "name":"areaUhr",
                  "rotation":0,
-                 "type":"variable",
+                 "type":"area",
                  "visible":true,
-                 "width":0,
-                 "x":1322.66666666667,
-                 "y":149.333333333333
-                }, 
-                {
-                 "height":33.5,
-                 "id":12,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32.5,
-                 "x":1439,
-                 "y":256.5
+                 "width":30,
+                 "x":1344.5,
+                 "y":128.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2405,7 +2387,7 @@
          "y":0
         }],
  "nextlayerid":41,
- "nextobjectid":13,
+ "nextobjectid":14,
  "orientation":"orthogonal",
  "properties":[
         {
