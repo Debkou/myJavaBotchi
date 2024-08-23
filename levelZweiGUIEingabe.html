@@ -5,7 +5,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
     <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
     <title>JavaBotchi - Heizung</title>
-
+        <script src="https://play.workadventu.re/iframe_api.js"></script>
+    <!-- Einbindung des TypeScript-Moduls -->
+    <script type="module" src="src/levelZweiTemperatur.ts"></script>
 </head>
 <body class="gelb flex align-center justify-center">
     <div style="text-align: center; padding-bottom:50px">
@@ -16,7 +18,7 @@
         <p>Gib die gewünschte Heizungs-Temperatur ein:</p>
         <input type="text" id="temperatureInput" placeholder="Temperatur eingeben">
         <br><br>
-        <button onclick="ueberpruefeBtn">Überprüfen</button>
+        <button id="ueberpruefeBtn">Überprüfen</button>
         <div id="ergebnis"></div>
     </div>
 </body>
