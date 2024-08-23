@@ -63,6 +63,7 @@ export default defineConfig({
                 levelZweiAnleitung: "./levelZweiAnleitung.html",
                 levelZweiHeizungCode: "./levelZweiHeizungCode.html",
                 levelZweiRad: "./levelZweiRad.html",
+                levelZweiGUIEingabe: "./levelZweiGUIEingabe.html",
               
               
                 ...getMapsScripts(maps),
