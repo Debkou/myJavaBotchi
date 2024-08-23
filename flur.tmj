@@ -2085,6 +2085,28 @@
                  "width":29,
                  "x":833.5,
                  "y":895
+                }, 
+                {
+                 "height":27.5,
+                 "id":15,
+                 "name":"areaRad",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":94.5,
+                 "x":1089,
+                 "y":350
+                }, 
+                {
+                 "height":60.5,
+                 "id":17,
+                 "name":"areaInfoWagen",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":99.5,
+                 "x":1202.5,
+                 "y":1028
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2398,7 +2420,7 @@
          "y":0
         }],
  "nextlayerid":41,
- "nextobjectid":15,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "properties":[
         {
