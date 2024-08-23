@@ -44,8 +44,6 @@ async function ueberpruefeTemperatur() {
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
-
-    displayDoor(gitterTuerStatus); // Zeige den anfänglichen Status der Tür an
     
     // Event-Listener für den "Gitter Tür" Button
     const gitterButton = document.getElementById("ueberpruefeBtn") as HTMLButtonElement;
