@@ -47,6 +47,7 @@ WA.onInit().then(() => {
     if (question1Correct && question2Correct) {
         // Wenn beide Antworten korrekt sind
         ergebnisElement!.innerHTML = "<p>Korrekt!<br>Passwort: Reparieren</p>";
+        aktionArea("areaAnleitung", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "AnleitungCode", './levelZweiHeizungCode.html');
     } else {
         // Anzahl der richtigen und falschen Antworten berechnen
         let correctAnswers = 0;
