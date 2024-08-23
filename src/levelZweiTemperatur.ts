@@ -28,7 +28,8 @@ async function ueberpruefeTemperatur() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-          
+            WA.room.hideLayer('dampf');
+            WA.room.hideLayer('gitterSperre');
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
             }, 3000); // 3000 Millisekunden = 3 Sekunden
