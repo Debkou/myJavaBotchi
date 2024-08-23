@@ -72,7 +72,7 @@ WA.onInit().then(() => {
     aktionArea("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
     aktionArea("areaAnleitungCode", "Drücke 'SPACE' um den Code anzuzeigen", "AnleitungCode", './levelZweiHeizungCode.html');
     aktionArea("areaUhr", "Drücke 'SPACE' um den Code anzuzeigen", "AnleitungCode", './levelZweiGUIFail.html');
-    aktionArea("areaTerminal1", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html');
+    aktionArea("areaTerminalEins", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html'); 
     aktionArea("areaRad", "Drücke 'SPACE' um das Rad zu suchen", "Schrank", './levelZweiRad.html');
     aktionArea("areaInfoWagen", "Drücke 'SPACE' um den Wagen zu schieben.", "Wagen", './levelZweiWagen.html');
 
