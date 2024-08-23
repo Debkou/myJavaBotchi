@@ -2074,6 +2074,17 @@
                  "width":30,
                  "x":1344.5,
                  "y":128.5
+                }, 
+                {
+                 "height":31.5,
+                 "id":14,
+                 "name":"areaTerminal1",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":29,
+                 "x":833.5,
+                 "y":895
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2387,7 +2398,7 @@
          "y":0
         }],
  "nextlayerid":41,
- "nextobjectid":14,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "properties":[
         {
