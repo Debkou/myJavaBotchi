@@ -1895,9 +1895,9 @@
                 {
                  "height":31.5,
                  "id":14,
-                 "name":"areaTerminal1",
+                 "name":"areaTerminalEins",
                  "rotation":0,
-                 "type":"",
+                 "type":"area",
                  "visible":true,
                  "width":29,
                  "x":833.5,
