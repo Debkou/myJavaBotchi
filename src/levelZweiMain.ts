@@ -73,6 +73,7 @@ WA.onInit().then(() => {
     aktionArea("areaAnleitungCode", "Drücke 'SPACE' um den Code anzuzeigen", "AnleitungCode", './levelZweiHeizungCode.html');
     aktionArea("areaUhr", "Drücke 'SPACE' um den Code anzuzeigen", "AnleitungCode", './levelZweiGUIFail.html');
     aktionArea("areaTerminal1", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html');
+    aktionArea("areaRad", "Drücke 'SPACE' um das Rad zu suchen", "Schrank", './levelZweiRad.html');
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
