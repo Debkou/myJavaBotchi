@@ -18,6 +18,8 @@ WA.onInit().then(() => {
         // Die Funktion zum Ausblenden der Ebene aufrufen
         WA.room.hideLayer('wagenVor');
         WA.room.showLayer('wagenWeg');
+        WA.room.hideLayer('wagenSperre');
+        WA.room.area.delete('areaInfoWagen');
     });
 });
     // Initialisierung der Scripting API Extra-Bibliothek
