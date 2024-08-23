@@ -36,60 +36,40 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
-    // Überprüfen, ob der Test bereits erfolgreich durchgeführt wurde
-    let isTestPassed = localStorage.getItem('isTestPassed') === 'true';
-    console.log('Initial isTestPassed:', isTestPassed);
+ document.getElementById("checkButton")?.addEventListener("click", () => {
+    // Auswahl der Radio-Buttons überprüfen
+    const question1Correct = (document.getElementById("option1-2") as HTMLInputElement).checked;
+    const question2Correct = (document.getElementById("option2-2") as HTMLInputElement).checked;
 
-    // Funktion zur Überprüfung der Antworten
-    function checkAnswers() {
-        const question1 = document.querySelector('input[name="question1"]:checked') as HTMLInputElement;
-        const question2 = document.querySelector('input[name="question2"]:checked') as HTMLInputElement;
+    // Überprüfungsergebnis-Element
+    const ergebnisElement = document.getElementById("ergebnis");
 
-        if (question1 && question2) {
-            let score = 0;
-
-            if (question1.value === "correct") {
-                score++;
-            }
-
-            if (question2.value === "correct") {
-                score++;
-            }
-
-            const ergebnisDiv = document.getElementById('ergebnis');
-            if (score === 2) {
-                ergebnisDiv!.innerText = "Alle Antworten sind korrekt!";
-                isTestPassed = true;
-                localStorage.setItem('isTestPassed', 'true'); // Speichere den Teststatus
-                console.log('Test passed, updating layer');
-                // Führt aktionArea nur aus, wenn isTestPassed true ist
-                aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
-            } else {
-                ergebnisDiv!.innerText = "Du hast " + score + " von 2 Fragen richtig beantwortet.";
-                isTestPassed = false;
-                localStorage.setItem('isTestPassed', 'false'); // Speichere den Teststatus
-            }
-        } else {
-            alert("Bitte wähle eine Antwort für jede Frage aus.");
-        }
-    }
-
-    // Event-Listener für den Button
-    const button = document.getElementById('checkButton');
-    if (button) {
-        button.addEventListener('click', checkAnswers);
+    if (question1Correct && question2Correct) {
+        // Wenn beide Antworten korrekt sind
+        ergebnisElement!.innerHTML = "<p>Korrekt!<br>Passwort: Reparieren</p>";
     } else {
-        console.error('Button with id "checkButton" not found');
-    }
+        // Anzahl der richtigen und falschen Antworten berechnen
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
 
-    // Führt aktionArea nur aus, wenn isTestPassed true ist
-    if (isTestPassed) {
-        console.log('Executing aktionArea for areaZentraleTuer');
-        aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
-    }
+        if (question1Correct) {
+            correctAnswers++;
+        } else {
+            incorrectAnswers++;
+        }
 
-    aktionArea("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
-    aktionArea("areaAnleitungCode", "Drücke 'SPACE' um die Temperatur einzustellen", "Heizung", './levelZweiHeizungCode.html');
+        if (question2Correct) {
+            correctAnswers++;
+        } else {
+            incorrectAnswers++;
+        }
+
+        // Anzeige der Anzahl der richtigen und falschen Antworten
+        ergebnisElement!.innerHTML = `<p>Du hast ${correctAnswers} richtige und ${incorrectAnswers} falsche Antworten.</p><p>Bitte versuche es erneut.</p>`;
+    }
+});
+
+    aktionArea("areaAnleitungCode", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "AnleitungCode", './levelZweiHeizungCode.html');
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
