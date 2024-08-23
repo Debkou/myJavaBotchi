@@ -1,0 +1,32 @@
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
+    <title>JavaBotchi - Heizung</title>
+  
+    <script>
+        function checkInput() {
+            var input = document.getElementById("temperatureInput").value;
+            if (input === "Repariere") {
+                window.location.href = "levelZweiGUIEingabe.html";
+            } else {
+                alert("hmm... die Eingabe scheint nicht zu funktionieren.");
+            }
+        }
+    </script>
+</head>
+<body class="gelb flex align-center justify-center">
+    <div style="text-align: center; padding-bottom:50px">
+        <h1>Temperatur Heizung</h1>
+        <div style="padding: 50px;">
+            <img alt="Heizung" src="src/bilder/heizung.jpg" style="width: 30%">
+        </div>
+        <p>Gib die gewünschte Heizungs-Temperatur ein:</p>
+        <input type="text" id="temperatureInput" placeholder="Temperatur eingeben">
+        <br><br>
+        <button onclick="checkInput()">Überprüfen</button>
+    </div>
+</body>
+</html>
