@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
+    <title>JavaBotchi - LevelEins Ende</title>
+    <!-- Einbindung der WorkAdventure API -->
+    <script src="https://play.workadventu.re/iframe_api.js"></script>
+    <!-- Einbindung des TypeScript-Moduls -->
+    <script type="module" src="src/levelEinsFinal.ts"></script>
+</head>
+
+<body class="gelb flex align-center justify-center">
+    <div style="text-align: center">
+        <h1>Passwort Schließanlage</h1>
+        <p>Bitte gib das Passwort ein um die Tür zu Öffnen:</p>
+        <input type="password" id="eingabe" placeholder="Passwort">
+        <button id="submitButton">Überprüfen</button>
+        <div id="ergebnis"></div>
+    </div>
+</body>
+</html>
