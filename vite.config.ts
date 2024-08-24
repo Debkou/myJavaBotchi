@@ -68,6 +68,11 @@ export default defineConfig({
                 levelZweiFundbuero: "./levelZweiFundbuero.html",
                 levelZweiPhone: "./levelZweiPhone.html",
                 levelZweiFInal: "./levelZweiFinalEingabe.html",
+                levelDreiBrute: "./levelDreiBrute.html",
+                levelDreiSeerosen: "./levelDreiSeerosen.html",
+                levelDreiTelBuch: "./levelDreiTelBuch.html",
+                levelDreiTelefon: "./levelDreiTelefon.html",
+                levelDreiVideo: "./levelDreiVideo.html",
               
               
                 ...getMapsScripts(maps),
