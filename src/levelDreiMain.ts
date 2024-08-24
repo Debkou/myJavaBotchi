@@ -37,7 +37,7 @@ WA.onInit().then(() => {
     console.log('Player tags: ', WA.player.tags);
 
 
-    aktionArea("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
+    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", './menue.html');
 
 
 
