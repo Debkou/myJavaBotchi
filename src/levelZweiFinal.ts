@@ -21,7 +21,7 @@ WA.onInit().then(() => {
         const eingabe = eingabeElement.value.trim();
 
         try {
-            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LevelEinsTuer`, {
+            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LevelZweiTuer`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ WA.onInit().then(() => {
                 ergebnisElement.className = 'correct';
 
                 // Ebene aktionLevel1 einblenden
-                WA.room.setProperty("exitLevelEins", "exitSceneUrl", "flur.tmj");
+                WA.room.setProperty("enterZentrales", "exitSceneUrl", "zentrale.tmj");
                 WA.ui.modal.closeModal();
             
             } else {
