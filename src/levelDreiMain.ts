@@ -43,7 +43,7 @@ function telefon(state: boolean) {
             triggerMessage.remove();
         });
     }
-    };
+    },
 }
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
