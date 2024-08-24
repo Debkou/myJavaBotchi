@@ -76,7 +76,7 @@ WA.onInit().then(() => {
 
     statusUrl = (WA.state.phone ?? "") as string;
      WA.state.phone = statusUrl;
-    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", phone);
+    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", WA.state.phone);
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
       WA.room.area.onEnter("areaLadekabel").subscribe(() => {
