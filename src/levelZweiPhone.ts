@@ -12,10 +12,11 @@ WA.onInit().then(() => {
    document.addEventListener('DOMContentLoaded', () => {
     // Den Button-Element selektieren
     const button = document.getElementById('btPhone');
+    const ergebnisElement = document.getElementById("Passwort") as HTMLElement;
 
     // Event-Listener für den Klick auf den Button hinzufügen
     button?.addEventListener('click', () => {
-    WA.room.setProperty("enterZentrale", "exitSceneUrl", "zentrale.tmj");
+    ergebnisElement.innerHTML = `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Zutritt Haustechnik: Frikadelle</p>`;
 
     });
 });
