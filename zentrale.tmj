@@ -1481,6 +1481,12 @@
                  "id":7,
                  "name":"phone",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"bool",
+                         "value":true
+                        }],
                  "rotation":0,
                  "type":"variable",
                  "visible":true,
