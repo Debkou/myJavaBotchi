@@ -31,6 +31,8 @@ function aktionArea(
     });
 }
 
+
+
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
@@ -38,10 +40,11 @@ WA.onInit().then(() => {
 
 
     aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", './menue.html');
+    aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
-
-
-
+      WA.room.area.onEnter("areaLadekabel").subscribe(() => {
+      WA.room.showLayer("magentaKabel");
+    });
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
