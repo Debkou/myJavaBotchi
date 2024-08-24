@@ -44,6 +44,7 @@ function telefon(state: boolean) {
         });
     }
 }
+}
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
     areaName: string,
