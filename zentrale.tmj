@@ -1475,6 +1475,18 @@
                  "width":60,
                  "x":1154,
                  "y":765
+                }, 
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"phone",
+                 "point":true,
+                 "rotation":0,
+                 "type":"variable",
+                 "visible":true,
+                 "width":0,
+                 "x":1118,
+                 "y":656
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1605,7 +1617,7 @@
          "y":0
         }],
  "nextlayerid":27,
- "nextobjectid":7,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "properties":[
         {
