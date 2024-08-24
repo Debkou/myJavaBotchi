@@ -45,6 +45,11 @@ WA.onInit().then(() => {
       WA.room.area.onEnter("areaLadekabel").subscribe(() => {
       WA.room.showLayer("magentaKabel");
     });
+       WA.room.area.onLeave("areaLadekabel").subscribe(() => {
+      WA.room.hideLayer("magentaKabel");
+    });
+
+
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
