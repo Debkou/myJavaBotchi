@@ -85,7 +85,7 @@ WA.onInit().then(() => {
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     // Funktion zur Überprüfung des Passworts
-    async function ueberpruefePasswort() {
+    async function ueberpruefePasswortl2() {
         const eingabe = eingabeElement.value.trim();
 
         try {
