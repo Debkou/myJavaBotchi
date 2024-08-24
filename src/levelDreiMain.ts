@@ -22,8 +22,8 @@ function telefon(state: boolean) {
 
         WA.room.area.onLeave("areaTelefon").subscribe(() => {
             triggerMessage.remove();
+            });
         });
-    });
     } else {
        WA.room.area.onEnter("areaTelefon").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
@@ -43,7 +43,7 @@ function telefon(state: boolean) {
             triggerMessage.remove();
         });
     }
-}
+    };
 }
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
