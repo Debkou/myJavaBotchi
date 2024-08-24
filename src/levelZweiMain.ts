@@ -77,6 +77,7 @@ WA.onInit().then(() => {
     aktionArea("areaInfoWagen", "Drücke 'SPACE' um den Wagen zu schieben.", "Wagen", './levelZweiWagen.html');
     aktionArea("areaInfoHandy", "Drücke 'SPACE' um die Info anzuzeigen.", "Fundbüro", './levelZweiFundbuero.html');
     aktionArea("areaAktionHandy", "Drücke 'SPACE' um den Schrank zu Öffnen", "Schrank", './levelZweiPhone.html');
+    aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Tür zu Öffnen", "Haustechnik", './levelZweiFinalEingabe.html');
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
