@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
+    <title>JavaBotchi - Smartphone entsperren</title>
+</head>
+<body class="gelb flex flex-column align-center">
+    <div class="flex flex-column align-center">
+        <h1>Smartphone entsperren</h1>
+		<img alt="Smartphone" src="src/bilder/phoneCode.jpg" style="width: 20%;">
+        <p>"Na super! - Meine Komilitonen sind echte Scherzbolde. Mein Code wurde abgeändert."</p>
+        <p>"Vielleicht kann ich das Problem mit Hilfe eines Brute-Force Angriffs lösen."</p>
+    </div>
+    <div class="code-container code-body">
+        <pre><code>
+<span class="keyword">import</span> <span class="datatype">java.util.Base64</span>;
+
+<span class="keyword">public class</span> <span class="datatype">Broute</span> {
+
+    <span class="keyword">private static final</span> <span class="datatype">String</span> <span class="variable">CHARSET</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz0123456789"</span>;
+    <span class="keyword">private static final</span> <span class="datatype">String</span> <span class="variable">ENCODED_PASSWORD</span> = <span class="string">"NTIyOA=="</span>; <span class="comment">// Base64-codiertes Passwort für "5228"</span>
+
+    <span class="keyword">public static void</span> <span class="function">main</span>(<span class="datatype">String</span>[] <span class="variable">args</span>) {
+        <span class="function">System.out.println</span>(<span class="string">"Versuche, das Passwort zu knacken..."</span>);
+        <span class="datatype">String</span> <span class="variable">targetPassword</span> = <span class="function">decodePassword</span>(<span class="variable">ENCODED_PASSWORD</span>);
+        <span class="function">bruteForce</span>(<span class="string">""</span>, <span class="number">4</span>, <span class="variable">targetPassword</span>);
+    }
+
+    <span class="comment">// Methode zum Dekodieren des Passworts</span>
+    <span class="keyword">private static</span> <span class="datatype">String</span> <span class="function">decodePassword</span>(<span class="datatype">String</span> <span class="variable">encodedPassword</span>) {
+        <span class="datatype">byte</span>[] <span class="variable">decodedBytes</span> = <span class="datatype">Base64</span>.<span class="function">getDecoder</span>().<span class="function">decode</span>(<span class="variable">encodedPassword</span>);
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="datatype">String</span>(<span class="variable">decodedBytes</span>);
+    }
+
+    <span class="comment">// Setze hier den passenden Code ein</span>
+
+    <span class="comment">// Methode zum Überprüfen, ob das generierte Passwort dem Zielpasswort entspricht</span>
+    <span class="keyword">private static</span> <span class="datatype">boolean</span> <span class="function">checkPassword</span>(<span class="datatype">String</span> <span class="variable">attempt</span>, <span class="datatype">String</span> <span class="variable">targetPassword</span>) {
+        <span class="keyword">return</span> <span class="variable">targetPassword</span>.<span class="function">equals</span>(<span class="variable">attempt</span>);
+    }
+
+}
+        </code></pre>
+    </div>
+	<div class="flex flex-column" style="margin-top:50px; ">
+	   <input type="text" id="code" placeholder="Code">
+        <button class="buttonMenue weiss-font" id="codeBtn" style="margin-top: 20px;">Überprüfen</button>
+        <div id="ergebnis"></div>
+	</div>
+	 
+</body>
+</html>
