@@ -4,38 +4,13 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-function telefon(state: boolean) {
-    // Handler für den Eintritt in die Area
-    const onEnterHandler = () => {
-        // Erzeuge die Action Message
-        const triggerMessage = WA.ui.displayActionMessage({
-            message: messageText,
-            callback: () => {
-                // Bestimme die Modalquelle basierend auf dem State
-                const modalSrc = state ? './menue.html' : './levelEinsGitter.html';
-                WA.ui.modal.openModal({
-                    title: "Telefon",
-                    src: modalSrc,
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
-            }
-        });
-
-        // Handler für das Verlassen der Area
-        const onLeaveHandler = () => {
-            triggerMessage.remove();
-        };
-
-        // Abonniere den onLeave-Handler, um die Action Message zu entfernen
-        WA.room.area.onLeave("areaTelefon").subscribe(onLeaveHandler);
-    };
-
-    // Abonniere den onEnter-Handler für die Area
-    WA.room.area.onEnter("areaTelefon").subscribe(onEnterHandler);
+function telefon(state: boolean) { 
+    if (state === true) {
+        aktionArea("areaTelefon", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", './menue.html');
+    } else {
+        aktionArea("areaTelefon", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", './levelEinsGitter.html');
+    }
 }
-
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
     areaName: string,
