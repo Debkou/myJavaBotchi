@@ -15,7 +15,7 @@ WA.onInit().then(() => {
 
     // Event-Listener für den Klick auf den Button hinzufügen
     button?.addEventListener('click', () => {
-    WA.room.showLayer('enterZentrale');
+    WA.room.setProperty("enterZentrale", "exitSceneUrl", "zentrale.tmj");
 
     });
 });
