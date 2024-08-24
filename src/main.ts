@@ -185,7 +185,7 @@ WA.onInit().then(() => {
                 ergebnisElement.className = 'correct';
 
                 // Ebene aktionLevel1 einblenden
-                WA.room.setProperty("exitLevel1", "exitSceneUrl", "office.tmj");
+                WA.room.setProperty("exitLevel1", "exitSceneUrl", "levelEins.tmj");
                 WA.ui.modal.closeModal();
             
             } else {
