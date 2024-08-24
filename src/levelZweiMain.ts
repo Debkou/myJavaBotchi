@@ -79,6 +79,59 @@ WA.onInit().then(() => {
     aktionArea("areaAktionHandy", "Drücke 'SPACE' um den Schrank zu Öffnen", "Schrank", './levelZweiPhone.html');
     aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Tür zu Öffnen", "Haustechnik", './levelZweiFinalEingabe.html');
 
+    // Hier kommt die Logik für die Passwortüberprüfung und das Einblenden der Ebene
+    const eingabeElement = document.getElementById("eingabe") as HTMLInputElement;
+    const submitButton = document.getElementById("submitButton") as HTMLButtonElement;
+    const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
+
+    // Funktion zur Überprüfung des Passworts
+    async function ueberpruefePasswort() {
+        const eingabe = eingabeElement.value.trim();
+
+        try {
+            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LevelZweiTuer`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ eingabe })
+            });
+
+            if (!response.ok) {
+                throw new Error('Netzwerkantwort war nicht ok.');
+            }
+
+            const data = await response.json();
+
+            if (data.result === 'Korrekt!') {
+                ergebnisElement.textContent = data.result;
+                ergebnisElement.className = 'correct';
+
+                // Ebene aktionLevel1 einblenden
+                WA.room.setProperty("enterZentrale", "exitSceneUrl", "zentrale.tmj");
+                WA.ui.modal.closeModal();
+            
+            } else {
+                ergebnisElement.textContent = data.result;
+                ergebnisElement.className = 'incorrect';
+            }
+        } catch (error) {
+            ergebnisElement.textContent = 'Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.';
+            ergebnisElement.className = 'error';
+            console.error('Es gab ein Problem mit der Anfrage:', error);
+        }
+    }
+
+    // Event-Listener für den Button
+    submitButton.addEventListener("click", ueberpruefePasswort);
+
+    // Event-Listener für die Enter-Taste
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            ueberpruefePasswort();
+        }
+    });
+
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
