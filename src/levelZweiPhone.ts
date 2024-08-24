@@ -15,25 +15,7 @@ WA.onInit().then(() => {
 
     // Event-Listener für den Klick auf den Button hinzufügen
     button?.addEventListener('click', () => {
-        // Die Funktion zum Ausblenden der Ebene aufrufen
-       WA.room.area.onEnter("areaZentraleTuer").subscribe(() => {
-        const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um die Tür zu öffnen",
-            callback: () => {
-                WA.ui.modal.openModal({
-                    title: "Eintritt",
-                    src: './levelZweiRad.html',
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
-            }
-        });
-
-        WA.room.area.onLeave("areaZentraleTuer").subscribe(() => {
-            triggerMessage.remove();
-        });
-    });
+    WA.room.showLayer('enterZentrale');
 
     });
 });
