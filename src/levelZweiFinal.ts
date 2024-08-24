@@ -13,7 +13,7 @@ WA.onInit().then(() => {
 
     // Hier kommt die Logik für die Passwortüberprüfung und das Einblenden der Ebene
     const eingabeElement = document.getElementById("l2eingabe") as HTMLInputElement;
-    const l2Button = document.getElementById("l2Button") as HTMLButtonElement;
+    const l2tButton = document.getElementById("l2tButton") as HTMLButtonElement;
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     // Funktion zur Überprüfung des Passworts
@@ -55,7 +55,7 @@ WA.onInit().then(() => {
     }
 
     // Event-Listener für den Button
-    l2Button.addEventListener("click", ueberpruefePasswortl2);
+    l2tButton.addEventListener("click", ueberpruefePasswortl2);
 
     // Event-Listener für die Enter-Taste
     document.addEventListener("keydown", function(event) {
