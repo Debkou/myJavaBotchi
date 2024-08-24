@@ -67,6 +67,7 @@ export default defineConfig({
                 levelZweiWagen: "./levelZweiWagen.html",
                 levelZweiFundbuero: "./levelZweiFundbuero.html",
                 levelZweiPhone: "./levelZweiPhone.html",
+                levelZweiFInal: "./levelZweiFinalEingabe.html",
               
               
                 ...getMapsScripts(maps),
