@@ -60,7 +60,7 @@ WA.onInit().then(() => {
     // Event-Listener für die Enter-Taste
     document.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
-            ueberpruefePasswort();
+            ueberpruefePasswortl2();
         }
     });
 
