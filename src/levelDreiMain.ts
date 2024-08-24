@@ -74,8 +74,12 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
+    WA.state.saveVariable('config', {
+    'src': './menue.html',
+    }).catch(e => console.error('Something went wrong while saving variable', e));
+   let phone = WA.state.loadVariable('phone');
 
-    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", './menue.html');
+    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", phone);
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
       WA.room.area.onEnter("areaLadekabel").subscribe(() => {
