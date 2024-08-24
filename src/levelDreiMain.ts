@@ -4,6 +4,46 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
+function telefon(state: boolean) { 
+    if (state === true) {
+       WA.room.area.onEnter("areaTelefon").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: messageText,
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "Telefon",
+                    src: './menue.html',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.area.onLeave("areaTelefon").subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+    } else {
+       WA.room.area.onEnter("areaTelefon").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: messageText,
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: "Telefon",
+                    src: './levelEinsGitter.html',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.area.onLeave("areaTelefon").subscribe(() => {
+            triggerMessage.remove();
+        });
+    }
+}
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
     areaName: string,
@@ -73,6 +113,11 @@ async function phoneCode() {
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
+    telefon(WA.state.phone);
+       WA.state.onVariableChange('phone').subscribe((phoneState) => {
+        // Each time the "doorState" variable changes, we call the "displayDoor" function to update the door image visually.
+        telefon(phoneState as boolean);
+    });
     aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", './menue.html');
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
