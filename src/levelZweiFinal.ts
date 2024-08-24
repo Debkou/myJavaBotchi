@@ -13,7 +13,7 @@ WA.onInit().then(() => {
 
     // Hier kommt die Logik für die Passwortüberprüfung und das Einblenden der Ebene
     const eingabeElement = document.getElementById("l2eingabe") as HTMLInputElement;
-    const submitButton = document.getElementById("l2Button") as HTMLButtonElement;
+    const l2Button = document.getElementById("l2Button") as HTMLButtonElement;
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     // Funktion zur Überprüfung des Passworts
