@@ -3,7 +3,7 @@
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
-let statusUrl = "./menue.html";
+
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
     areaName: string,
@@ -73,10 +73,7 @@ async function phoneCode() {
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
-
-    statusUrl = (WA.state.phone ?? "") as string;
-     WA.state.phone = statusUrl;
-    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", WA.state.phone);
+    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", './menue.html');
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
       WA.room.area.onEnter("areaLadekabel").subscribe(() => {
