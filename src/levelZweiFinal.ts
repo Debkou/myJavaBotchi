@@ -40,7 +40,7 @@ WA.onInit().then(() => {
                 ergebnisElement.className = 'correct';
 
                 // Ebene aktionLevel1 einblenden
-                WA.room.setProperty("enterZentrales", "exitSceneUrl", "zentrale.tmj");
+                WA.room.setProperty("enterZentrale", "exitSceneUrl", "zentrale.tmj");
                 WA.ui.modal.closeModal();
             
             } else {
