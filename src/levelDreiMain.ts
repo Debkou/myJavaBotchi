@@ -56,11 +56,13 @@ async function phoneCode() {
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
              ergebnisElement.innerHTML = `<p>"Na Super! Kein Empfang. Ich brauche ein Telefon!"</p>`;
-                
+             WA.room.showLayer("aktionTelefon"); 
+            WA.room.setProperty("aktionTelefon", "openWebsite", "./levelDreiTelefon.html");
+   
             // Schließe das Modal nach 3 Sekunden und öffne dann die neue Seite
             setTimeout(() => {
                 WA.ui.modal.closeModal();
-            }, 3000); // 3000 Millisekunden = 3 Sekunden
+            }, 4000); // 4000 Millisekunden = 4 Sekunden
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
