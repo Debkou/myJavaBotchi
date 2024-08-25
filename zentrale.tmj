@@ -1477,22 +1477,21 @@
                  "y":765
                 }, 
                 {
-                 "height":0,
-                 "id":7,
-                 "name":"phone",
-                 "point":true,
+                 "height":36,
+                 "id":8,
+                 "name":"test",
                  "properties":[
                         {
-                         "name":"default",
-                         "type":"bool",
-                         "value":true
+                         "name":"openWebsite",
+                         "type":"string",
+                         "value":".\/menue.html"
                         }],
                  "rotation":0,
-                 "type":"variable",
+                 "type":"area",
                  "visible":true,
-                 "width":0,
-                 "x":1118,
-                 "y":656
+                 "width":36,
+                 "x":864,
+                 "y":765
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1622,8 +1621,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":27,
- "nextobjectid":8,
+ "nextlayerid":28,
+ "nextobjectid":9,
  "orientation":"orthogonal",
  "properties":[
         {
