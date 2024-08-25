@@ -1,0 +1,2 @@
+import"./modulepreload-polyfill-3cfb730f.js";import{b as e}from"./init-ad207eca.js";console.log("Script started successfully");WA.onInit().then(()=>{console.log("Scripting API ready"),document.addEventListener("DOMContentLoaded",()=>{const o=document.getElementById("btKoala");o==null||o.addEventListener("click",()=>{WA.room.hideLayer("kassenbandBlock"),WA.room.showLayer("aktionKassenband")})}),e().then(()=>{console.log("Scripting API Extra ready")}).catch(o=>console.error(o))}).catch(o=>console.error(o));
+//# sourceMappingURL=levelVierKoala-4a2fa5f8.js.map
