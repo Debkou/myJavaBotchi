@@ -79,7 +79,7 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
-    aktionAreaTest("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", url);
+    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", url);
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
       WA.room.area.onEnter("areaLadekabel").subscribe(() => {
