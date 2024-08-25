@@ -27,13 +27,12 @@ async function telefon() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p>${data.result}<br>
-       <span style="color:#39659F;"><strong>Andreas:</strong></span>"hallo?"<br>
-<span style="color:#39659F;"><strong>Botchi:</strong></span>"Hallo Andreas! Hier ist Botchi. Ich habe ein Problem."<br>
-<span style="color:#39659F;"><strong>Andreas:</strong></span>"Gestern wieder zu viel gefeiert?"<br>
-<span style="color:#39659F;"><strong>Botchi:</strong></span>"Kann man so sagen. Ich bin scheinbar im Keller der Fh eingesperrt."<br>
-<span style="color:#39659F;"><strong>Andreas:</strong></span>"Ich komme und hole Dich raus! Das kann aber etwas dauern. Ich rufe Dich an, wenn ich da bin."<br>
-<span style="color:#39659F;"><strong>Sieh Dich um, bis du einen Anruf von Andreas bekommst.</strong></span><br></p>
-    
+               <span style="color:#39659F;"><strong>Andreas:</strong></span>"hallo?"<br>
+                <span style="color:#39659F;"><strong>Botchi:</strong></span>"Hallo Andreas! Hier ist Botchi. Ich habe ein Problem."<br>
+                <span style="color:#39659F;"><strong>Andreas:</strong></span>"Gestern wieder zu viel gefeiert?"<br>
+                <span style="color:#39659F;"><strong>Botchi:</strong></span>"Kann man so sagen. Ich bin scheinbar im Keller der Fh eingesperrt."<br>
+                <span style="color:#39659F;"><strong>Andreas:</strong></span>"Ich komme und hole Dich raus! Das kann aber etwas dauern. Ich rufe Dich an, wenn ich da bin."<br>
+                <span style="color:#39659F;"><strong>Sieh Dich um, bis du einen Anruf von Andreas bekommst.</strong></span><br></p>
            
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
