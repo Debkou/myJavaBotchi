@@ -17,35 +17,9 @@
         <p>Gib das Passwort ein um den Schrank zu Verschieben.</p>
 		<p><strong>Passwort</strong></p>
         <input type="text" id="eingabe" placeholder="Passwort">
-        <button onclick="checkInput()">Überprüfen</button>
+        <button id"btKonsole">Überprüfen</button>
         <div id="ergebnis"></div>
     </div>
 
-    <script>
-        // Definiere den Namen hier
-        const name = 'einstieg'; // Dieser Wert kann direkt in der HTML-Datei geändert werden
-
-        async function checkInput() {
-            const eingabe = document.getElementById('eingabe').value.trim();
-            const ergebnis = document.getElementById('ergebnis');
-
-            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=${encodeURIComponent(name)}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ eingabe })
-            });
-
-            const data = await response.json();
-            if (data.result === 'Korrekt!') {
-                ergebnis.textContent = data.result;
-                ergebnis.className = 'correct';
-            } else {
-                ergebnis.textContent = data.result;
-                ergebnis.className = 'incorrect';
-            }
-        }
-    </script>
 </body>
 </html>
