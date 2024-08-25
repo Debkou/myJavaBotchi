@@ -27,7 +27,7 @@ async function telefon() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p>${data.result}<br>
-            <span style="font-color:#39659F;"><strong>Andreas:</strong></span>"hallo?"<br>
+            <span style="color:#39659F;"><strong>Andreas:</strong></span>"hallo?"<br>
             <strong>Botchi:</strong>"Hallo Andreas! Hier ist Botchi. Ich habe ein Problem."<br>
             <strong>Andreas:</strong>"Gestern wieder zu viel gefeiert?"<br>
             <strong>Botchi:</strong>"Kann man so sagen. Ich bin scheinbar im Keller der Fh eingesperrt."<br>
