@@ -168,7 +168,7 @@ WA.onInit().then(() => {
     codeBtn.addEventListener("click", phoneCode);
 
     const telBtn = document.getElementById("nummerBtn") as HTMLButtonElement;
-    codeBtn.addEventListener("click", telefon);
+    telBtn.addEventListener("click", telefon);
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
