@@ -30,7 +30,8 @@ async function ueberpruefeZahlenschloss() {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
              setTimeout(() => {
                 WA.room.setProperty("aktionArchiv", "exitSceneUrl", "archiv.tmj");
-            }, 3000); // 3000 Millisekunden = 3 Sekunden
+                WA.ui.modal.closeModal();
+            }, 2000); // 3000 Millisekunden = 3 Sekunden
           
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
