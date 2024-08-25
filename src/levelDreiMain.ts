@@ -197,6 +197,20 @@ WA.onInit().then(() => {
         });
     });
 
+       WA.room.onEnterLayer("aktionTuer").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um den Flur zu betreten",
+            callback: () => {
+            WA.room.setProperty("aktionTuer", "exitSceneUrl", "flur.tmj");
+            }
+        });
+         
+
+        WA.room.area.onLeave("aktionTuer").subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+
       const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
     codeBtn.addEventListener("click", phoneCode);
 
