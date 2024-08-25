@@ -4,28 +4,15 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-// Eigene Variable für den Status der Gittertür
-let gitterTuerStatus: boolean = true; // Anfangsstatus: geschlossen
-
-// Funktion zum Überprüfen des Gittertür-Status
-function displayDoor(state: boolean) { 
-    if (state) {
-        WA.room.showLayer('gitterTuerZu');
-        WA.room.hideLayer('gitterTuerAuf');
-    } else {
-        WA.room.hideLayer('gitterTuerZu');
-        WA.room.showLayer('gitterTuerAuf');
-    }
-}
 
 // Funktion zur Überprüfung des Zahlenschlosses
-async function ueberpruefeZahlenschloss() {
-    const eingabeElement = document.getElementById("eingabeGitter") as HTMLInputElement;
+async function ueberpruefePasswort() {
+    const eingabeElement = document.getElementById("eingabe") as HTMLInputElement;
     const eingabe = eingabeElement.value.trim();
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     try {
-        const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=zahlenschloss`, {
+        const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=Archiv`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,13 +28,13 @@ async function ueberpruefeZahlenschloss() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-            // Ändere den Status der Gittertür
-            gitterTuerStatus = false; // Die Tür ist nun geöffnet
-            displayDoor(gitterTuerStatus); // Aktualisiere die Anzeige
-             WA.room.hideLayer('gitterSperre');
+             WA.room.hideLayer('klausurZu');
+             WA.room.hideLayer('klausurBlock');
+            WA.room.showLayer('klausurAuf');
+            WA.room.showLayer('klausurBlock2');
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
-            }, 3000); // 3000 Millisekunden = 3 Sekunden
+            }, 2000); // 3000 Millisekunden = 3 Sekunden
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
@@ -60,12 +47,10 @@ async function ueberpruefeZahlenschloss() {
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
-
-    displayDoor(gitterTuerStatus); // Zeige den anfänglichen Status der Tür an
     
     // Event-Listener für den "Gitter Tür" Button
-    const gitterButton = document.getElementById("gitterTuer") as HTMLButtonElement;
-    gitterButton.addEventListener("click", ueberpruefeZahlenschloss);
+    const btKonsole = document.getElementById("btKonsole") as HTMLButtonElement;
+    btKonsole.addEventListener("click", ueberpruefePasswort);
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
