@@ -44,9 +44,9 @@ function aktionAreaTest(
      
  
 
-      WA.state.onVariableChange('phone').subscribe((phone) => {
+      WA.state.onVariableChange('phone').subscribe(() => {
         // Each time the "doorState" variable changes, we call the "displayDoor" function to update the door image visually.
-               const triggerMessage = WA.ui.displayActionMessage({
+            const triggerMessage = WA.ui.displayActionMessage({
             message: messageText,
             callback: () => {
                 WA.ui.modal.openModal({
