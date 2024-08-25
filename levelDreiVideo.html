@@ -6,47 +6,55 @@
     <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
     <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
     <title>JavaBotchi - Videoüberwachung</title>
-  
 </head>
 <body class="gelb flex align-center justify-center">
-    <div style="text-align: center; padding-bottom:50px ">
+    <div style="text-align: center; padding-bottom:50px;">
         <h1>Videoüberwachung</h1>
-		<div style="padding: 50px;">
-		<img alt="Vorhängeschloss" src="src/bilder/video.jpg" style="width: 30%">
-		</div>
+        <div style="padding: 50px;">
+            <img alt="Vorhängeschloss" src="src/bilder/video.jpg" style="width: 30%;">
+        </div>
         <p>Bitte gib das Passwort ein:</p>
-		<div class="flex flex-column align-center">
-			<input type="text" id="eingabe" placeholder="Passwort">
-        <button id="seeroseBtn" class="buttonMenue weiss-font">Überprüfen</button>
-		</div>
-        
-		<p style="font-size:0.8rem;">*Hinweis: Seerosen</p>
+        <div class="flex flex-column align-center">
+            <input type="text" id="eingabe" placeholder="Passwort">
+            <button id="seeroseBtn" class="buttonMenue weiss-font" onclick="checkInput()">Überprüfen</button>
+        </div>
+        <p style="font-size:0.8rem;">*Hinweis: Seerosen</p>
         <div id="ergebnis"></div>
     </div>
 
     <script>
         // Definiere den Namen hier
-        const name = 'einstieg'; // Dieser Wert kann direkt in der HTML-Datei geändert werden
+        const name = 'Seerosen'; // Dieser Wert kann direkt in der HTML-Datei geändert werden
 
         async function checkInput() {
             const eingabe = document.getElementById('eingabe').value.trim();
             const ergebnis = document.getElementById('ergebnis');
 
-            const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=${encodeURIComponent(name)}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ eingabe })
-            });
+            try {
+                const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=${encodeURIComponent(name)}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ eingabe })
+                });
 
-            const data = await response.json();
-            if (data.result === 'Korrekt!') {
-                ergebnis.textContent = data.result;
-                ergebnis.className = 'correct';
-            } else {
-                ergebnis.textContent = data.result;
-                ergebnis.className = 'incorrect';
+                if (!response.ok) {
+                    throw new Error('Netzwerkantwort war nicht ok.');
+                }
+
+                const data = await response.json();
+
+                if (data.result === 'Korrekt!') {
+                    ergebnis.innerHTML = `<p style="color: green;">${data.result}</p>`;
+                    // Direkte Weiterleitung zur Bildergalerie
+                    window.location.href = './levelEinsGitter.html';
+                } else {
+                    ergebnis.innerHTML = `<p style="color: red;">${data.result}</p>`;
+                }
+            } catch (error) {
+                ergebnis.innerHTML = `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Passworts. Bitte versuche es später erneut.</p>`;
+                console.error('Es gab ein Problem mit der Anfrage:', error);
             }
         }
     </script>
