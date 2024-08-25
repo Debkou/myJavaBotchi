@@ -20099,7 +20099,7 @@
       "name": "floor",
       "opacity": 1,
       "type": "tilelayer",
-      "visible": false,
+      "visible": true,
       "width": 50,
       "x": 0,
       "y": 0
@@ -80511,7 +80511,7 @@
     {
       "columns": 12,
       "firstgid": 1,
-      "image": "archiv-chunk-1-bac2077f.png",
+      "image": "archiv-chunk-1-fad69f24.png",
       "imageheight": 384,
       "imagewidth": 384,
       "margin": 0,
