@@ -55,13 +55,13 @@ async function phoneCode() {
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Ändere den Status der Gittertür
-            WA.room.setProperty("test", "openWebsite", "levelEinsGitter.html");
+       
 
             // Schließe das Modal nach 3 Sekunden und wechsle nach 1 Sekunde die Seite
             setTimeout(() => {
                 WA.ui.modal.closeModal();
                 setTimeout(() => {
-                    window.location.href = 'levelDreiBruteErg.html';
+                    window.location.href = './levelDreiBruteErg.html';
                 }, 1000); // 1000 Millisekunden = 1 Sekunde
             }, 3000); // 3000 Millisekunden = 3 Sekunden
         } else {
