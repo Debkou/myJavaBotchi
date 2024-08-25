@@ -34,40 +34,6 @@ function aktionArea(
     });
 }
 
-function aktionAreaTest(
-    areaName: string,
-    messageText: string,
-    menuTitle: string,
-    menuSrc: string
-): void {
-    WA.room.area.onEnter(areaName).subscribe(() => {
-     
- 
-
-      WA.state.onVariableChange('phone').subscribe(() => {
-        // Each time the "doorState" variable changes, we call the "displayDoor" function to update the door image visually.
-            const triggerMessage = WA.ui.displayActionMessage({
-            message: messageText,
-            callback: () => {
-                WA.ui.modal.openModal({
-                    title: menuTitle,
-                    src: menuSrc,
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
-            }
-        });
-    });
-
-        WA.room.area.onLeave(areaName).subscribe(() => {
-            triggerMessage.remove();
-        });
-    });
-}
-
-
-
 // Funktion zur Überprüfung des Zahlenschlosses
 async function phoneCode() {
     const eingabeElement = document.getElementById("code") as HTMLInputElement;
