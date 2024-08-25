@@ -57,6 +57,7 @@ async function phoneCode() {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Ändere den Status der Gittertür
          url= "./levelDreiBrute.html";
+        console.log(url);
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
             }, 3000); // 3000 Millisekunden = 3 Sekunden
