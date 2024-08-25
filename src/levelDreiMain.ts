@@ -57,7 +57,7 @@ async function phoneCode() {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
              ergebnisElement.innerHTML = `<p>"Na Super! Kein Empfang. Ich brauche ein Telefon!"</p>`;
              WA.room.showLayer("aktionTelefon"); 
-            WA.room.setProperty("aktionTelefon", "openWebsite", "./levelDreiTelefon.html");
+             WA.room.hideLayer("blockTelefon"); 
    
             // Schließe das Modal nach 3 Sekunden und öffne dann die neue Seite
             setTimeout(() => {
