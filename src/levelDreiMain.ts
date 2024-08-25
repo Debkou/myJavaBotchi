@@ -58,7 +58,7 @@ async function phoneCode() {
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Ändere den Status der Gittertür
-
+            WA.room.setProperty("test", "openWebsite", "levelEinsGitter.html");
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
             }, 3000); // 3000 Millisekunden = 3 Sekunden
