@@ -73,6 +73,7 @@ export default defineConfig({
                 levelDreiTelBuch: "./levelDreiTelBuch.html",
                 levelDreiTelefon: "./levelDreiTelefon.html",
                 levelDreiVideo: "./levelDreiVideo.html",
+                levelDreiBrutErg: "./levelDreiBruteErg.html",
               
               
                 ...getMapsScripts(maps),
