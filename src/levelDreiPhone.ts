@@ -27,21 +27,8 @@ async function telefon() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-
-            // Lade den Inhalt der success.html sofort nach erfolgreicher Überprüfung
-            try {
-                const response = await fetch('./levelEinsGitter.html');
-                if (!response.ok) {
-                    throw new Error('Fehler beim Laden der success.html');
-                }
-                const htmlContent = await response.text();
-                document.open();
-                document.write(htmlContent);
-                document.close();
-            } catch (error) {
-                console.error('Fehler beim Laden der neuen Seite:', error);
-            }
-            WA.ui.modal.closeModal();
+            window.open('./levelEinsGitter.html');
+           
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
