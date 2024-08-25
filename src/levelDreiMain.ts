@@ -4,8 +4,6 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-let url = "./menue.html";
- WA.state.phone = url;
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
     areaName: string,
@@ -14,7 +12,6 @@ function aktionArea(
     menuSrc: string
 ): void {
     WA.room.area.onEnter(areaName).subscribe(() => {
-     
         const triggerMessage = WA.ui.displayActionMessage({
             message: messageText,
             callback: () => {
@@ -59,8 +56,13 @@ async function phoneCode() {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Ändere den Status der Gittertür
             WA.room.setProperty("test", "openWebsite", "levelEinsGitter.html");
-                  setTimeout(() => {
+
+            // Schließe das Modal nach 3 Sekunden und wechsle nach 1 Sekunde die Seite
+            setTimeout(() => {
                 WA.ui.modal.closeModal();
+                setTimeout(() => {
+                    window.location.href = 'levelDreiBruteErg.html';
+                }, 1000); // 1000 Millisekunden = 1 Sekunde
             }, 3000); // 3000 Millisekunden = 3 Sekunden
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
@@ -71,18 +73,17 @@ async function phoneCode() {
     }
 }
 
-
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
-     WA.room.area.onEnter("test").subscribe(() => {
+    WA.room.area.onEnter("test").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Hinweise zu öffnen",
             callback: () => {
-            WA.room.showLayer("testEbene");
-            WA.room.setProperty("testEbene", "openWebsite", "menue.html"); 
+                WA.room.showLayer("testEbene");
+                WA.room.setProperty("testEbene", "openWebsite", "menue.html"); 
             }
         });
 
@@ -90,21 +91,21 @@ WA.onInit().then(() => {
             WA.room.hideLayer("testEbene");
             WA.room.setProperty("testEbene", "openWebsite", ""); 
             triggerMessage.remove();
-           
         });
     });
 
-    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", url);
+    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Hauptmenü", './menue.html');
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
-      WA.room.area.onEnter("areaLadekabel").subscribe(() => {
-      WA.room.showLayer("magentaKabel");
-    });
-       WA.room.area.onLeave("areaLadekabel").subscribe(() => {
-      WA.room.hideLayer("magentaKabel");
+    WA.room.area.onEnter("areaLadekabel").subscribe(() => {
+        WA.room.showLayer("magentaKabel");
     });
 
-      const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
+    WA.room.area.onLeave("areaLadekabel").subscribe(() => {
+        WA.room.hideLayer("magentaKabel");
+    });
+
+    const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
     codeBtn.addEventListener("click", phoneCode);
 
     // Initialisierung der Scripting API Extra-Bibliothek
