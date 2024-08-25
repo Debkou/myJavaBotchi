@@ -10044,7 +10044,7 @@
       ],
       "height": 50,
       "id": 32,
-      "name": "aktenscgrankBlock",
+      "name": "aktenschrankBlock",
       "opacity": 1,
       "type": "tilelayer",
       "visible": true,
@@ -75485,7 +75485,7 @@
     {
       "columns": 12,
       "firstgid": 1,
-      "image": "archiv-chunk-1-cb71de06.png",
+      "image": "archiv-chunk-1-ed31b791.png",
       "imageheight": 384,
       "imagewidth": 384,
       "margin": 0,
