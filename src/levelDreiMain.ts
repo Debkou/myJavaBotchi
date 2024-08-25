@@ -102,4 +102,14 @@ WA.onInit().then(() => {
         WA.room.hideLayer("magentaKabel");
     });
 
-   
+      const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
+    codeBtn.addEventListener("click", phoneCode);
+
+    // Initialisierung der Scripting API Extra-Bibliothek
+    bootstrapExtra().then(() => {
+        console.log('Scripting API Extra ready');
+    }).catch(e => console.error(e));
+
+}).catch(e => console.error(e));
+
+export {}; 
