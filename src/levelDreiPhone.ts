@@ -4,8 +4,6 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-
-
 // Funktion zur Überprüfung des Zahlenschlosses
 async function telefon() {
     const eingabeElement = document.getElementById("nummer") as HTMLInputElement;
@@ -30,7 +28,9 @@ async function telefon() {
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
         
-                  setTimeout(() => {
+            setTimeout(() => {
+                // Öffnen einer neuen HTML-Datei nach erfolgreicher Überprüfung
+                window.open('./levelEinsGitter.html', '_blank');
                 WA.ui.modal.closeModal();
             }, 3000); // 3000 Millisekunden = 3 Sekunden
         } else {
