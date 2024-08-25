@@ -81,6 +81,7 @@ export default defineConfig({
                 levelVierHenning: "./levelVierHenning.html",
                 levelVierKoala: "./levelVierKoala.html",
                 levelVierKonsole: "./levelVierKonsole.html",
+                levelVierKasse: "./levelVierKasse.html",
                 ...getMapsScripts(maps),
             },
         },
