@@ -78,7 +78,7 @@ WA.onInit().then(() => {
     aktionArea("areaInfoHandy", "Drücke 'SPACE' um die Info anzuzeigen.", "Fundbüro", './levelZweiFundbuero.html');
     aktionArea("areaAktionHandy", "Drücke 'SPACE' um den Schrank zu Öffnen", "Schrank", './levelZweiPhone.html');
     aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Tür zu Öffnen", "Haustechnik", './levelZweiFinalEingabe.html');
-
+    aktionArea("areaArchivTuer", "Drücke 'SPACE' um das Archiv zu Betreten", "Haustechnik", './levelVierZutritt.html');
 
 
     // Initialisierung der Scripting API Extra-Bibliothek
