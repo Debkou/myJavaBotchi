@@ -77,6 +77,21 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
+     WA.room.area.onEnter("test").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um die Hinweise zu öffnen",
+            callback: () => {
+            WA.room.showLayer("testEbene");
+            }
+        });
+
+        WA.room.area.onLeave("test").subscribe(() => {
+            WA.room.hideLayer("testEbene");
+            triggerMessage.remove();
+           
+        });
+    });
+
     aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", url);
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
