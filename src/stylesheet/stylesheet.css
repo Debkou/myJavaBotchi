@@ -401,3 +401,29 @@ code {
             font-size: 18px;
             font-weight: bold;
         }
+
+/*Level Drei Gallerie */
+
+     .gallery-container {
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .description {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .navigation {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+#galleryImage{
+    margin-top: 100px;
+    width: 50%;
+
+}
