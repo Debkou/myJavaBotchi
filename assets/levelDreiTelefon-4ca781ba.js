@@ -1,8 +1,8 @@
 import"./modulepreload-polyfill-3cfb730f.js";/* empty css                   */import{b as s}from"./init-ad207eca.js";console.log("Script started successfully");async function a(){const r=document.getElementById("nummer").value.trim(),t=document.getElementById("ergebnis");try{const e=await fetch("https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=Telefonnummer",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({eingabe:r})});if(!e.ok)throw new Error("Netzwerkantwort war nicht ok.");const o=await e.json();o.result==="Korrekt!"?t.innerHTML=`<p>${o.result}<br>
-            <span style="font-color:#39659F;"><strong>Andreas:</strong></span>"hallo?"<br>
+            <span style="color:#39659F;"><strong>Andreas:</strong></span>"hallo?"<br>
             <strong>Botchi:</strong>"Hallo Andreas! Hier ist Botchi. Ich habe ein Problem."<br>
             <strong>Andreas:</strong>"Gestern wieder zu viel gefeiert?"<br>
             <strong>Botchi:</strong>"Kann man so sagen. Ich bin scheinbar im Keller der Fh eingesperrt."<br>
             <strong>Andreas:</strong>"Ich komme und hole Dich raus! Das kann aber etwas dauern. Ich rufe Dich an, wenn ich da bin."<br>
             <strong>Sieh Dich um, bis du einen Anruf von Andreas bekommst.</strong><br></p>`:t.innerHTML=`<p style="color: red;">${o.result}</p>`}catch(e){t.innerHTML='<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Zahlenschlosses. Bitte versuche es später erneut.</p>',console.error("Es gab ein Problem mit der Anfrage:",e)}}WA.onInit().then(()=>{console.log("Scripting API ready"),document.getElementById("nummerBtn").addEventListener("click",a),s().then(()=>{console.log("Scripting API Extra ready")}).catch(r=>console.error(r))}).catch(n=>console.error(n));
-//# sourceMappingURL=levelDreiTelefon-a6c261ee.js.map
+//# sourceMappingURL=levelDreiTelefon-4ca781ba.js.map
