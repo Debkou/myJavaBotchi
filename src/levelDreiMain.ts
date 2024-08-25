@@ -116,6 +116,29 @@ WA.onInit().then(() => {
         });
     });
 
+      WA.room.area.onEnter("areaTelefon").subscribe(() => {
+          
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um das Telefonbuch zu Öffnen",
+            callback: () => {
+              
+                    WA.ui.modal.openModal({
+                    title:"Telefonbuch",
+                    src: './levelDreiTelefon.html',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+         
+
+        WA.room.area.onLeave("areaTelefon").subscribe(() => {
+   
+            triggerMessage.remove();
+        });
+    });
+
     aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Hauptmenü", './menue.html');
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
