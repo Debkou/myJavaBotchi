@@ -4,7 +4,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-const test = await WA.room.area.get('test');
+const test = WA.room.area.get('test');
 
 let url = "./menue.html";
  WA.state.phone = url;
