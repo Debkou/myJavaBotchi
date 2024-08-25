@@ -14,6 +14,7 @@ function aktionArea(
     menuSrc: string
 ): void {
     WA.room.area.onEnter(areaName).subscribe(() => {
+     
         const triggerMessage = WA.ui.displayActionMessage({
             message: messageText,
             callback: () => {
@@ -32,6 +33,40 @@ function aktionArea(
         });
     });
 }
+
+function aktionAreaTest(
+    areaName: string,
+    messageText: string,
+    menuTitle: string,
+    menuSrc: string
+): void {
+    WA.room.area.onEnter(areaName).subscribe(() => {
+     
+ 
+
+      WA.state.onVariableChange('phone').subscribe((phone) => {
+        // Each time the "doorState" variable changes, we call the "displayDoor" function to update the door image visually.
+               const triggerMessage = WA.ui.displayActionMessage({
+            message: messageText,
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: menuTitle,
+                    src: menuSrc,
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+    });
+
+        WA.room.area.onLeave(areaName).subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+}
+
+
 
 // Funktion zur Überprüfung des Zahlenschlosses
 async function phoneCode() {
@@ -58,6 +93,7 @@ async function phoneCode() {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Ändere den Status der Gittertür
          url= "./levelDreiBrute.html";
+         WA.state.phone = url;
         console.log(url);
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
@@ -77,7 +113,7 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
-    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", url);
+    aktionAreaTest("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", url);
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
       WA.room.area.onEnter("areaLadekabel").subscribe(() => {
