@@ -5,6 +5,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 console.log('Script started successfully');
 
 let url = "./menue.html";
+ WA.state.phone = url;
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
     areaName: string,
