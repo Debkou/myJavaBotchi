@@ -141,6 +141,7 @@ WA.onInit().then(() => {
 
     aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Hauptmenü", './menue.html');
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
+    aktionArea("areaPoster", "Drücke 'SPACE' um das Poster anzuschauen", "Ladekabel", './levelDreiSeerosen.html');
 
     WA.room.area.onEnter("areaLadekabel").subscribe(() => {
         WA.room.showLayer("magentaKabel");
@@ -174,19 +175,13 @@ WA.onInit().then(() => {
         });
     });
 
-      const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
-    codeBtn.addEventListener("click", phoneCode);
-
-
-
-       WA.room.area.onEnter("areaVideo").subscribe(() => {
-           
+      WA.room.area.onEnter("areaVideo").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um die Überwachungsvideos zu sehen",
+            message: "Drücke 'SPACE' um die Überwachungsvideos anzusehen",
             callback: () => {
               
                     WA.ui.modal.openModal({
-                    title:"KachelInfo",
+                    title:"Info",
                     src: './levelDreiVideo.html',
                     allow: "fullscreen",
                     allowApi: true,
@@ -197,10 +192,16 @@ WA.onInit().then(() => {
          
 
         WA.room.area.onLeave("areaVideo").subscribe(() => {
-            
+   
             triggerMessage.remove();
         });
     });
+
+      const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
+    codeBtn.addEventListener("click", phoneCode);
+
+
+
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
