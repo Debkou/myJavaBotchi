@@ -10,12 +10,12 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
 
    document.addEventListener('DOMContentLoaded', () => {
-    // Den Button-Element selektieren
-    const button = document.getElementById('btBuch');
 
-    // Event-Listener für den Klick auf den Button hinzufügen
+    const button = document.getElementById('btBuch');
+    const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
+    // Event-Listener Button
     button?.addEventListener('click', () => {
-        // Die Funktion zum Ausblenden der Ebene aufrufen
+    ergebnisElement.innerHTML = `<p">Du hast das Buch herausgezogen!</p>`;
         WA.room.hideLayer('aktenschrankBlock');
         WA.room.showLayer('aktionAktenschrank');
         WA.room.showLayer('aktenschrankOffen');
