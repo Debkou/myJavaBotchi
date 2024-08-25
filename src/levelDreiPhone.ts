@@ -4,15 +4,17 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-
-
-
-
 // Funktion zur Überprüfung des Zahlenschlosses
 async function telefon() {
-    const eingabeElement = document.getElementById("nummer") as HTMLInputElement;
+    const eingabeElement = document.getElementById("nummer") as HTMLInputElement | null;
+    const ergebnisElement = document.getElementById("ergebnis") as HTMLElement | null;
+
+    if (!eingabeElement || !ergebnisElement) {
+        console.error('Eingabe- oder Ergebnis-Element fehlt im DOM.');
+        return;
+    }
+
     const eingabe = eingabeElement.value.trim();
-    const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     try {
         const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=Telefonnummer`, {
@@ -31,16 +33,22 @@ async function telefon() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-  
-            // Schließe das Modal nach 4 Sekunden und öffne dann die neue Seite
+
+            // Schließe das Modal nach 4 Sekunden
             setTimeout(() => {
-                WA.ui.modal.closeModal();
+                if (WA.ui && WA.ui.modal) {
+                    WA.ui.modal.closeModal();
+                } else {
+                    console.error('WA.ui.modal ist nicht verfügbar.');
+                }
             }, 4000); // 4000 Millisekunden = 4 Sekunden
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
     } catch (error) {
-        ergebnisElement.innerHTML = `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Zahlenschlosses. Bitte versuche es später erneut.</p>`;
+        if (ergebnisElement) {
+            ergebnisElement.innerHTML = `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Fehler beim Überprüfen des Zahlenschlosses. Bitte versuche es später erneut.</p>`;
+        }
         console.error('Es gab ein Problem mit der Anfrage:', error);
     }
 }
@@ -50,9 +58,12 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
-
-    const telBtn = document.getElementById("nummerBtn") as HTMLButtonElement;
-    telBtn.addEventListener("click", telefon);
+    const telBtn = document.getElementById("nummerBtn") as HTMLButtonElement | null;
+    if (telBtn) {
+        telBtn.addEventListener("click", telefon);
+    } else {
+        console.error('Button-Element fehlt im DOM.');
+    }
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
@@ -61,4 +72,4 @@ WA.onInit().then(() => {
 
 }).catch(e => console.error(e));
 
-export {}; 
+export {};
