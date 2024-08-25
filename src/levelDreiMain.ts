@@ -82,11 +82,13 @@ WA.onInit().then(() => {
             message: "Drücke 'SPACE' um die Hinweise zu öffnen",
             callback: () => {
             WA.room.showLayer("testEbene");
+            WA.room.setProperty("test", "openWebsite", "menue.html"); 
             }
         });
 
         WA.room.area.onLeave("test").subscribe(() => {
             WA.room.hideLayer("testEbene");
+            WA.room.setProperty("test", "openWebsite", ""); 
             triggerMessage.remove();
            
         });
