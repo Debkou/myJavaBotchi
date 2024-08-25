@@ -4,6 +4,8 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
+const test = await WA.room.area.get('test');
+
 let url = "./menue.html";
  WA.state.phone = url;
 // Funktion zur Registrierung des Aktionsbereichs
@@ -58,8 +60,7 @@ async function phoneCode() {
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Ändere den Status der Gittertür
-         url= "./levelDreiBrute.html";
-         WA.state.phone = url;
+      test.setProperty("openWebsite", "levelEinsGitter.html");
         console.log(url);
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
