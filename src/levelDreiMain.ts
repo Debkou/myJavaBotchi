@@ -206,7 +206,7 @@ WA.onInit().then(() => {
         });
          
 
-        WA.room.area.onLeave("aktionTuer").subscribe(() => {
+        WA.room.onLeaveLayer("aktionTuer").subscribe(() => {
             triggerMessage.remove();
         });
     });
