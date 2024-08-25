@@ -26,15 +26,14 @@ async function telefon() {
         const data = await response.json();
 
         if (data.result === 'Korrekt!') {
-            ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-            
-             WA.ui.modal.openModal({
-                    title: "Dialog",
-                    src: './levelEinsGitter.html',
-                    allow: "fullscreen",
-                    allowApi: true,
-                    position: "center",
-                });
+            ergebnisElement.innerHTML = `<p style="color: green;">${data.result}<br>
+            <strong>Andreas:</strong>"hallo?"<br>
+            <strong>Botchi:</strong>"Hallo Andreas! Hier ist Botchi. Ich habe ein Problem."<br>
+            <strong>Andreas:</strong>"Gestern wieder zu viel gefeiert?"<br>
+            <strong>Botchi:</strong>"Kann man so sagen. Ich bin scheinbar im Keller der Fh eingesperrt."<br>
+            <strong>Andreas:</strong>"Ich komme und hole Dich raus! Das kann aber etwas dauern. Ich rufe Dich an, wenn ich da bin."<br>
+            <strong>Sieh Dich um, bis du einen Anruf von Andreas bekommst.</strong><br></p>`;
+    
            
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
