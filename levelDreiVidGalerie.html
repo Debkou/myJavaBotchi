@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
+    <title>JavaBotchi - Videoaufnahmen</title>
+
+</head>
+<body class="flex justify-center align-center flex-column text-align gelb">
+
+<div class="gallery-container">
+    <img id="galleryImage" style="width:50%; margin-top: 100px;" src="src/bilder/bild1.jpg" alt="Bild 1">
+    <p id="description" class="description">Beschreibung zu Bild 1</p>
+    <div class="navigation">
+        <button class="buttonMenue weiss-font" id="prevBtn" onclick="prevImage()">← Zurück</button>
+        <button class="buttonMenue weiss-font" id="nextBtn" onclick="nextImage()">Weiter →</button>
+    </div>
+</div>
+
+<script>
+    const images = [
+        { src: 'src/bilder/avatare.jpg', description: '"So bin ich also hier gelandet - Ich habe mit Janine aufgeräumt und bin dann wahrscheinlich hier unten eingeschlafen."' },
+        { src: 'src/bilder/feuerloescher.jpg', description: '"Gott sei Dank! Und ich dachte hier unten passieren schlimme DInge. Martin hat nur die Feuerlöscher gestrichen."' },
+        { src: 'src/bilder/klausuren.jpg', description: '"Moooment! Sind das etwa Klausuren? Ich muss mir diesen Raum anschauen!"' },
+		{ src: 'src/bilder/logo_ohne.png', description: 'Du gelangst über den Flur in das Archiv - PW: Exam' },
+        // Füge hier weitere Bilder und Beschreibungen hinzu
+    ];
+
+    let currentIndex = 0;
+
+    function updateGallery() {
+        const galleryImage = document.getElementById('galleryImage');
+        const description = document.getElementById('description');
+        galleryImage.src = images[currentIndex].src;
+        galleryImage.alt = images[currentIndex].description;
+        description.textContent = images[currentIndex].description;
+
+        // Disable buttons at the ends of the gallery
+        document.getElementById('prevBtn').disabled = currentIndex === 0;
+        document.getElementById('nextBtn').disabled = currentIndex === images.length - 1;
+    }
+
+    function prevImage() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateGallery();
+        }
+    }
+
+    function nextImage() {
+        if (currentIndex < images.length - 1) {
+            currentIndex++;
+            updateGallery();
+        }
+    }
+
+    // Initialize the gallery
+    updateGallery();
+</script>
+
+</body>
+</html>
