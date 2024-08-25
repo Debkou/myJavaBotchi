@@ -55,15 +55,11 @@ async function phoneCode() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-            // Ändere den Status der Gittertür
-            WA.room.setProperty("test", "openWebsite", "levelEinsGitter.html");
-
+             ergebnisElement.innerHTML = `<p>"Na Super! Kein Empfang. Ich brauche ein Telefon!"</p>`;
+                
             // Schließe das Modal nach 3 Sekunden und öffne dann die neue Seite
             setTimeout(() => {
                 WA.ui.modal.closeModal();
-                setTimeout(() => {
-                    WA.ui.openTab('./levelDreiBruteErg.html'); // Öffne die neue Seite
-                }, 1000); // 1000 Millisekunden = 1 Sekunde
             }, 3000); // 3000 Millisekunden = 3 Sekunden
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
