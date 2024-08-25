@@ -27,7 +27,7 @@ async function telefon() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-             WA.ui.modal.closeModal();
+            
              WA.ui.modal.openModal({
                     title: "Dialog",
                     src: './levelEinsGitter.html',
