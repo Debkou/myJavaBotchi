@@ -150,19 +150,16 @@ WA.onInit().then(() => {
         WA.room.hideLayer("magentaKabel");
     });
 
-      const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
-    codeBtn.addEventListener("click", phoneCode);
-
-         WA.room.area.onEnter("areaInfoVid").subscribe(() => {
-           WA.room.showLayer("aktionVideo");
-           WA.room.hideLayer("blockVideo");
+     WA.room.area.onEnter("areaInfoVid").subscribe(() => {
+         WA.room.showLayer("aktionVideo");
+         WA.room.hideLayer("blockVideo"); 
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um das Telefonbuch zu Öffnen",
             callback: () => {
               
                     WA.ui.modal.openModal({
-                    title:"KachelInfo",
-                    src: './levelDreiTelBuch.html',
+                    title:"Info",
+                    src: './levelDreiTelefon.html',
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
@@ -172,10 +169,15 @@ WA.onInit().then(() => {
          
 
         WA.room.area.onLeave("areaInfoVid").subscribe(() => {
-            
+   
             triggerMessage.remove();
         });
     });
+
+      const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
+    codeBtn.addEventListener("click", phoneCode);
+
+
 
        WA.room.area.onEnter("areaVideo").subscribe(() => {
            
