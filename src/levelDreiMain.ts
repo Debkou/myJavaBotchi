@@ -4,6 +4,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
+
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
     areaName: string,
@@ -55,13 +56,13 @@ async function phoneCode() {
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
             // Ändere den Status der Gittertür
-       
+            WA.room.setProperty("test", "openWebsite", "levelEinsGitter.html");
 
-            // Schließe das Modal nach 3 Sekunden und wechsle nach 1 Sekunde die Seite
+            // Schließe das Modal nach 3 Sekunden und öffne dann die neue Seite
             setTimeout(() => {
                 WA.ui.modal.closeModal();
                 setTimeout(() => {
-                    window.location.href = './levelDreiBruteErg.html';
+                    WA.ui.openTab('./levelDreiBruteErg.html'); // Öffne die neue Seite
                 }, 1000); // 1000 Millisekunden = 1 Sekunde
             }, 3000); // 3000 Millisekunden = 3 Sekunden
         } else {
@@ -105,14 +106,4 @@ WA.onInit().then(() => {
         WA.room.hideLayer("magentaKabel");
     });
 
-    const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
-    codeBtn.addEventListener("click", phoneCode);
-
-    // Initialisierung der Scripting API Extra-Bibliothek
-    bootstrapExtra().then(() => {
-        console.log('Scripting API Extra ready');
-    }).catch(e => console.error(e));
-
-}).catch(e => console.error(e));
-
-export {};
+   
