@@ -74,11 +74,7 @@ async function phoneCode() {
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
-    telefon(WA.state.phone);
-       WA.state.onVariableChange('phone').subscribe((phoneState) => {
-        // Each time the "doorState" variable changes, we call the "displayDoor" function to update the door image visually.
-        telefon(phoneState as boolean);
-    });
+
     aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", url);
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
