@@ -28,10 +28,11 @@ async function ueberpruefePasswort() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-             WA.room.hideLayer('klausurZu');
+             WA.room.hideLayer('schrankZu');
              WA.room.hideLayer('klausurBlock');
-            WA.room.showLayer('klausurAuf');
-            WA.room.showLayer('klausurBlock2');
+             WA.room.showLayer('schrankAuf');
+             WA.room.showLayer('klausurBlock2');
+            WA.room.showLayer('aktionKlausur');
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
             }, 2000); // 3000 Millisekunden = 3 Sekunden
