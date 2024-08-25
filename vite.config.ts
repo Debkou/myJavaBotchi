@@ -76,8 +76,11 @@ export default defineConfig({
                 levelDreiBrutErg: "./levelDreiBruteErg.html",
                 levelDreiGalerie: "./levelDreiVidGalerie.html",
                 levelVierZutritt: "./levelVierZutritt.html",
-              
-              
+                levelVierArray: "./levelVierArray.html",
+                levelVierFue: "./levelVierFue.html",
+                levelVierHenning: "./levelVierHenning.html",
+                levelVierKoala: "./levelVierKoala.html",
+                levelVierKonsole: "./levelVierKonsole.html",
                 ...getMapsScripts(maps),
             },
         },
