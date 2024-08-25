@@ -11,13 +11,14 @@ WA.onInit().then(() => {
 
    document.addEventListener('DOMContentLoaded', () => {
     // Den Button-Element selektieren
-    const button = document.getElementById('btKoala');
+    const button = document.getElementById('btBuch');
 
     // Event-Listener für den Klick auf den Button hinzufügen
     button?.addEventListener('click', () => {
         // Die Funktion zum Ausblenden der Ebene aufrufen
-        WA.room.hideLayer('kassenbandBlock');
-        WA.room.showLayer('aktionKassenband');
+        WA.room.hideLayer('aktenschrankBlock');
+        WA.room.showLayer('aktionaktenschrank');
+        WA.room.showLayer('aktenschrankOffen');
     });
 });
     // Initialisierung der Scripting API Extra-Bibliothek
