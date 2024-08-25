@@ -17,7 +17,7 @@ WA.onInit().then(() => {
     button?.addEventListener('click', () => {
         // Die Funktion zum Ausblenden der Ebene aufrufen
         WA.room.hideLayer('aktenschrankBlock');
-        WA.room.showLayer('aktionaktenschrank');
+        WA.room.showLayer('aktionAktenschrank');
         WA.room.showLayer('aktenschrankOffen');
     });
 });
