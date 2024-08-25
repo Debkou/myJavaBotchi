@@ -4,13 +4,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-function telefon(state: boolean) { 
-    if (state === true) {
-        aktionArea("areaTelefon", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", './menue.html');
-    } else {
-        aktionArea("areaTelefon", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", './levelEinsGitter.html');
-    }
-}
+let url = "./menue.html";
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionArea(
     areaName: string,
@@ -85,7 +79,7 @@ WA.onInit().then(() => {
         // Each time the "doorState" variable changes, we call the "displayDoor" function to update the door image visually.
         telefon(phoneState as boolean);
     });
-    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", './menue.html');
+    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffne", "Hauptmenü", url);
     aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
 
       WA.room.area.onEnter("areaLadekabel").subscribe(() => {
