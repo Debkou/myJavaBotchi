@@ -27,7 +27,14 @@ async function telefon() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-            window.open('./levelEinsGitter.html');
+             WA.ui.modal.closeModal();
+             WA.ui.modal.openModal({
+                    title: "Dialog",
+                    src: './levelEinsGitter.html',
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
            
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
