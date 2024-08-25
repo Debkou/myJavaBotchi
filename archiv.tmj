@@ -238,7 +238,7 @@
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":50,
          "id":32,
-         "name":"aktenscgrankBlock",
+         "name":"aktenschrankBlock",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
