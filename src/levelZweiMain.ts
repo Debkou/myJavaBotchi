@@ -5,7 +5,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 console.log('Script started successfully');
 
 // Funktion zur Registrierung des Aktionsbereichs
-function aktionArea(
+function aktionsFeld(
     areaName: string,
     messageText: string,
     menuTitle: string,
@@ -26,6 +26,32 @@ function aktionArea(
         });
 
         WA.room.area.onLeave(areaName).subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+}
+
+function aktionsEbene(
+    areaName: string,
+    messageText: string,
+    menuTitle: string,
+    menuSrc: string
+): void {
+    WA.room.onEnterLayer(areaName).subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: messageText,
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: menuTitle,
+                    src: menuSrc,
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.onLeaveLayer(areaName).subscribe(() => {
             triggerMessage.remove();
         });
     });
@@ -69,16 +95,19 @@ WA.onInit().then(() => {
         ergebnisElement!.innerHTML = `<p>Du hast ${correctAnswers} richtige und ${incorrectAnswers} falsche Antworten.</p><p>Bitte versuche es erneut.</p>`;
     }
 });
-    aktionArea("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
-    aktionArea("areaAnleitungCode", "Drücke 'SPACE' um den Code anzuzeigen", "AnleitungCode", './levelZweiHeizungCode.html');
-    aktionArea("areaUhr", "Drücke 'SPACE' um den Code anzuzeigen", "AnleitungCode", './levelZweiGUIFail.html');
-    aktionArea("areaTerminalEins", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html'); 
-    aktionArea("areaRad", "Drücke 'SPACE' um das Rad zu suchen", "Schrank", './levelZweiRad.html');
-    aktionArea("areaInfoWagen", "Drücke 'SPACE' um den Wagen zu schieben.", "Wagen", './levelZweiWagen.html');
-    aktionArea("areaInfoHandy", "Drücke 'SPACE' um die Info anzuzeigen.", "Fundbüro", './levelZweiFundbuero.html');
-    aktionArea("areaAktionHandy", "Drücke 'SPACE' um den Schrank zu Öffnen", "Schrank", './levelZweiPhone.html');
-    aktionArea("areaZentraleTuer", "Drücke 'SPACE' um die Tür zu Öffnen", "Haustechnik", './levelZweiFinalEingabe.html');
-    aktionArea("areaArchivTuer", "Drücke 'SPACE' um das Archiv zu Betreten", "Haustechnik", './levelVierZutritt.html');
+    aktionsFeld("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
+    aktionsFeld("areaAnleitungCode", "Drücke 'SPACE' um den Code anzuzeigen", "AnleitungCode", './levelZweiHeizungCode.html');
+    aktionsFeld("areaUhr", "Drücke 'SPACE' um den Code anzuzeigen", "AnleitungCode", './levelZweiGUIFail.html');
+    aktionsFeld("areaTerminalEins", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html'); 
+    aktionsFeld("areaRad", "Drücke 'SPACE' um das Rad zu suchen", "Schrank", './levelZweiRad.html');
+    aktionsFeld("areaInfoWagen", "Drücke 'SPACE' um den Wagen zu schieben.", "Wagen", './levelZweiWagen.html');
+    aktionsFeld("areaInfoHandy", "Drücke 'SPACE' um die Info anzuzeigen.", "Fundbüro", './levelZweiFundbuero.html');
+    aktionsFeld("areaAktionHandy", "Drücke 'SPACE' um den Schrank zu Öffnen", "Schrank", './levelZweiPhone.html');
+    aktionsFeld("areaZentraleTuer", "Drücke 'SPACE' um die Tür zu Öffnen", "Haustechnik", './levelZweiFinalEingabe.html');
+    aktionsFeld("areaArchivTuer", "Drücke 'SPACE' um das Archiv zu Betreten", "Haustechnik", './levelVierZutritt.html');
+    aktionsEbene("hinweis1", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 1", './levelEinsHinweisEins.html');
+    aktionsEbene("hinweis2", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 2", './levelEinsHinweisZwei.html');
+    aktionsEbene("hinweis3", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 3", './levelEinsHinweisfinal.html');
 
 
     // Initialisierung der Scripting API Extra-Bibliothek
