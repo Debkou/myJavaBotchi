@@ -32,7 +32,7 @@ async function ueberpruefeTemperatur() {
             WA.room.hideLayer('gitterSperre');
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
-            }, 3000); // 3000 Millisekunden = 3 Sekunden
+            }, 2000); // 3000 Millisekunden = 3 Sekunden
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
