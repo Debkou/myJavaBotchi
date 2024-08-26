@@ -30,6 +30,32 @@ function aktionsFeld(
     });
 }
 
+function aktionsEbene(
+    areaName: string,
+    messageText: string,
+    menuTitle: string,
+    menuSrc: string
+): void {
+    WA.room.onEnterLayer(areaName).subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: messageText,
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: menuTitle,
+                    src: menuSrc,
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.onLeaveLayer(areaName).subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+}
+
 // Funktion zur Überprüfung des Passworts
 async function ueberpruefePasswort() {
     const eingabeElement = document.getElementById("eingabefenster") as HTMLTextAreaElement;
@@ -59,7 +85,7 @@ async function ueberpruefePasswort() {
             // Nach einer kurzen Wartezeit das Modal schließen
             setTimeout(() => {
                 WA.ui.modal.closeModal();
-            }, 3000); // 3000 Millisekunden = 3 Sekunden
+            }, 3000); 
         } else {
             ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
         }
@@ -94,6 +120,9 @@ WA.onInit().then(() => {
     aktionsFeld("areaAktionGitter", "Drücke 'SPACE' um die Tür zu öffnen", "Gittertür", './levelEinsGitter.html');
     aktionsFeld("aktionSchlueSchrank", "Drücke 'SPACE' um den Schlüsselschrank zu öffnen", "Tresor", './levelEinsTresor.html');
     aktionsFeld("aktionMaschine", "Drücke 'SPACE' um das Programm zu starten", "Code Maschine", './levelEinsSchlueCode.html');
+    aktionsEbene("hinweis1", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 1", './levelEinsHinweisEins.html');
+    aktionsEbene("hinweis2", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 2", './levelEinsHinweisZwei.html');
+    aktionsEbene("hinweis3", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 2", './levelEinsHinweisfinal.html');
     
      WA.room.area.onEnter("aktionHaken").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
