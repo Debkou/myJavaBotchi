@@ -16,7 +16,7 @@ WA.onInit().then(() => {
 
     // Event-Listener für den Klick auf den Button hinzufügen
     button?.addEventListener('click', () => {
-    ergebnisElement.innerHTML = `<p><span style="font-family: pokemon;" class="dBlau-font">Fehler:</span> <br> Zutritt Haustechnik: Frikadelle</p>`;
+    ergebnisElement.innerHTML = `<p> <br> Zutritt Haustechnik: Frikadelle</p>`;
 
     });
 });
