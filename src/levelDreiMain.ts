@@ -107,7 +107,7 @@ WA.onInit().then(() => {
     aktionsFeld("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Hauptmenü", './menue.html');
     aktionsFeld("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
     aktionsFeld("areaPoster", "Drücke 'SPACE' um das Poster anzuschauen", "Ladekabel", './levelDreiSeerosen.html');
-    aktionsEbene("hinweisHeiz", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Ladekabel", './flurHinweisHeizraum.html');
+    aktionsEbene("hinweis", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Ladekabel", './levelDreiHinweis.html');
     
     WA.room.area.onEnter("test").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
