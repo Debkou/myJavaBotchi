@@ -85,7 +85,7 @@ export default defineConfig({
                 levelVierHinweis: "./levelVierHinweis.html",
                 levelDreiHinweis: "./levelDreiHinweis.html",
                 flurHinweisHeizraum: "./flurHinweisHeizraum.html",
-                levelEinsHinweisFinal: "./levelEinsHinweisFinal.html",
+                levelEinsHinweisFinal: "./levelEinsHinweisfinal.html",
                 levelEinsHinweis2: "./levelEinsHinweis2.html",
                 levelEinsHinweisEins: "./levelEinsHinweisEins.html",
                 ...getMapsScripts(maps),
