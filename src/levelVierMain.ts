@@ -70,6 +70,7 @@ WA.onInit().then(() => {
     aktionsFeld("areaMaschine", "Drücke 'SPACE' um diw Konsole zu Öffnen", "Zettel", './levelVierKonsole.html');
     aktionsEbene("aktionAktenschrank", "Drücke 'SPACE' um das Dokument zu Öffnen", "Aktenschrank", './levelVierArray.html');
     aktionsEbene("aktionKassenband", "Drücke 'SPACE' um das Dokument zu Öffnen", "Aktenschrank", './levelVierKasse.html');
+    aktionsEbene("hinweis", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis", './levelVierHinweis.html');
     
 
     // Initialisierung der Scripting API Extra-Bibliothek
