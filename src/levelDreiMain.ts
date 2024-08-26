@@ -4,7 +4,6 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionsFeld(
     areaName: string,
@@ -30,6 +29,7 @@ function aktionsFeld(
             triggerMessage.remove();
         });
     });
+} // <-- Hier fehlt die schließende Klammer
 
 // Funktion zur Registrierung des Aktionsbereichs
 function aktionsEbene(
@@ -56,8 +56,7 @@ function aktionsEbene(
             triggerMessage.remove();
         });
     });
-
-
+}
 
 // Funktion zur Überprüfung des Zahlenschlosses
 async function phoneCode() {
@@ -82,9 +81,9 @@ async function phoneCode() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
-             ergebnisElement.innerHTML = `<p>"Na Super! Kein Empfang. Ich brauche ein Telefon!"</p>`;
-             WA.room.showLayer("aktionTelefon"); 
-             WA.room.hideLayer("blockTelefon"); 
+            ergebnisElement.innerHTML = `<p>"Na Super! Kein Empfang. Ich brauche ein Telefon!"</p>`;
+            WA.room.showLayer("aktionTelefon"); 
+            WA.room.hideLayer("blockTelefon"); 
    
             // Schließe das Modal nach 3 Sekunden und öffne dann die neue Seite
             setTimeout(() => {
@@ -125,13 +124,12 @@ WA.onInit().then(() => {
         });
     });
 
-     WA.room.area.onEnter("areaTelefonbuch").subscribe(() => {
-           WA.room.showLayer("MagentaTelBuch");
+    WA.room.area.onEnter("areaTelefonbuch").subscribe(() => {
+        WA.room.showLayer("MagentaTelBuch");
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um das Telefonbuch zu Öffnen",
             callback: () => {
-              
-                    WA.ui.modal.openModal({
+                WA.ui.modal.openModal({
                     title:"Telefonbuch",
                     src: './levelDreiTelBuch.html',
                     allow: "fullscreen",
@@ -141,20 +139,17 @@ WA.onInit().then(() => {
             }
         });
          
-
         WA.room.area.onLeave("areaTelefonbuch").subscribe(() => {
             WA.room.hideLayer("MagentaTelBuch");
             triggerMessage.remove();
         });
     });
 
-      WA.room.area.onEnter("areaTelefon").subscribe(() => {
-          
+    WA.room.area.onEnter("areaTelefon").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um das Telefonbuch zu Öffnen",
             callback: () => {
-              
-                    WA.ui.modal.openModal({
+                WA.ui.modal.openModal({
                     title:"Telefonbuch",
                     src: './levelDreiTelefon.html',
                     allow: "fullscreen",
@@ -164,13 +159,10 @@ WA.onInit().then(() => {
             }
         });
          
-
         WA.room.area.onLeave("areaTelefon").subscribe(() => {
-   
             triggerMessage.remove();
         });
     });
-
 
     WA.room.area.onEnter("areaLadekabel").subscribe(() => {
         WA.room.showLayer("magentaKabel");
@@ -180,14 +172,13 @@ WA.onInit().then(() => {
         WA.room.hideLayer("magentaKabel");
     });
 
-     WA.room.area.onEnter("areaInfoVid").subscribe(() => {
-         WA.room.showLayer("aktionVideo");
-         WA.room.hideLayer("blockVideo"); 
+    WA.room.area.onEnter("areaInfoVid").subscribe(() => {
+        WA.room.showLayer("aktionVideo");
+        WA.room.hideLayer("blockVideo"); 
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um das Telefonbuch zu Öffnen",
             callback: () => {
-              
-                    WA.ui.modal.openModal({
+                WA.ui.modal.openModal({
                     title:"Info",
                     src: './levelDreiTelefon.html',
                     allow: "fullscreen",
@@ -197,19 +188,16 @@ WA.onInit().then(() => {
             }
         });
          
-
         WA.room.area.onLeave("areaInfoVid").subscribe(() => {
-   
             triggerMessage.remove();
         });
     });
 
-      WA.room.area.onEnter("areaVideo").subscribe(() => {
+    WA.room.area.onEnter("areaVideo").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Überwachungsvideos anzusehen",
             callback: () => {
-              
-                    WA.ui.modal.openModal({
+                WA.ui.modal.openModal({
                     title:"Info",
                     src: './levelDreiVideo.html',
                     allow: "fullscreen",
@@ -219,31 +207,26 @@ WA.onInit().then(() => {
             }
         });
          
-
         WA.room.area.onLeave("areaVideo").subscribe(() => {
-   
             triggerMessage.remove();
         });
     });
 
-       WA.room.onEnterLayer("aktionTuer").subscribe(() => {
+    WA.room.onEnterLayer("aktionTuer").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um den Flur zu betreten",
             callback: () => {
-            WA.room.setProperty("aktionTuer", "exitSceneUrl", "flur.tmj");
+                WA.room.setProperty("aktionTuer", "exitSceneUrl", "flur.tmj");
             }
         });
          
-
         WA.room.onLeaveLayer("aktionTuer").subscribe(() => {
             triggerMessage.remove();
         });
     });
 
-      const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
+    const codeBtn = document.getElementById("codeBtn") as HTMLButtonElement;
     codeBtn.addEventListener("click", phoneCode);
-
-
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
@@ -252,4 +235,4 @@ WA.onInit().then(() => {
 
 }).catch(e => console.error(e));
 
-export {}; 
+export {};
