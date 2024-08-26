@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+    <script src="https://play.workadventu.re/iframe_api.js"></script>
+    <title>JavaBotchi - Hinweis - Level Eins</title>
+    <style>
+
+        .dropdown-content.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="gelb">
+	
+	<div class="text-align">
+	 <h1>Hinweise Level 1 Finale</h1>
+    <p>Du kommst in diesem Level nicht weiter? Kein Problem folgende Hinweise helfen Dir beim Loesen des Levels. <br>
+    Nutze die Hinweise erst, wenn du bereits den gesamten Raum untersucht hast.</p>
+    
+	</div>
+   
+    <div class="flex flex-column">
+        <div class="dropdown">
+            <button onclick="toggleDropdown('hinweis1')" class="dropdown-btn dBlau weiss-font">Hinweis 1</button>
+            <div id="hinweis1" class="dropdown-content">
+              
+                <p>Betrachte das Display neben der Tür nochmal genauer!</p>
+            </div>
+        </div> 
+        
+       
+    
+    <div id="editSection"></div>
+
+    <script>
+        function toggleDropdown(id) {
+            const content = document.getElementById(id);
+            content.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>
