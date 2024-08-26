@@ -158,7 +158,7 @@ WA.onInit().then(() => {
             }
         });
         WA.room.showLayer('magentaInfo');
-        WA.room.area.onLeave("aktionHaken").subscribe(() => {
+        WA.room.area.onLeave("aktionInfoWall").subscribe(() => {
             triggerMessage.remove();
              WA.room.hideLayer('magentaInfo');
         });
