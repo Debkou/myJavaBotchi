@@ -105,9 +105,8 @@ WA.onInit().then(() => {
     aktionsFeld("areaAktionHandy", "Drücke 'SPACE' um den Schrank zu Öffnen", "Schrank", './levelZweiPhone.html');
     aktionsFeld("areaZentraleTuer", "Drücke 'SPACE' um die Tür zu Öffnen", "Haustechnik", './levelZweiFinalEingabe.html');
     aktionsFeld("areaArchivTuer", "Drücke 'SPACE' um das Archiv zu Betreten", "Haustechnik", './levelVierZutritt.html');
-    aktionsEbene("hinweis1", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 1", './levelEinsHinweisEins.html');
-    aktionsEbene("hinweis2", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 2", './levelEinsHinweisZwei.html');
-    aktionsEbene("hinweis3", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 3", './levelEinsHinweisfinal.html');
+    aktionsEbene("hinweisHeiz", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis", './flurHinweisHeizraum.html');
+    
 
 
     // Initialisierung der Scripting API Extra-Bibliothek
