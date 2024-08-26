@@ -109,9 +109,9 @@ WA.onInit().then(() => {
     aktionsEbene("hinweis", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Ladekabel", './levelDreiHinweis.html');
     
     WA.room.area.onEnter("areaTelefonbuch").subscribe(() => {
-        WA.room.showLayer("MagentaTelBuch");
+        WA.room.showLayer("magentaTelBuch");
         const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um das Telefon zu Benutzen",
+            message: "Drücke 'SPACE' um das Telefonbuch zu öffnen",
             callback: () => {
                 WA.ui.modal.openModal({
                     title:"Telefonbuch",
@@ -124,14 +124,14 @@ WA.onInit().then(() => {
         });
          
         WA.room.area.onLeave("areaTelefonbuch").subscribe(() => {
-            WA.room.hideLayer("MagentaTelBuch");
+            WA.room.hideLayer("magentaTelBuch");
             triggerMessage.remove();
         });
     });
 
     WA.room.area.onEnter("areaTelefon").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um das Telefonbuch zu Öffnen",
+            message: "Drücke 'SPACE' um das Telefon zu benutzen",
             callback: () => {
                 WA.ui.modal.openModal({
                     title:"Telefonbuch",
