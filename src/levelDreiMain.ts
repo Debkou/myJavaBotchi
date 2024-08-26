@@ -6,7 +6,7 @@ console.log('Script started successfully');
 
 
 // Funktion zur Registrierung des Aktionsbereichs
-function aktionArea(
+function aktionsFeld(
     areaName: string,
     messageText: string,
     menuTitle: string,
@@ -30,7 +30,34 @@ function aktionArea(
             triggerMessage.remove();
         });
     });
-}
+
+// Funktion zur Registrierung des Aktionsbereichs
+function aktionsEbene(
+    areaName: string,
+    messageText: string,
+    menuTitle: string,
+    menuSrc: string
+): void {
+    WA.room.onEnterLayer(areaName).subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: messageText,
+            callback: () => {
+                WA.ui.modal.openModal({
+                    title: menuTitle,
+                    src: menuSrc,
+                    allow: "fullscreen",
+                    allowApi: true,
+                    position: "center",
+                });
+            }
+        });
+
+        WA.room.onLeaveLayer(areaName).subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
+
+
 
 // Funktion zur Überprüfung des Zahlenschlosses
 async function phoneCode() {
@@ -76,7 +103,12 @@ async function phoneCode() {
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
-
+    
+    aktionsFeld("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Hauptmenü", './menue.html');
+    aktionsFeld("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
+    aktionsFeld("areaPoster", "Drücke 'SPACE' um das Poster anzuschauen", "Ladekabel", './levelDreiSeerosen.html');
+    aktionsEbene("hinweisHeiz", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Ladekabel", './flurHinweisHeizraum.html');
+    
     WA.room.area.onEnter("test").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Hinweise zu öffnen",
@@ -139,9 +171,6 @@ WA.onInit().then(() => {
         });
     });
 
-    aktionArea("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Hauptmenü", './menue.html');
-    aktionArea("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
-    aktionArea("areaPoster", "Drücke 'SPACE' um das Poster anzuschauen", "Ladekabel", './levelDreiSeerosen.html');
 
     WA.room.area.onEnter("areaLadekabel").subscribe(() => {
         WA.room.showLayer("magentaKabel");
