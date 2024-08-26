@@ -102,7 +102,7 @@ async function phoneCode() {
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
-    console.log('Player tags: ', WA.player.tags);
+    console.log('Player tags: ', WA.player.tags); 
     
     aktionsFeld("areaTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Hauptmenü", './menue.html');
     aktionsFeld("areaLadekabel", "Drücke 'SPACE' um dein Handy zu laden", "Ladekabel", './levelDreiBrute.html');
