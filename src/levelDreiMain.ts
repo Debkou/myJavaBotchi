@@ -108,26 +108,10 @@ WA.onInit().then(() => {
     aktionsFeld("areaPoster", "Drücke 'SPACE' um das Poster anzuschauen", "Ladekabel", './levelDreiSeerosen.html');
     aktionsEbene("hinweis", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Ladekabel", './levelDreiHinweis.html');
     
-    WA.room.area.onEnter("test").subscribe(() => {
-        const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um die Hinweise zu öffnen",
-            callback: () => {
-                WA.room.showLayer("testEbene");
-                WA.room.setProperty("testEbene", "openWebsite", "menue.html"); 
-            }
-        });
-
-        WA.room.area.onLeave("test").subscribe(() => {
-            WA.room.hideLayer("testEbene");
-            WA.room.setProperty("testEbene", "openWebsite", ""); 
-            triggerMessage.remove();
-        });
-    });
-
     WA.room.area.onEnter("areaTelefonbuch").subscribe(() => {
         WA.room.showLayer("MagentaTelBuch");
         const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um das Telefonbuch zu Öffnen",
+            message: "Drücke 'SPACE' um das Telefon zu Benutzen",
             callback: () => {
                 WA.ui.modal.openModal({
                     title:"Telefonbuch",
@@ -176,7 +160,7 @@ WA.onInit().then(() => {
         WA.room.showLayer("aktionVideo");
         WA.room.hideLayer("blockVideo"); 
         const triggerMessage = WA.ui.displayActionMessage({
-            message: "Drücke 'SPACE' um das Telefonbuch zu Öffnen",
+            message: "Drücke 'SPACE' um die Information zu lesen",
             callback: () => {
                 WA.ui.modal.openModal({
                     title:"Info",
