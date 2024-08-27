@@ -13,8 +13,10 @@
     <div style="text-align: center">
         <h1 class="magenta-font">Levelauswahl</h1>
         <p>Bitte gib das Passwort des gewünschten Levels ein:</p>
+        <div class="flex align-center flex-column"> 
         <input type="password" id="eingabe" placeholder="Passwort">
-        <button id="levelBtn">Level betreten</button>
+        <button class="buttonMenue weiss-font" id="levelBtn">Level betreten</button>
+        </div>
     </div>
 
     <script>
@@ -40,7 +42,7 @@
                     return;
             }
 
-            window.location.href = url;
+            window.open(url, '_blank');
         });
     </script>
 </body>
