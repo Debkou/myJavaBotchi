@@ -93,6 +93,7 @@ export default defineConfig({
                 levelVierAnruf: "./levelVierAnruf.html",
                 levelVierKlausur: "./levelVierKlausur.html",
                 finaleEingabe: "./finaleEingabe.html",
+                finaleEnde: "./finaleEnde.html",
                 ...getMapsScripts(maps),
             },
         },
