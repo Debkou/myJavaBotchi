@@ -30,6 +30,7 @@ export default defineConfig({
                 index: "./index.html",
                 menue: "./menue.html",
                 menueHR: "./menueHR.html",
+                levelauswahl: "./levelauswahl.html",
                 bib: "./bibliothek.html",
                 pageOne: "./page1.html",
                 flyer: "./flyer_party.html",
