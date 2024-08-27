@@ -106,6 +106,7 @@ WA.onInit().then(() => {
     aktionsFeld("areaZentraleTuer", "Drücke 'SPACE' um die Tür zu Öffnen", "Haustechnik", './levelZweiFinalEingabe.html');
     aktionsFeld("areaArchivTuer", "Drücke 'SPACE' um das Archiv zu Betreten", "Haustechnik", './levelVierZutritt.html');
     aktionsEbene("hinweisHeiz", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis", './flurHinweisHeizraum.html');
+    aktionsEbene("aktionTuerFinal", "Drücke 'SPACE' um das Spiel zu beenden", "Finale", './finaleEingabe.html');
     
 
 
