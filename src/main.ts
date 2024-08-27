@@ -63,7 +63,7 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
-aktionsEbene("terminalAktion", "Drücke 'SPACE' um das Hauptmenü zu Öffnen", "Hauptmenü", './menue.html'); 
+aktionsEbene("terminalAktion", "Drücke 'SPACE' um das Hauptmenü zu Öffnen", "Hauptmenü", './menueHR.html'); 
 aktionsEbene("buecherAktion", "Drücke 'SPACE' um die Bibliothek zu Öffnen", "Bibliothek", './bibliothek.html');  
 aktionsFeld("feldTasteFlyer", "Drücke 'SPACE' um den Flyer zu sehen", "Bibliothek", './flyer_party.html');
 aktionsFeld("feldTasteApi", "Drücke 'SPACE' um die Oracle Java API zu öffnen", "Oracle Java API", 'https://docs.oracle.com/en/java/javase/11/docs/api/');
