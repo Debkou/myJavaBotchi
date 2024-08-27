@@ -92,6 +92,7 @@ export default defineConfig({
                 levelDreiKacheln: "./levelDreiKachelnInfo.html",
                 levelVierAnruf: "./levelVierAnruf.html",
                 levelVierKlausur: "./levelVierKlausur.html",
+                finaleEingabe: "./finaleEingabe.html",
                 ...getMapsScripts(maps),
             },
         },
