@@ -32,6 +32,8 @@ export default defineConfig({
                 menueHR: "./menueHR.html",
                 levelauswahl: "./levelauswahl.html",
                 levelauswahlHR: "./levelauswahlHR.html",
+                legende: "./legende.html",
+                legendeHR: "./legendeHR.html",
                 bib: "./bibliothek.html",
                 pageOne: "./page1.html",
                 flyer: "./flyer_party.html",
