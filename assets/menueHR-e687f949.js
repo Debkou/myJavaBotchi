@@ -1,0 +1,2 @@
+import"./modulepreload-polyfill-3cfb730f.js";import{b as e}from"./init-ad207eca.js";console.log("Script started successfully");async function n(){WA.ui.modal.closeModal()}WA.onInit().then(()=>{console.log("Scripting API ready"),console.log("Player tags: ",WA.player.tags),document.getElementById("btnHR").addEventListener("click",n),e().then(()=>{console.log("Scripting API Extra ready")}).catch(t=>console.error(t))}).catch(o=>console.error(o));
+//# sourceMappingURL=menueHR-e687f949.js.map
