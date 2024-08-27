@@ -71,6 +71,7 @@ WA.onInit().then(() => {
     aktionsEbene("aktionAktenschrank", "Drücke 'SPACE' um das Dokument zu Öffnen", "Aktenschrank", './levelVierArray.html');
     aktionsEbene("aktionKassenband", "Drücke 'SPACE' um den Hinweis zu lesen", "Aktenschrank", './levelVierKasse.html');
     aktionsEbene("hinweis", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis", './levelVierHinweis.html');
+    aktionsFeld("areaKlausur", "Drücke 'SPACE' um die Klausur anzusehen", "Klausur", './levelVierKlausur.html');
 
       WA.room.onEnterLayer("aktionTuer").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
