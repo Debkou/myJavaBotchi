@@ -90,6 +90,8 @@ export default defineConfig({
                 levelEinsHinweisEins: "./levelEinsHinweisEins.html",
                 levelDreiGal: "./levelDreiGal.html",
                 levelDreiKacheln: "./levelDreiKachelnInfo.html",
+                levelVierAnruf: "./levelVierAnruf.html",
+                levelVierKlausur: "./levelVierKlausur.html",
                 ...getMapsScripts(maps),
             },
         },
