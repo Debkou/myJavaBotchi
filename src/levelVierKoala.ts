@@ -3,7 +3,7 @@
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
-
+const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
