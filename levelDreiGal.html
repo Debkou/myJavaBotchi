@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
+    <title>JavaBotchi - Videoaufnahemn</title>
+
+    <style>
+		body {
+            overflow: hidden;
+        }
+        .textWithImage {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .textWithImage img {
+            max-width: 100px; 
+            height: auto; 
+        }
+    </style>
+</head>
+<body class="gelb">
+    <div id="textContainer">
+        <div id="text1" class="textWithImage">
+            <img src="src/bilder/avatare.jpg" alt="Avatare">
+            <p><span style="font-family: pokemon;" class="dBlau-font">Botchi:</span><br> "So bin ich also hier gelandet - Ich habe mit Janine aufgeräumt und bin dann wahrscheinlich hier unten eingeschlafen."</p>
+        </div>
+        <div id="text2" class="textWithImage" style="display: none;">
+            <img src="src/bilder/feuerloescher.jpg" alt="Feuerlöscher">
+            <p><span style="font-family: pokemon;" class="dBlau-font">Botchi:</span><br> "Gott sei Dank! Und ich dachte hier unten passieren schlimme DInge. Martin hat nur die Feuerlöscher gestrichen."</p>
+        </div>
+        <div id="text3" class="textWithImage" style="display: none;">
+            <img src="src/bilder/klausuren.jpg" alt="Klausuren">
+            <p><span style="font-family: pokemon;" class="dBlau-font">Botchi:</span><br> "Moooment! Sind das etwa Klausuren? Ich muss mir diesen Raum anschauen!"</p>
+        </div>
+     	      <div id="text4" class="textWithImage" style="display: none;">
+            <img src="src/bilder/logo_ohne.png" alt="logo">
+            <p>Du gelangst über den Flur in das Archiv - PW: Exam</p>
+        </div>
+     
+    </div>
+
+    <div id="arrowContainer">
+        <span id="leftArrow" class="arrow">&larr;</span>
+        <span id="rightArrow" class="arrow">&rarr;</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const texts = document.querySelectorAll('#textContainer > p, #textContainer > div');
+            let currentIndex = 0;
+
+            function showText(index) {
+                texts.forEach((text, i) => {
+                    if (i === index) {
+                        text.style.display = 'block';
+                    } else {
+                        text.style.display = 'none';
+                    }
+                });
+            }
+
+            function showNextText() {
+                currentIndex = (currentIndex + 1) % texts.length;
+                showText(currentIndex);
+            }
+
+            function showPreviousText() {
+                currentIndex = (currentIndex - 1 + texts.length) % texts.length;
+                showText(currentIndex);
+            }
+
+            function setupArrowClickHandlers() {
+                const leftArrow = document.getElementById('leftArrow');
+                const rightArrow = document.getElementById('rightArrow');
+
+                leftArrow.addEventListener('click', showPreviousText);
+                rightArrow.addEventListener('click', showNextText);
+            }
+
+            setupArrowClickHandlers();
+            showText(currentIndex);
+        });
+    </script>
+</body>
+</html>
