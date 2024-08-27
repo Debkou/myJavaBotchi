@@ -123,6 +123,7 @@ WA.onInit().then(() => {
     aktionsEbene("hinweis1", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 1", './levelEinsHinweisEins.html');
     aktionsEbene("hinweis2", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 2", './levelEinsHinweisZwei.html');
     aktionsEbene("hinweis3", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 2", './levelEinsHinweisfinal.html');
+    aktionsFeld("WoBinIch", "Drücke 'SPACE' - Wo bin ich?", "Alexa", './levelEinsWo.html');
     
      WA.room.area.onEnter("aktionHaken").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
