@@ -1,105 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-   <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
-	<link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
-	<script src="https://play.workadventu.re/iframe_api.js"></script>
-     <script type="module" src="https://github.com/Debkou/myJavaBotchi/blob/master/src/main.ts"></script>
-	<title>JavaBotchi - Hauptmenü</title>
+        <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+        <script src="https://play.workadventu.re/iframe_api.js"></script>
+        <script type="module" src="https://github.com/Debkou/myJavaBotchi/blob/master/src/main.ts"></script>
+        <title>JavaBotchi - Hauptmenü</title>
+        <style>
+            /* Einfaches Styling für das Popup */
+            .popup-overlay {
+                display: none; /* Standardmäßig ausgeblendet */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Halbdurchsichtiger Hintergrund */
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+
+            .popup-content {
+                background-color: white;
+                padding: 20px;
+                border-radius: 5px;
+                text-align: center;
+            }
+
+            .popup-buttons {
+                margin-top: 20px;
+            }
+
+            .popup-buttons button {
+                margin: 0 10px;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        </style>
     </head>
 
     <body class="gelb">
-		<div class="flex flex-column">
-		<a href="https://www.google.de/" class="buttonMenue weiss-font">Profil</a>
-		<a href="https://www.google.de/" class="buttonMenue weiss-font">Level</a>
-		<a href="bib_terminal.html" class="buttonMenue weiss-font">Bibliothek</a>
-		<a href="https://www.google.de/" class="buttonMenue weiss-font">Anwendungs-Guide</a>
-		</div>
-        <div id="editSection">
-    
+        <div class="flex flex-column">
+            <a href="https://www.google.de/" class="buttonMenue weiss-font">Profil</a>
+            <a href="https://www.google.de/" class="buttonMenue weiss-font">Level</a>
+            <a href="bib_terminal.html" class="buttonMenue weiss-font">Bibliothek</a>
+            <a href="https://www.google.de/" class="buttonMenue weiss-font">Anwendungs-Guide</a>
+            <a href="https://www.google.de/" class="buttonMenue weiss-font">Legende</a>
+            <a href="#" onclick="showPopup()" class="buttonMenue weiss-font">Zum Hauptraum</a>
         </div>
 
-  <script>
-        // Funktion zum Laden der Seite und Hervorheben des ausgewählten Buttons
-        function loadPage(page, button) {
-            fetch(page + '.html')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Netzwerkantwort war nicht ok.');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('content').innerHTML = data;
+        <div id="editSection"></div>
 
-                    // Entfernt die 'selected'-Klasse von allen Buttons
-                    let buttons = document.querySelectorAll('.buttonMenue');
-                    buttons.forEach(btn => btn.classList.remove('selected'));
+        <!-- Popup-Overlay -->
+        <div id="popup" class="popup-overlay">
+            <div class="popup-content">
+                <h2>Bist du sicher, dass du zum Hauptraum wechseln moechtest?</h2>
+                <div class="popup-buttons">
+                    <button onclick="goToHauptraum()">Ja</button>
+                    <button onclick="closePopup()">Nein</button>
+                </div>
+            </div>
+        </div>
 
-                    // Fügt die 'selected'-Klasse zum angeklickten Button hinzu
-                    button.classList.add('selected');
-                })
-                .catch(error => {
-                    document.getElementById('content').innerHTML = '<h1>Fehler</h1><p>Die Seite konnte nicht geladen werden.</p>';
-                    console.error('Fehler beim Laden der Seite:', error);
-                });
-        }
-
-        // Standardinhalt beim Laden der Seite
-        window.onload = () => loadPage('bib_home', document.querySelector('.buttonMenue'));
-
-        function toggleDropdown(id) {
-            var element = document.getElementById(id);
-            if (element.style.display === "none" || element.style.display === "") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
+        <script>
+            // Funktion zum Anzeigen des Popups
+            function showPopup() {
+                document.getElementById('popup').style.display = 'flex';
             }
-        }
-		
-	  function checkAnswers() {
-            const form = document.getElementById('quizForm');
-            const resultDiv = document.getElementById('result');
-            let score = 0;
-            let incorrectQuestions = [];
 
-            // Richtige Antworten
-            const answers = {
-                Frage1: '1',
-                Frage2: '2',
-                Frage3: '3',
-                Frage4: '4',
-                Frage5: '5',
-                Frage6: '6',
-                Frage7: '7',
-                Frage8: '8',
-                Frage9: '9',
-                Frage10: '10'
-            };
+            // Funktion zum Schließen des Popups
+            function closePopup() {
+                document.getElementById('popup').style.display = 'none';
+            }
 
-            // Überprüfe jede Frage
-            for (const [question, correctAnswer] of Object.entries(answers)) {
-                const selectedOption = form.querySelector(`input[name="${question}"]:checked`);
-                if (selectedOption && selectedOption.value === correctAnswer) {
-                    score++;
+            // Funktion zum Navigieren zum Hauptraum
+            function goToHauptraum() {
+                window.location.href = 'https://play.workadventu.re/_/global/debkou.github.io/myJavaBotchi/hauptraum.tmj';
+            }
+
+            // Funktion zum Laden der Seite und Hervorheben des ausgewählten Buttons
+            function loadPage(page, button) {
+                fetch(page + '.html')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Netzwerkantwort war nicht ok.');
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById('content').innerHTML = data;
+
+                        // Entfernt die 'selected'-Klasse von allen Buttons
+                        let buttons = document.querySelectorAll('.buttonMenue');
+                        buttons.forEach(btn => btn.classList.remove('selected'));
+
+                        // Fügt die 'selected'-Klasse zum angeklickten Button hinzu
+                        if (button) {
+                            button.classList.add('selected');
+                        }
+                    })
+                    .catch(error => {
+                        document.getElementById('content').innerHTML = '<h1>Fehler</h1><p>Die Seite konnte nicht geladen werden.</p>';
+                        console.error('Fehler beim Laden der Seite:', error);
+                    });
+            }
+
+            // Standardinhalt beim Laden der Seite
+            window.onload = () => loadPage('bib_home', document.querySelector('.buttonMenue'));
+
+            function toggleDropdown(id) {
+                var element = document.getElementById(id);
+                if (element.style.display === "none" || element.style.display === "") {
+                    element.style.display = "block";
                 } else {
-                    incorrectQuestions.push(question);
+                    element.style.display = "none";
                 }
             }
 
-            // Prüfe, ob alle Fragen richtig beantwortet wurden
-            if (score === Object.keys(answers).length) {
-                // Seite "loesung.html" in den Inhaltbereich laden
-                loadPage('bib_einheit1', null);
-            } else {
-                // Zeige Ergebnisse und falsche Fragen
-                let resultText = `Du hast ${score} von ${Object.keys(answers).length} Frage(n) richtig beantwortet.`;
-                if (incorrectQuestions.length > 0) {
-                    resultText += `\nFalsch beantwortete Fragen: ${incorrectQuestions.join(', ')}`;
+            function checkAnswers() {
+                const form = document.getElementById('quizForm');
+                const resultDiv = document.getElementById('result');
+                let score = 0;
+                let incorrectQuestions = [];
+
+                // Richtige Antworten
+                const answers = {
+                    Frage1: '1',
+                    Frage2: '2',
+                    Frage3: '3',
+                    Frage4: '4',
+                    Frage5: '5',
+                    Frage6: '6',
+                    Frage7: '7',
+                    Frage8: '8',
+                    Frage9: '9',
+                    Frage10: '10'
+                };
+
+                // Überprüfe jede Frage
+                for (const [question, correctAnswer] of Object.entries(answers)) {
+                    const selectedOption = form.querySelector(`input[name="${question}"]:checked`);
+                    if (selectedOption && selectedOption.value === correctAnswer) {
+                        score++;
+                    } else {
+                        incorrectQuestions.push(question);
+                    }
                 }
-                resultDiv.textContent = resultText;
+
+                // Prüfe, ob alle Fragen richtig beantwortet wurden
+                if (score === Object.keys(answers).length) {
+                    // Seite "bib_einheit1.html" in den Inhaltbereich laden
+                    loadPage('bib_einheit1', null);
+                } else {
+                    // Zeige Ergebnisse und falsche Fragen
+                    let resultText = `Du hast ${score} von ${Object.keys(answers).length} Frage(n) richtig beantwortet.`;
+                    if (incorrectQuestions.length > 0) {
+                        resultText += `\nFalsch beantwortete Fragen: ${incorrectQuestions.join(', ')}`;
+                    }
+                    resultDiv.textContent = resultText;
+                }
             }
-        }
-    </script>
+        </script>
     </body>
 </html>
