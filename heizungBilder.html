@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
+    <title>JavaBotchi - Bilder Heizung</title>
+
+    <style>
+		body {
+            overflow: hidden;
+        }
+        .textWithImage {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+			padding-bottom: 60px;
+        }
+        .textWithImage img {
+            height: auto; 
+        }
+    </style>
+</head>
+<body class="gelb" style=" overflow: auto;">
+    <div id="textContainer">
+        <div id="text1" class="textWithImage">
+            <img src="src/bilder/heizung1.png" alt="heizung1">
+        </div>
+        <div id="text2" class="textWithImage" style="display: none;">
+            <img src="src/bilder/heizung2.png" alt="heizung2">
+        </div>
+        <div id="text3" class="textWithImage" style="display: none;">
+            <img src="src/bilder/heizung3.png" alt="heizung3">
+      
+        </div>
+ 
+    </div>
+
+    <div id="arrowContainer">
+        <span id="leftArrow" class="arrow">&larr;</span>
+        <span id="rightArrow" class="arrow">&rarr;</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const texts = document.querySelectorAll('#textContainer > p, #textContainer > div');
+            let currentIndex = 0;
+
+            function showText(index) {
+                texts.forEach((text, i) => {
+                    if (i === index) {
+                        text.style.display = 'block';
+                    } else {
+                        text.style.display = 'none';
+                    }
+                });
+            }
+
+            function showNextText() {
+                currentIndex = (currentIndex + 1) % texts.length;
+                showText(currentIndex);
+            }
+
+            function showPreviousText() {
+                currentIndex = (currentIndex - 1 + texts.length) % texts.length;
+                showText(currentIndex);
+            }
+
+            function setupArrowClickHandlers() {
+                const leftArrow = document.getElementById('leftArrow');
+                const rightArrow = document.getElementById('rightArrow');
+
+                leftArrow.addEventListener('click', showPreviousText);
+                rightArrow.addEventListener('click', showNextText);
+            }
+
+            setupArrowClickHandlers();
+            showText(currentIndex);
+        });
+    </script>
+</body>
+</html>
