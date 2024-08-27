@@ -1033,6 +1033,12 @@
          "id":14,
          "name":"aktionTuer",
          "opacity":1,
+         "properties":[
+                {
+                 "name":"exitSceneUrl",
+                 "type":"string",
+                 "value":""
+                }],
          "type":"tilelayer",
          "visible":true,
          "width":50,
