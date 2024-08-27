@@ -2245,6 +2245,17 @@
                  "width":27.5,
                  "x":193.75,
                  "y":578.5
+                }, 
+                {
+                 "height":76.6666666666666,
+                 "id":24,
+                 "name":"woBinIch",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":112.666666666667,
+                 "x":1306.66666666667,
+                 "y":882
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3014,7 +3025,7 @@
          "y":0
         }],
  "nextlayerid":49,
- "nextobjectid":24,
+ "nextobjectid":25,
  "orientation":"orthogonal",
  "properties":[
         {
