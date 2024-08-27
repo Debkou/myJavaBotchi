@@ -41,7 +41,7 @@ WA.onInit().then(() => {
 
                 // Ebene aktionLevel1 einblenden
                 WA.room.setProperty("aktionTuerFinal", "exitSceneUrl", "hauptraum.tmj");
-                WA.ui.modal.closeModal();
+              
             
             } else {
                 ergebnisElement.textContent = data.result;
