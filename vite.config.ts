@@ -88,6 +88,7 @@ export default defineConfig({
                 levelEinsHinweisFinal: "./levelEinsHinweisfinal.html",
                 levelEinsHinweis2: "./levelEinsHinweisZwei.html",
                 levelEinsHinweisEins: "./levelEinsHinweisEins.html",
+                levelDreiGal: "./levelDreiGal.html",
                 ...getMapsScripts(maps),
             },
         },
