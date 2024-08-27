@@ -107,6 +107,10 @@ WA.onInit().then(() => {
     aktionsFeld("areaArchivTuer", "Drücke 'SPACE' um das Archiv zu Betreten", "Haustechnik", './levelVierZutritt.html');
     aktionsEbene("hinweisHeiz", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis", './flurHinweisHeizraum.html');
     aktionsEbene("aktionTuerFinal", "Drücke 'SPACE' um das Spiel zu beenden", "Finale", './finaleEingabe.html');
+    aktionsFeld("areaFotoFlur", "Drücke 'SPACE' um die Bilder anzuschauen", "Flur", './flurBilder.html');
+    aktionsFeld("areaFotoHeizung", "Drücke 'SPACE' um die Bilder anzuschauen", "Heizung", './heizungBilder.html');
+    aktionsFeld("areaFotoBunker", "Drücke 'SPACE' um die Bilder anzuschauen", "Bunker", './bunkerBilder.html');
+    aktionsFeld("areaFotoTreppe", "Drücke 'SPACE' um die Bilder anzuschauen", "Treppe", './treppeBild.html');
     
 
 
