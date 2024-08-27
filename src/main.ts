@@ -70,7 +70,9 @@ aktionsFeld("feldTasteApi", "Drücke 'SPACE' um die Oracle Java API zu öffnen",
 aktionsFeld("feldTasteHin", "Drücke 'SPACE' um die Hinweise zu öffnen", "Hinweis anzeigen", './hinweis1.html'); 
 aktionsFeld("feldTastePong", "Drücke 'SPACE' um PingPong zu spielen", "PingPong", 'https://www.spiele123.com/spiel/ping-pong');
 aktionsFeld("feldAktionEingabe", "Drücke 'SPACE' um die Tür zu öffnen", "Passwort Eingabe", './eingabeTest.html');  
-
+aktionsEbene("aktionFlur", "Drücke 'SPACE' um das Level zu betreten", "Flur", './levelEinsFinalEingabe.html');
+aktionsEbene("aktionZentrale", "Drücke 'SPACE' um das Level zu betreten", "Flur", './levelZweiFinalEingabe.html'); 
+aktionsEbene("aktionArchiv", "Drücke 'SPACE' um das Level zu betreten", "Flur", './levelVierZutritt.html'); 
 
     WA.room.onEnterLayer("aktionFlyer").subscribe(async () => {
         WA.room.showLayer('magentaFlyer');
