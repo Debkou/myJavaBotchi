@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/bilder/favicon_javabotchi.png">
+    <link rel="stylesheet" href="src/stylesheet/stylesheet.css">
+    <title>JavaBotchi - Levelauswahl</title>
+</head>
+
+<body class="gelb flex align-center justify-center">
+    <div style="text-align: center">
+        <h1 class="magenta-font">Levelauswahl</h1>
+        <p>Bitte gib das Passwort des gewünschten Levels ein:</p>
+        <div class="flex align-center flex-column"> 
+        <input type="password" id="eingabe" placeholder="Passwort">
+        <button class="buttonMenue weiss-font" id="levelBtn">Level betreten</button>
+        <a href="menue.html" class="buttonMenue weiss-font">Zurück zum Terminal</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('levelBtn').addEventListener('click', function() {
+            const eingabe = document.getElementById('eingabe').value;
+            let url;
+
+            switch(eingabe) {
+                case 'JavaParty':
+                    url = 'https://play.workadventu.re/_/global/debkou.github.io/myJavaBotchi/levelEins.tmj';
+                    break;
+                case 'JavaBotchi':
+                    url = 'https://play.workadventu.re/_/global/debkou.github.io/myJavaBotchi/flur.tmj';
+                    break;
+                case 'Frikadelle':
+                    url = 'https://play.workadventu.re/_/global/debkou.github.io/myJavaBotchi/zentrale.tmj';
+                    break;
+                case 'Exam':
+                    url = 'https://play.workadventu.re/_/global/debkou.github.io/myJavaBotchi/archiv.tmj';
+                    break;
+                default:
+                    alert('Falsches Passwort. Bitte versuche es erneut.');
+                    return;
+            }
+
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
