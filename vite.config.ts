@@ -99,6 +99,8 @@ export default defineConfig({
                 levelVierKlausur: "./levelVierKlausur.html",
                 finaleEingabe: "./finaleEingabe.html",
                 finaleEnde: "./finaleEnde.html",
+                baustelle: "./baustelle.html",
+                baustelleHR: "./baustelleHR.html",
                 ...getMapsScripts(maps),
             },
         },
