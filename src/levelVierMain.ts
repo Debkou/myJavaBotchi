@@ -71,6 +71,19 @@ WA.onInit().then(() => {
     aktionsEbene("aktionAktenschrank", "Drücke 'SPACE' um das Dokument zu Öffnen", "Aktenschrank", './levelVierArray.html');
     aktionsEbene("aktionKassenband", "Drücke 'SPACE' um den Hinweis zu lesen", "Aktenschrank", './levelVierKasse.html');
     aktionsEbene("hinweis", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis", './levelVierHinweis.html');
+
+      WA.room.onEnterLayer("aktionTuer").subscribe(() => {
+        const triggerMessage = WA.ui.displayActionMessage({
+            message: "Drücke 'SPACE' um den Flur zu betreten",
+            callback: () => {
+                WA.room.setProperty("aktionTuer", "exitSceneUrl", "flur.tmj");
+            }
+        });
+         
+        WA.room.onLeaveLayer("aktionTuer").subscribe(() => {
+            triggerMessage.remove();
+        });
+    });
     
 
     // Initialisierung der Scripting API Extra-Bibliothek
