@@ -109,6 +109,7 @@ WA.onInit().then(() => {
     });
 
     aktionsFeld("areaAktionTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html');
+    aktionsFeld("areaAktionTerminal2", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html');
     aktionsFeld("p1a", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt1a.html');
     aktionsFeld("p1b", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt1b.html');
     aktionsFeld("p2a", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt2a.html');
