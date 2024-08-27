@@ -15,7 +15,7 @@ WA.onInit().then(() => {
 
     // Event-Listener für den Klick auf den Button hinzufügen
     button?.addEventListener('click', () => {
-        // Die Funktion zum Ausblenden der Ebene aufrufen
+        ergebnisElement.innerHTML = `<p">Du hast den Koala genommen!</p>`;
         WA.room.hideLayer('kassenBandBlock');
         WA.room.showLayer('aktionKassenband');
     });
