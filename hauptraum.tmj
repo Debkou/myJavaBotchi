@@ -2648,6 +2648,17 @@
                  "width":32,
                  "x":768.666666666667,
                  "y":93.3333333333333
+                }, 
+                {
+                 "height":97.3333333333334,
+                 "id":10,
+                 "name":"areaTourGuide",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":102.333333333333,
+                 "x":639,
+                 "y":753.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2778,7 +2789,7 @@
          "y":0
         }],
  "nextlayerid":51,
- "nextobjectid":10,
+ "nextobjectid":11,
  "orientation":"orthogonal",
  "properties":[
         {
