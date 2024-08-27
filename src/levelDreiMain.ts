@@ -164,7 +164,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.openModal({
                     title:"Info",
-                    src: './levelDreiTelefon.html',
+                    src: './levelDreiKachelnInfo.html',
                     allow: "fullscreen",
                     allowApi: true,
                     position: "center",
