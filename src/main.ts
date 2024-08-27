@@ -38,7 +38,7 @@ function aktionsEbene(
     menuTitle: string,
     menuSrc: string
 ): void {
-    WA.room.area.onEnter(areaName).subscribe(() => {
+    WA.room.onEnterLayer(areaName).subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: messageText,
             callback: () => {
@@ -52,7 +52,7 @@ function aktionsEbene(
             }
         });
 
-        WA.room.area.onLeave(areaName).subscribe(() => {
+        WA.room.onLeaveLayer(areaName).subscribe(() => {
             triggerMessage.remove();
         });
     });
