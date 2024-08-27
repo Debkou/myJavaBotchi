@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDkuMS1jMDAxIDc5LmNhODJhZTQ3MSwgMjAyNC8wMi8yMi0yMzozMDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI0LjcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkVDRTQ4RDQ4NERGNTExRUY5MUExOTFBNTYzOEEyQkIzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkVDRTQ4RDQ5NERGNTExRUY5MUExOTFBNTYzOEEyQkIzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RUNFNDhENDY0REY1MTFFRjkxQTE5MUE1NjM4QTJCQjMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RUNFNDhENDc0REY1MTFFRjkxQTE5MUE1NjM4QTJCQjMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz58xmN2AAABvUlEQVR42mL8//8/Azbw/uAdVhFuHm1JNHEmrKq/P3z3fu9NLmURBgzjsGj4cOTenZINXDqS3+6//ff7LwENHw7fvVe9hd9KkYGBkZmTlYmNhYCGt9uvSyZb/Pv++8/zj5wKwpj2o2uQy3fg1pdi+Pf/xeIzWL2HauP/X6ziPEDEJ8AvpCkLFgL6gRlZCSNysF64cvvG3UemBgp//zGw8bKdPnlXR0P5LyM7CzOThrwIFictP/xyysZrz58+Onv55osH9xfsvLHl1GspEd71B25g98PdR68evv719iuDiabUv/9sT9/++f79OyMjg6qsEHY/CPFzSIuL3HzOtP/CXV4e7hcf/grzsf/588/PVh27DTHuWkpyYi++sN5/x/70E5unjYajkZyoIDcbKzN2G3h/PnhybstNDjkFSYFrl78qcb1k/gqMCjGcofT27ZtXj+/8/P3n47c/fJysjAz/5FS0hYSEsGj49u3btWvXBAQEpKSkXjx/9uH9O0UlJWDiePXq1fv375mYmIyMjFhYWBAafv/+/fXrVyCDmZn5x48fP3/+5Ofn5+DgAIbSr1+/GBkZBQUFgdqACgACDABl0bn5Zld4mQAAAABJRU5ErkJggg==">
+    <link rel="stylesheet" href="stylesheet/stylesheet.css">
+    <title>JavaBotchi - Tour-Guide</title>
+
+    <style>
+		body {
+            overflow: hidden;
+        }
+        .textWithImage {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .textWithImage img {
+            max-width: 100px; 
+            height: auto; 
+        }
+    </style>
+</head>
+<body class="gelb">
+    <div id="textContainer">
+        <div id="text1" class="textWithImage">
+			<h1 class="dBlau-font">Willkommen</h1>
+         
+            <p>Zu Beginn des Spiels gibt es eine Einleitung, damit Du Dich während des Spiels besser zurecht findest.<br>
+Du kannst diesen Tour-Guide jederzeit über das Hauptmenü (Terminal) erneut aufrufen.<br></p>
+        </div>
+        <div id="text2" class="textWithImage" style="display: none;">
+			<h2>Das Hauptmenü</h2>
+            <img src="bilder/guideTerminal.png" alt="Hauptmenü">
+            <p>Das Hauptmenü in diesem Spiel ist in Form eines Tiles dargestellt.<br>
+Das Hauptmenü (In diesem SPiel auch Terminal genannt) ist in jedem Level mehrfach zu finden.</p>
+        </div>
+        <div id="text3" class="textWithImage" style="display: none;">
+			<h2>Die Bibliothek</h2>
+            <img src="bilder/guideBib.png" alt="Bibliothek">
+            <p>In der Bibliothek findest Du alle Theorethischen Grundlagen die Du für das Lösen der Rätsel benötigst.<br>
+Du kannst die Bibliothek von jedem Level aus über das Hauptmenü erreichen.</p>
+        </div>
+     	      <div id="text4" class="textWithImage" style="display: none;">
+            <h2>Die Java-API</h2>
+            <img src="bilder/guideApi.png" alt="API">
+            <p>Über das abgebildete Symbol ist die Java-Oracle-API erreichbar.<br> Die API ist in diesem Spiel nur über den Hauptraum erreichbar.</p>
+        </div>
+		
+		      <div id="text5" class="textWithImage" style="display: none;">
+            <h2>Verstecke Aktionsfelder</h2>
+            <img src="bilder/guideMagenta.png" alt="Aktionsfeld">
+            <p>Nicht alle Aktionsfelder sind in diesem Spiel als solche gekennzeichnet.<br>
+Einige Felder sind versteckt und werden durch den abgebildeten Farbton als Aktionsfläche nach betreten der Ebene gekennzeichnet.<br>
+Also - halte immer die Augen offen. </p>
+        </div>
+		
+						      <div id="text6" class="textWithImage" style="display: none;">
+            <h2>Der Storymodus</h2>
+            <img src="bilder/guideStory.png" alt="Storymodus">
+            <p>Du kannst den Storymodus des Spiels über die abgebildete Tür beginnen.<br>
+Von dort aus durchläufst du den regulären Ablauf des Spiels</p>
+        </div>
+     
+				      <div id="text7" class="textWithImage" style="display: none;">
+            <h2>Level erreichen</h2>
+            <img src="bilder/guideLevel.png" alt="Level">
+            <p>Merke Dir in den Leveln immer gut Deine Abschluss-Passwörter. Mit ihnen kannst du alle Level<br>
+im Nachgang erneut betreten.<br>
+Im Flur des Hauptraumes kannst du die Level erreichen.<br>
+Außerdem kannst du die Level auch über das Hauptmenü erreichen.</p>
+        </div>
+		
+					      <div id="text8" class="textWithImage" style="display: none;">
+            <h2>Spielablauf</h2>
+            <img src="bilder/guideEingabe.png" alt="Ablauf">
+            <p>Du erlebst in diesem Spiel gemeinsame Abenteuer mit Deinem Botchi.<br>
+Um die Rätsel lösen zu können, musst Du Dir theorethisches Java-Wissen aneignen.<br>
+Du wirst Hinweise aufdecken müssen, welche nicht immer als solche gekennzeichnet sind.<br>
+Um die Rätsel zu lösen wirst du an einigen Stellen dazu aufgefordert Lösungen einzugeben.<br>
+Für einige Rätsel ist es nötig Programme in einer Entwicklungsumgebung auszuführen, ergänzen,<br>
+korrigieren oder selbst zu Erstellen.</p>
+        </div>
+		
+<div id="text9" class="textWithImage" style="display: none;">
+            <h2>Hinweis</h2>
+            <img src="bilder/guideHinweis.png" alt="Hinweis">
+            <p>Kommst Du in einem Level einmal nicht weiter,<br>
+findest Du in jedem Level ein Hinweis-Symbol. Öffne dieses Symbol erst,<br>
+wenn du den gesamten Raum bereits abgesucht hast.</p>
+        </div>
+		
+<div id="text10" class="textWithImage" style="display: none;">
+            <h2>Legende</h2>
+            <img src="bilder/guideLegende.png" alt="Legende">
+            <p>Wenn Du einmal die erklärten Symbole vergessen hast,<br>
+kannst du jederzeit die Legende über das Hauptmenü öffnen.</p>
+        </div>
+     
+		<div id="text11" class="textWithImage" style="display: none;">
+            <h2>Abenteuer</h2>
+            <img src="bilder/logo_ohne.png" alt="Legende" style="width: 50%">
+            <p>Und letzt - genug geredet! Auf ins Abenteuer!</p>
+        </div>
+     
+		
+    </div>
+
+    <div id="arrowContainer">
+        <span id="leftArrow" class="arrow">&larr;</span>
+        <span id="rightArrow" class="arrow">&rarr;</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const texts = document.querySelectorAll('#textContainer > p, #textContainer > div');
+            let currentIndex = 0;
+
+            function showText(index) {
+                texts.forEach((text, i) => {
+                    if (i === index) {
+                        text.style.display = 'block';
+                    } else {
+                        text.style.display = 'none';
+                    }
+                });
+            }
+
+            function showNextText() {
+                currentIndex = (currentIndex + 1) % texts.length;
+                showText(currentIndex);
+            }
+
+            function showPreviousText() {
+                currentIndex = (currentIndex - 1 + texts.length) % texts.length;
+                showText(currentIndex);
+            }
+
+            function setupArrowClickHandlers() {
+                const leftArrow = document.getElementById('leftArrow');
+                const rightArrow = document.getElementById('rightArrow');
+
+                leftArrow.addEventListener('click', showPreviousText);
+                rightArrow.addEventListener('click', showNextText);
+            }
+
+            setupArrowClickHandlers();
+            showText(currentIndex);
+        });
+    </script>
+</body>
+</html>
