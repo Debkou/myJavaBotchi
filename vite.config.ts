@@ -29,6 +29,7 @@ export default defineConfig({
             input: {
                 index: "./index.html",
                 menue: "./menue.html",
+                menueHR: "./menueHR.html",
                 bib: "./bibliothek.html",
                 pageOne: "./page1.html",
                 flyer: "./flyer_party.html",
