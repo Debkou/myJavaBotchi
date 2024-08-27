@@ -63,6 +63,7 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
+aktionsFeld("areaTourGuide", "Drücke 'SPACE' um die ANleitung zu Öffnen", "Anleitung", './tourGuide.html');
 aktionsEbene("terminalAktion", "Drücke 'SPACE' um das Hauptmenü zu Öffnen", "Hauptmenü", './menueHR.html'); 
 aktionsEbene("buecherAktion", "Drücke 'SPACE' um die Bibliothek zu Öffnen", "Bibliothek", './bibliothek.html');  
 aktionsFeld("feldTasteFlyer", "Drücke 'SPACE' um den Flyer zu sehen", "Bibliothek", './flyer_party.html');
