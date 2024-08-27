@@ -101,6 +101,7 @@ export default defineConfig({
                 finaleEnde: "./finaleEnde.html",
                 baustelle: "./baustelle.html",
                 baustelleHR: "./baustelleHR.html",
+                levelEinsWo: "./levelEinsWo.html",
                 ...getMapsScripts(maps),
             },
         },
