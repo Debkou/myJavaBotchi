@@ -1,64 +1,34 @@
-# WorkAdventure Map Starter Kit
+# WorkAdventure-Projekt - JavaBotichi
 
-![office map thumbnail](src/hauptraum_gesamt.jpg)
+![Hauptraum](src/bilder/hauptraum_gesamt.jpg)
 
-This is a starter kit to help you build your own map for [WorkAdventure](https://workadventu.re).
+Dieses WorkAdventure-Projekt basiert auf dem [WorkAdventure Starter-Kit]([https://workadventu.re](https://github.com/workadventure/map-starter-kit)).
 
-To understand how to use this starter kit, follow the tutorial at [https://docs.workadventu.re/map-building/tiled-editor/](https://docs.workadventu.re/map-building/tiled-editor/).
 
-If you have any questions, feel free to ask in [WorkAdventure office](https://play.staging.workadventu.re/@/tcm/workadventure/wa-village).
 
-## Upload your map
+## Anleitung
 
-In the .env file you can set your upload strategy to `GH_PAGES` (default) or `MAP_STORAGE`. Simply comment the option you don't want to use.
+Öffne folgenden Link um das Spiel nach vorgesehenem Ablauf zu Starten:
 
-Uploading a map using [Github Pages](https://docs.github.com/pages) will host your project in the Github servers and it's the most straight forward way to add new maps to your world.
+https://play.workadventu.re/_/global/debkou.github.io/myJavaBotchi/hauptraum.tmj
 
-Uploading a map using the [WA map storage](https://docs.workadventu.re/map-building/tiled-editor/publish/wa-hosted) will host your project in the WA servers. It's a bit more difficult to setup but it comes with great advantages like being able to have private repositories.
+Um andere Karten zu öffnen, ändere den Kartennamen in der URL ab.
+Beispiel:
+Du möchtest Dir Level Eins ansehen:
+-	Ersetze „hauptraum.tmj“ durch „levelEins.tmj“
 
-## Structure
 
-We recommend following this file structure:
+## Die Spielwelt
 
-* *public/*: Static files like PDFs or audio files
-* *src/*: Scripts files or design source files
-* *tilesets/*: All PNG tilesets
+<img alt="Hauptraum" src="src/bilder/logo_ohne.png" width="20%" />
 
-> **Pro tips**
-> If you want to use more than one map file, just add the new map file in the root folder (we recommend creating a copy of *office.tmj* and editing it, in order to avoid any mistakes).
-> We recommend using 512x512 images for the map thumbnails.
-> If you are going to create custom websites to embed in the map, please reference the HTML files in the `input` option in *vite.config.js*.
+Der Storymodus spielt an der Fachhochschule Südwestfalen in Hagen. Hauptcharakter ist ein Studierender der Wirtschaftsinformatik des Fachbereichs TBW, der in Form eines Avatars vom Spieler gewählt und modifiziert werden kann.
+Der Hauptcharakter (im Folgenden auch Botchi genannt) nimmt am Abend an einer Studentenparty des Fachbereichs TBW teil und erwacht am folgenden Morgen an einem ihm unbekannten Ort.
+Botchi weiß nicht mehr, wie er dorthin gelangt ist oder wie der gestrige Abend endete. Was er weiß, ist, dass er an diesem Ort gefangen ist. Botchi möchte herausfinden, was passiert ist und vor allem, wie er diesen Ort wieder verlassen kann.
+Im Verlauf des Spiels lüftet Botchi spannende Geheimnisse über seine Hochschule und macht eine Entdeckung, die ihm und seinen Kommilitonen im Studium noch hilfreich sein wird.
+Der Spieler muss Botchi mit seinen Java-Kenntnissen helfen, die Programmierrätsel zu lösen und ihn somit aus seiner misslichen Lage zu befreien.
 
-## Requirements
-
-Node.js version >=17
-
-## Installation and testing
-
-With npm installed (comes with [node](https://nodejs.org/en/)), run the following commands into a terminal in the root directory of the project:
-
-```shell
-npm install
-```
-
-Then, you can test your map by running:
-
-```sh
-npm run dev
-```
-
-You can also test the optimized map as it will be in production by running:
-
-```sh
-npm run build
-npm run prod
-```
-
-You can manually upload your map to the map storage by running:
-
-```sh
-npm run deploy
-```
+Willst du mit deinem Wissen Botchi auf seinem Abenteuer begleiten?
 
 ## Licenses
 
@@ -67,12 +37,3 @@ This project contains multiple licenses as follows:
 * [Code license](./LICENSE.code) *(all files except those for other licenses)*
 * [Map license](./LICENSE.map) *(`office.tmj` and the map visual as well)*
 * [Assets license](./LICENSE.assets) *(the files inside the `src/assets/` folder)*
-
-### About third party assets
-
-If you add third party assets in your map, do not forget to:
-
-1. Credit the author and license of a tileset with the "tilesetCopyright" property by etiding the tileset in Tiled.
-2. Add the tileset license text in *LICENSE.assets*.
-3. Credit the author and license of a map with the "mapCopyright" property in the custom properties of the map.
-4. Add the map license text in *LICENSE.map*.
