@@ -1,6 +1,6 @@
 # WorkAdventure Map Starter Kit
 
-![office map thumbnail](./office.png)
+![office map thumbnail](src/hauptraum_gesamt.jpg)
 
 This is a starter kit to help you build your own map for [WorkAdventure](https://workadventu.re).
 
