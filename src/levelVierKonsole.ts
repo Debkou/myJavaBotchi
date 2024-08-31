@@ -1,17 +1,17 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
 
-// Funktion zur Überprüfung des Zahlenschlosses
+// Funktion zur Überprüfung des Passworts
 async function ueberpruefePasswort() {
+    // Variablen für die Kontrolle des Passworts (aus der HTML Datei)
     const eingabeElement = document.getElementById("eingabe") as HTMLInputElement;
     const eingabe = eingabeElement.value.trim();
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     try {
+         // Datenbank API-Abfrage
         const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=Archiv`, {
             method: 'POST',
             headers: {
@@ -28,6 +28,7 @@ async function ueberpruefePasswort() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
+            // Aktionen bei korrektem Ergebnis
              WA.room.hideLayer('schrankZu');
              WA.room.hideLayer('klausurBlock');
              WA.room.showLayer('schrankAuf');
@@ -35,7 +36,7 @@ async function ueberpruefePasswort() {
             WA.room.showLayer('aktionKlausur');
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
-            }, 2000); // 3000 Millisekunden = 3 Sekunden
+            }, 2000); //Wartezeit
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
@@ -49,7 +50,7 @@ async function ueberpruefePasswort() {
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     
-    // Event-Listener für den "Gitter Tür" Button
+    // Event-Listener für den "Konsole" Button
     const btKonsole = document.getElementById("btKonsole") as HTMLButtonElement;
     btKonsole.addEventListener("click", ueberpruefePasswort);
 
