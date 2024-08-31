@@ -1,5 +1,3 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
@@ -11,16 +9,18 @@ WA.onInit().then(() => {
     console.log('Player tags: ', WA.player.tags);
 
 
-    // Hier kommt die Logik für die Passwortüberprüfung und das Einblenden der Ebene
+     // Variablen für die Kontrolle des Passworts (aus der HTML Datei)
     const eingabeElement = document.getElementById("eingabe") as HTMLInputElement;
     const submitButton = document.getElementById("submitButton") as HTMLButtonElement;
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     // Funktion zur Überprüfung des Passworts
     async function ueberpruefePasswort() {
+        // Zuweisung EIngabeelement und trim - löscht Leerzeichen am Anfang und am Ende
         const eingabe = eingabeElement.value.trim();
 
         try {
+             // Datenbank API-Abfrage
             const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LevelEinsTuer`, {
                 method: 'POST',
                 headers: {
