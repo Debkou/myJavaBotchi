@@ -1,9 +1,8 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
+// Funktion Erstellung Modal (Area)
 function aktionsFeld(
     areaName: string,
     messageText: string,
@@ -29,7 +28,7 @@ function aktionsFeld(
         });
     });
 }
-
+// Funktion Erstellung Modal (Ebene)
 function aktionsEbene(
     areaName: string,
     messageText: string,
@@ -58,11 +57,13 @@ function aktionsEbene(
 
 // Funktion zur Überprüfung des Passworts
 async function ueberpruefePasswort() {
+     // Variablen für die Kontrolle des Passworts (aus der HTML Datei)
     const eingabeElement = document.getElementById("eingabefenster") as HTMLTextAreaElement;
     const eingabe = eingabeElement.value.trim();
     const ergebnisElement = document.getElementById("textContainer") as HTMLElement;
 
     try {
+         // Zuweisung EIngabeelement und trim - löscht Leerzeichen am Anfang und am Ende
         const response = await fetch('https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LichttAn', {
             method: 'POST',
             headers: {
@@ -80,12 +81,13 @@ async function ueberpruefePasswort() {
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
             ergebnisElement.innerHTML += `<p>Das Licht geht an!</p>`;
-
+            // Ebene "dunkel" ausblenden - sorgt dafür, dass das "Licht" angeht
             WA.room.hideLayer('dunkel');
             // Nach einer kurzen Wartezeit das Modal schließen
             setTimeout(() => {
+                //Modal wird geschlossen
                 WA.ui.modal.closeModal();
-            }, 3000); 
+            }, 3000); //Wartezeit
         } else {
             ergebnisElement.innerHTML += `<p><span style="font-family: pokemon;" class="dBlau-font">Alexa:</span> <br> ${data.result}</p>`;
         }
@@ -99,7 +101,7 @@ async function ueberpruefePasswort() {
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
-
+    // Beim betreten wird das Aktionsfenster geöffnet
     WA.ui.modal.openModal({
         title: "Licht Eingabe",
         src: './levelEinsLicht.html',
@@ -107,7 +109,7 @@ WA.onInit().then(() => {
         allowApi: true,
         position: "center",
     });
-
+    // Erstellung der jeweilligen Aktions-Fenster
     aktionsFeld("areaAktionTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html');
     aktionsFeld("areaAktionTerminal2", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Terminal", './menue.html');
     aktionsFeld("p1a", "Drücke 'SPACE' um den Hinweis zu öffnen", "Terminal", './postIt1a.html');
@@ -125,7 +127,7 @@ WA.onInit().then(() => {
     aktionsEbene("hinweis2", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 2", './levelEinsHinweisZwei.html');
     aktionsEbene("hinweis3", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis 2", './levelEinsHinweisfinal.html');
     aktionsFeld("woBinIch", "Drücke 'SPACE' - Wo bin ich?", "Alexa", './levelEinsWo.html');
-    
+    // Modal Vorhang-Haken start
      WA.room.area.onEnter("aktionHaken").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Kiste anzuschauen",
@@ -145,7 +147,9 @@ WA.onInit().then(() => {
              WA.room.hideLayer('hakenMagenta');
         });
     });
-
+// Modal Vorhang-Haken Ende
+    
+// Modal Infowand start    
         WA.room.area.onEnter("aktionInfoWall").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Tafel anzuschauen",
@@ -165,7 +169,8 @@ WA.onInit().then(() => {
              WA.room.hideLayer('magentaInfo');
         });
     });
-
+// Modal Infowand ende
+// Modal Finales Rätsel start
     WA.room.area.onEnter("aktionSchliessAnlage").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Türschließanlage zu öffnen",
@@ -185,7 +190,8 @@ WA.onInit().then(() => {
              WA.room.hideLayer('magentaSchliessAnlage');
         });
     });
-
+// Modal Finales Rätsel ende
+// Modal Finales Passwort start 
        WA.room.area.onEnter("aktionFinal").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um die Tür zu öffnen",
@@ -204,7 +210,7 @@ WA.onInit().then(() => {
             triggerMessage.remove();
         });
     });
-
+// Modal Finales Passwort ende
     // Event-Listener für den "Licht an" Button
     const lichtButton = document.getElementById("lichtButton") as HTMLButtonElement;
     lichtButton.addEventListener("click", ueberpruefePasswort);
