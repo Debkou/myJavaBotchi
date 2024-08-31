@@ -1,9 +1,9 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
+  // Variablen für das Anzeigen des Ergebnisses (Aus der HTML)
 const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
+// Funktion zur Veränderung des Vorhangs bei klicken des Buttons
 async function vorhang(){
     WA.room.hideLayer('vorhangZu');
     WA.room.showLayer('vorhangAuf');
@@ -16,7 +16,7 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
-
+    // Button zum nehmen des Hakens (Aus der HTML)
     const vorhangButton = document.getElementById("btVorhang") as HTMLButtonElement;
     vorhangButton.addEventListener("click", vorhang);
     
