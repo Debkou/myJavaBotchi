@@ -5,13 +5,15 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 console.log('Script started successfully');
 
 
-// Funktion zur Überprüfung des Zahlenschlosses
+// Funktion zur Überprüfung der eingegebenen Temperatur
 async function ueberpruefeTemperatur() {
+    // Variablen für die Kontrolle des Passworts (aus der HTML Datei)
     const eingabeElement = document.getElementById("temperatureInput") as HTMLInputElement;
     const eingabe = eingabeElement.value.trim();
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     try {
+       // Datenbank API-Abfrage
         const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=Heizung`, {
             method: 'POST',
             headers: {
@@ -28,11 +30,14 @@ async function ueberpruefeTemperatur() {
 
         if (data.result === 'Korrekt!') {
             ergebnisElement.innerHTML = `<p style="color: green;">${data.result}</p>`;
+            // Bei korrekter EIngabe wird des Schrank vom Dampf freigegeben
+            // Ebene Dampf wird ausgeblendet
             WA.room.hideLayer('dampf');
+            // Sperre der Ebene wird ausgeblendet
             WA.room.hideLayer('gitterSperre');
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
-            }, 2000); // 3000 Millisekunden = 3 Sekunden
+            }, 2000); //Wartezeit
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
@@ -46,7 +51,7 @@ async function ueberpruefeTemperatur() {
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     
-    // Event-Listener für den "Gitter Tür" Button
+    // Event-Listener für den Button
     const gitterButton = document.getElementById("ueberpruefeBtn") as HTMLButtonElement;
     gitterButton.addEventListener("click", ueberpruefeTemperatur);
 
