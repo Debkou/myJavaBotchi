@@ -62,7 +62,7 @@ function aktionsEbene(
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
-
+// Öffnet Modal für den Anwendungsguide beim betreten des Raumes
      WA.ui.modal.openModal({
         title: "AnwendungsGuide",
         src: './tourGuide.html',
@@ -70,7 +70,7 @@ WA.onInit().then(() => {
         allowApi: true,
         position: "center",
     });
-
+// Erstellung der jeweilligen Aktions-Fenster
 aktionsEbene("terminalAktion", "Drücke 'SPACE' um das Hauptmenü zu Öffnen", "Hauptmenü", './menueHR.html'); 
 aktionsEbene("buecherAktion", "Drücke 'SPACE' um die Bibliothek zu Öffnen", "Bibliothek", './bibliothek.html');  
 aktionsFeld("feldTasteFlyer", "Drücke 'SPACE' um den Flyer zu sehen", "Bibliothek", './flyer_party.html');
@@ -81,7 +81,7 @@ aktionsFeld("feldAktionEingabe", "Drücke 'SPACE' um die Tür zu öffnen", "Pass
 aktionsEbene("aktionFlur", "Drücke 'SPACE' um das Level zu betreten", "Flur", './levelEinsFinalEingabe.html');
 aktionsEbene("aktionZentrale", "Drücke 'SPACE' um das Level zu betreten", "Flur", './levelZweiFinalEingabe.html'); 
 aktionsEbene("aktionArchiv", "Drücke 'SPACE' um das Level zu betreten", "Flur", './levelVierZutritt.html'); 
-
+// Modal für Party-Flyer
     WA.room.onEnterLayer("aktionFlyer").subscribe(async () => {
         WA.room.showLayer('magentaFlyer');
     });
@@ -92,16 +92,18 @@ aktionsEbene("aktionArchiv", "Drücke 'SPACE' um das Level zu betreten", "Flur",
     });
 
 
-    // Variablen für die Kontrolle des Passworts
+    // Variablen für die Kontrolle des Passworts (aus der HTML Datei)
     const eingabeElement = document.getElementById("eingabe") as HTMLInputElement;
     const submitButton = document.getElementById("submitButton") as HTMLButtonElement;
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     // Funktion zur Überprüfung des Passworts
     async function ueberpruefePasswort() {
+        // Zuweisung EIngabeelement und trim - löscht Leerzeichen am Anfang und am Ende
         const eingabe = eingabeElement.value.trim();
 
         try {
+            // Datenbank API-Abfrage
             const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=einstieg`, {
                 method: 'POST',
                 headers: {
@@ -135,7 +137,7 @@ aktionsEbene("aktionArchiv", "Drücke 'SPACE' um das Level zu betreten", "Flur",
         }
     }
 
-    // Event-Listener für den Button
+    // Event-Listener für den Button der finalen Eingabe
     submitButton.addEventListener("click", ueberpruefePasswort);
 
     // Event-Listener für die Enter-Taste
@@ -144,7 +146,6 @@ aktionsEbene("aktionArchiv", "Drücke 'SPACE' um das Level zu betreten", "Flur",
             ueberpruefePasswort();
         }
     });
-
    
 
     // Initialisierung der Scripting API Extra-Bibliothek
