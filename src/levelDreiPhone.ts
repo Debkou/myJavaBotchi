@@ -1,16 +1,16 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-// Funktion zur Überprüfung des Zahlenschlosses
+// Funktion zur Überprüfung der Telefonnummer
 async function telefon() {
+    // Variablen für die Kontrolle der Telefonnummer (aus der HTML Datei)
     const eingabeElement = document.getElementById("nummer") as HTMLInputElement;
     const eingabe = eingabeElement.value.trim();
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     try {
+        // Datenbank API-Abfrage
         const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=Telefonnummer`, {
             method: 'POST',
             headers: {
@@ -26,6 +26,7 @@ async function telefon() {
         const data = await response.json();
 
         if (data.result === 'Korrekt!') {
+            // Telefon-Dialog
             ergebnisElement.innerHTML = `<p>${data.result}<br>
                <span style="color:#39659F;"><strong>Andreas:</strong></span>"hallo?"<br>
                 <span style="color:#39659F;"><strong>Botchi:</strong></span>"Hallo Andreas! Hier ist Botchi. Ich habe ein Problem."<br>
@@ -33,7 +34,8 @@ async function telefon() {
                 <span style="color:#39659F;"><strong>Botchi:</strong></span>"Kann man so sagen. Ich bin scheinbar im Keller der Fh eingesperrt."<br>
                 <span style="color:#39659F;"><strong>Andreas:</strong></span>"Ich komme und hole Dich raus! Das kann aber etwas dauern. Ich rufe Dich an, wenn ich da bin."<br>
                 <span style="color:#39659F;"><strong>Sieh Dich um, bis du einen Anruf von Andreas bekommst.</strong></span><br></p>`;
-           WA.room.hideLayer("blockKacheln");
+           // Ebene "blockKacheln" wird ausgeblendet
+            WA.room.hideLayer("blockKacheln");
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
