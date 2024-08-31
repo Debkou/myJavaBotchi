@@ -1,5 +1,3 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
@@ -20,11 +18,13 @@ function displayDoor(state: boolean) {
 
 // Funktion zur Überprüfung des Zahlenschlosses
 async function ueberpruefeZahlenschloss() {
+     // Variablen für die Kontrolle des Passworts (aus der HTML Datei)
     const eingabeElement = document.getElementById("eingabeGitter") as HTMLInputElement;
     const eingabe = eingabeElement.value.trim();
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     try {
+        // Zuweisung EIngabeelement und trim - löscht Leerzeichen am Anfang und am Ende
         const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=zahlenschloss`, {
             method: 'POST',
             headers: {
@@ -47,7 +47,7 @@ async function ueberpruefeZahlenschloss() {
              WA.room.hideLayer('gitterSperre');
                   setTimeout(() => {
                 WA.ui.modal.closeModal();
-            }, 3000); // 3000 Millisekunden = 3 Sekunden
+            }, 3000); // Wartezeit
         } else {
             ergebnisElement.innerHTML = `<p style="color: red;">${data.result}</p>`;
         }
@@ -60,8 +60,8 @@ async function ueberpruefeZahlenschloss() {
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
     console.log('Scripting API ready');
-
-    displayDoor(gitterTuerStatus); // Zeige den anfänglichen Status der Tür an
+    // Zeige den anfänglichen Status der Tür an
+    displayDoor(gitterTuerStatus); 
     
     // Event-Listener für den "Gitter Tür" Button
     const gitterButton = document.getElementById("gitterTuer") as HTMLButtonElement;
