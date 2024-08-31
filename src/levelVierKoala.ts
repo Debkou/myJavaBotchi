@@ -1,8 +1,8 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
+
+//Bereich für das Ergebnis aus der HTML-Datei
 const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
 // Warten, bis die API bereit ist
@@ -10,13 +10,16 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
 
    document.addEventListener('DOMContentLoaded', () => {
-    // Den Button-Element selektieren
+    // Button aus der HTML-Datei
     const button = document.getElementById('btKoala');
 
-    // Event-Listener für den Klick auf den Button hinzufügen
+    // Event-Listener für den Klick auf den Button 
     button?.addEventListener('click', () => {
         ergebnisElement.innerHTML = `<p">Du hast den Koala genommen!</p>`;
+        //Aktion nach dem klicken des Buttons
+        // Ebene "kassenBandBlock" ausblenden - ebene wird freigegeben
         WA.room.hideLayer('kassenBandBlock');
+        // Ebene "AktionKassenband" einblenden
         WA.room.showLayer('aktionKassenband');
     });
 });
