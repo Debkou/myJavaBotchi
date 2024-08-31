@@ -1,9 +1,6 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
-
 
 // Warten, bis die API bereit ist
 WA.onInit().then(() => {
@@ -11,16 +8,18 @@ WA.onInit().then(() => {
     console.log('Player tags: ', WA.player.tags);
 
 
-    // Hier kommt die Logik für die Passwortüberprüfung und das Einblenden der Ebene
+   // Variablen für die Kontrolle des Passworts (aus der HTML Datei)
     const eingabeElement = document.getElementById("l2eingabe") as HTMLInputElement;
     const l2tButton = document.getElementById("l2tButton") as HTMLButtonElement;
     const ergebnisElement = document.getElementById("ergebnis") as HTMLElement;
 
     // Funktion zur Überprüfung des Passworts
     async function ueberpruefePasswortl2() {
+        // Zuweisung EIngabeelement und trim - löscht Leerzeichen am Anfang und am Ende
         const eingabe = eingabeElement.value.trim();
 
-        try {
+        try { 
+            // Datenbank API-Abfrage
             const response = await fetch(`https://javabotchi.kunst-werk-hagen.de/apiTest.php?name=LevelZweiTuer`, {
                 method: 'POST',
                 headers: {
@@ -39,8 +38,9 @@ WA.onInit().then(() => {
                 ergebnisElement.textContent = data.result;
                 ergebnisElement.className = 'correct';
 
-                // Ebene aktionLevel1 einblenden
+                // Der Wert der Eigenschaft "exitSceneUrl" von Ebene "enterZentrale" wird auf "zentrale.tmj" geändert
                 WA.room.setProperty("enterZentrale", "exitSceneUrl", "zentrale.tmj");
+                // Modal wird geschlossen
                 WA.ui.modal.closeModal();
             
             } else {
