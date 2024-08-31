@@ -1,9 +1,7 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
-
+// Funktion Erstellung Modal (Area)
 function aktionsFeld(
     areaName: string,
     messageText: string,
@@ -29,7 +27,7 @@ function aktionsFeld(
         });
     });
 }
-
+// Funktion Erstellung Modal (Ebene)
 function aktionsEbene(
     areaName: string,
     messageText: string,
@@ -62,7 +60,7 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
 
-
+    // Erstellung der jeweilligen Aktions-Fenster
     aktionsEbene("aktionTerminal", "Drücke 'SPACE' um das Hauptmenü zu öffnen", "Hauptmenü", './menue.html');
     aktionsFeld("areaErnest", "Drücke 'SPACE' um das Buch zu nehmen", "Ernest", './levelVierHenning.html');
     aktionsFeld("areaKoala", "Drücke 'SPACE' um den Inhalt anzuschauen", "Koala", './levelVierKoala.html');
@@ -73,6 +71,7 @@ WA.onInit().then(() => {
     aktionsEbene("hinweis", "Drücke 'SPACE' um den Hinweis zu Öffnen", "Hinweis", './levelVierHinweis.html');
     aktionsFeld("areaKlausur", "Drücke 'SPACE' um die Klausur anzusehen", "Klausur", './levelVierKlausur.html');
 
+    // Aktion Tür start
       WA.room.onEnterLayer("aktionTuer").subscribe(() => {
         const triggerMessage = WA.ui.displayActionMessage({
             message: "Drücke 'SPACE' um den Flur zu betreten",
@@ -85,7 +84,7 @@ WA.onInit().then(() => {
             triggerMessage.remove();
         });
     });
-    
+    // Aktion Tür ende
 
     // Initialisierung der Scripting API Extra-Bibliothek
     bootstrapExtra().then(() => {
