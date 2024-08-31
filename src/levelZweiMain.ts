@@ -1,10 +1,8 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-// Funktion zur Registrierung des Aktionsbereichs
+// Funktion Erstellung Modal (Area)
 function aktionsFeld(
     areaName: string,
     messageText: string,
@@ -30,7 +28,7 @@ function aktionsFeld(
         });
     });
 }
-
+// Funktion Erstellung Modal (Ebene)
 function aktionsEbene(
     areaName: string,
     messageText: string,
@@ -95,6 +93,7 @@ WA.onInit().then(() => {
         ergebnisElement!.innerHTML = `<p>Du hast ${correctAnswers} richtige und ${incorrectAnswers} falsche Antworten.</p><p>Bitte versuche es erneut.</p>`;
     }
 });
+    // Erstellung der jeweilligen Aktions-Fenster
     aktionsFeld("areaAnleitung", "Drücke 'SPACE' um die Anleitung zu lesen", "Anleitung", './levelZweiAnleitung.html');
     aktionsFeld("areaAnleitungCode", "Drücke 'SPACE' um den Code anzuzeigen", "AnleitungCode", './levelZweiHeizungCode.html');
     aktionsFeld("areaUhr", "Drücke 'SPACE' um den Code anzuzeigen", "AnleitungCode", './levelZweiGUIFail.html');
@@ -111,7 +110,6 @@ WA.onInit().then(() => {
     aktionsFeld("areaFotoHeizung", "Drücke 'SPACE' um die Bilder anzuschauen", "Heizung", './heizungBilder.html');
     aktionsFeld("areaFotoBunker", "Drücke 'SPACE' um die Bilder anzuschauen", "Bunker", './bunkerBilder.html');
     aktionsFeld("areaFotoTreppe", "Drücke 'SPACE' um die Bilder anzuschauen", "Treppe", './treppeBild.html');
-    
 
 
     // Initialisierung der Scripting API Extra-Bibliothek
