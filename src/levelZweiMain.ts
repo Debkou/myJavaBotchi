@@ -70,7 +70,7 @@ WA.onInit().then(() => {
 
     if (question1Correct && question2Correct) {
         // Wenn beide Antworten korrekt sind
-        ergebnisElement!.innerHTML = "<p>Korrekt!<br>Passwort: Reparieren</p>";
+        ergebnisElement!.innerHTML = "<p>Korrekt!<br>Passwort: Repariere</p>";
         
     } else {
         // Anzahl der richtigen und falschen Antworten berechnen
