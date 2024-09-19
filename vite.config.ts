@@ -110,6 +110,7 @@ export default defineConfig({
                 tourGuideMenue: "./tourGuideMenue.html",
                 tourGuideMenueHR: "./tourGuideMenueHR.html",
                 bibInhaltEins: "./bib_einheit1_inhalt.html",
+                bibInhaltEinsTest: "./bibEinheitEinsInhalt.html",
                 ...getMapsScripts(maps),
             },
         },
